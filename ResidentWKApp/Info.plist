@@ -30,6 +30,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>Pushwoosh_APPID</key>
+	<string>3D178-7F1CB</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

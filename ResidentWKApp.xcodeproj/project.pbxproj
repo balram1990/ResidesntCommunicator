@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480ECCB097F22EB6A905A949 /* Pods_ResidentWKApp_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24789A004CE6620A566D8343 /* Pods_ResidentWKApp_WatchKit_App.framework */; };
+		77CEA2BED1BEBB21AA1F346C /* Pods_ResidentWKApp_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */; };
 		79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D571D4DD52D0060E662 /* AppDelegate.swift */; };
 		79C96D5A1D4DD52D0060E662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D591D4DD52D0060E662 /* ViewController.swift */; };
 		79C96D5D1D4DD52D0060E662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D5B1D4DD52D0060E662 /* Main.storyboard */; };
@@ -20,6 +22,15 @@
 		79C96D7F1D4DD52D0060E662 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D7E1D4DD52D0060E662 /* ExtensionDelegate.swift */; };
 		79C96D811D4DD52D0060E662 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D801D4DD52D0060E662 /* NotificationController.swift */; };
 		79C96D831D4DD52D0060E662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D821D4DD52D0060E662 /* Assets.xcassets */; };
+		79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D941D4EEC380060E662 /* BaseIO.swift */; };
+		79C96D971D4EEC380060E662 /* NetworkIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D951D4EEC380060E662 /* NetworkIO.swift */; };
+		79C96D9A1D4EEC870060E662 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D991D4EEC870060E662 /* Constants.swift */; };
+		79C96D9C1D4EED490060E662 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D9B1D4EED490060E662 /* LocationManager.swift */; };
+		79C96D9E1D4F6D980060E662 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96D9D1D4F6D980060E662 /* SystemConfiguration.framework */; };
+		79C96DA31D4FAD250060E662 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA21D4FAD250060E662 /* libz.tbd */; };
+		79C96DA51D4FAD4A0060E662 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA41D4FAD4A0060E662 /* libz.1.1.3.tbd */; };
+		79C96DA71D4FAD9E0060E662 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA61D4FAD9E0060E662 /* libstdc++.tbd */; };
+		D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +76,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		169BF835F3FC15C021E696EB /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		24789A004CE6620A566D8343 /* Pods_ResidentWKApp_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59865A24933DCE6E8377B50F /* Pods-ResidentWKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.release.xcconfig"; sourceTree = "<group>"; };
+		5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		79C96D541D4DD52D0060E662 /* ResidentWKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResidentWKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C96D571D4DD52D0060E662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C96D591D4DD52D0060E662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,13 +99,39 @@
 		79C96D801D4DD52D0060E662 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		79C96D821D4DD52D0060E662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C96D841D4DD52D0060E662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C96D941D4EEC380060E662 /* BaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseIO.swift; sourceTree = "<group>"; };
+		79C96D951D4EEC380060E662 /* NetworkIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkIO.swift; sourceTree = "<group>"; };
+		79C96D991D4EEC870060E662 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Models/Constants.swift; sourceTree = "<group>"; };
+		79C96D9B1D4EED490060E662 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Models/LocationManager.swift; sourceTree = "<group>"; };
+		79C96D9D1D4F6D980060E662 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		79C96D9F1D4F6E1D0060E662 /* ResidentWKApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ResidentWKApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		79C96DA21D4FAD250060E662 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		79C96DA41D4FAD4A0060E662 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		79C96DA61D4FAD9E0060E662 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3CCF45C7B24A5869BEE09BD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				480ECCB097F22EB6A905A949 /* Pods_ResidentWKApp_WatchKit_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C96D511D4DD52D0060E662 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C96DA71D4FAD9E0060E662 /* libstdc++.tbd in Frameworks */,
+				79C96DA51D4FAD4A0060E662 /* libz.1.1.3.tbd in Frameworks */,
+				79C96DA31D4FAD250060E662 /* libz.tbd in Frameworks */,
+				79C96D9E1D4F6D980060E662 /* SystemConfiguration.framework in Frameworks */,
+				D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +139,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77CEA2BED1BEBB21AA1F346C /* Pods_ResidentWKApp_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BEA0D06E89FE5E55636E3AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DA61D4FAD9E0060E662 /* libstdc++.tbd */,
+				79C96DA41D4FAD4A0060E662 /* libz.1.1.3.tbd */,
+				79C96DA21D4FAD250060E662 /* libz.tbd */,
+				79C96D9D1D4F6D980060E662 /* SystemConfiguration.framework */,
+				512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */,
+				24789A004CE6620A566D8343 /* Pods_ResidentWKApp_WatchKit_App.framework */,
+				8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		79C96D4B1D4DD52C0060E662 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +167,8 @@
 				79C96D6A1D4DD52D0060E662 /* ResidentWKApp WatchKit App */,
 				79C96D791D4DD52D0060E662 /* ResidentWKApp WatchKit Extension */,
 				79C96D551D4DD52D0060E662 /* Products */,
+				CC17EBC06B8B5751F1D0621C /* Pods */,
+				3BEA0D06E89FE5E55636E3AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,12 +185,14 @@
 		79C96D561D4DD52D0060E662 /* ResidentWKApp */ = {
 			isa = PBXGroup;
 			children = (
+				79C96D981D4EEC610060E662 /* Models */,
 				79C96D571D4DD52D0060E662 /* AppDelegate.swift */,
 				79C96D591D4DD52D0060E662 /* ViewController.swift */,
 				79C96D5B1D4DD52D0060E662 /* Main.storyboard */,
 				79C96D5E1D4DD52D0060E662 /* Assets.xcassets */,
 				79C96D601D4DD52D0060E662 /* LaunchScreen.storyboard */,
 				79C96D631D4DD52D0060E662 /* Info.plist */,
+				79C96D9F1D4F6E1D0060E662 /* ResidentWKApp-Bridging-Header.h */,
 			);
 			path = ResidentWKApp;
 			sourceTree = "<group>";
@@ -167,6 +228,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		79C96D931D4EEC170060E662 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				79C96D941D4EEC380060E662 /* BaseIO.swift */,
+				79C96D951D4EEC380060E662 /* NetworkIO.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		79C96D981D4EEC610060E662 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79C96D931D4EEC170060E662 /* Networking */,
+				79C96D991D4EEC870060E662 /* Constants.swift */,
+				79C96D9B1D4EED490060E662 /* LocationManager.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CC17EBC06B8B5751F1D0621C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */,
+				59865A24933DCE6E8377B50F /* Pods-ResidentWKApp.release.xcconfig */,
+				169BF835F3FC15C021E696EB /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */,
+				C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */,
+				5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */,
+				C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,10 +267,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C96D8F1D4DD52D0060E662 /* Build configuration list for PBXNativeTarget "ResidentWKApp" */;
 			buildPhases = (
+				29199CDFE9B6A937A33E1C50 /* [CP] Check Pods Manifest.lock */,
 				79C96D501D4DD52D0060E662 /* Sources */,
 				79C96D511D4DD52D0060E662 /* Frameworks */,
 				79C96D521D4DD52D0060E662 /* Resources */,
 				79C96D8E1D4DD52D0060E662 /* Embed Watch Content */,
+				064EFBC19D8BF88BD7C442A9 /* [CP] Embed Pods Frameworks */,
+				BD3F83A9F199976004AC9BE1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,8 +289,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C96D8B1D4DD52D0060E662 /* Build configuration list for PBXNativeTarget "ResidentWKApp WatchKit App" */;
 			buildPhases = (
+				305643495E6FCB76BB23DA2C /* [CP] Check Pods Manifest.lock */,
 				79C96D641D4DD52D0060E662 /* Resources */,
 				79C96D8A1D4DD52D0060E662 /* Embed App Extensions */,
+				3CCF45C7B24A5869BEE09BD3 /* Frameworks */,
+				BDA3243FA5ECCF2FA9CCD871 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,9 +309,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C96D871D4DD52D0060E662 /* Build configuration list for PBXNativeTarget "ResidentWKApp WatchKit Extension" */;
 			buildPhases = (
+				DDBAAB43FA9F48626D14819D /* [CP] Check Pods Manifest.lock */,
 				79C96D711D4DD52D0060E662 /* Sources */,
 				79C96D721D4DD52D0060E662 /* Frameworks */,
 				79C96D731D4DD52D0060E662 /* Resources */,
+				FFC465434E59E3F2C3BFA30D /* [CP] Embed Pods Frameworks */,
+				D31AC2133E4C73BBC74CBB05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,13 +396,140 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		064EFBC19D8BF88BD7C442A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29199CDFE9B6A937A33E1C50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		305643495E6FCB76BB23DA2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD3F83A9F199976004AC9BE1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA3243FA5ECCF2FA9CCD871 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D31AC2133E4C73BBC74CBB05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDBAAB43FA9F48626D14819D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFC465434E59E3F2C3BFA30D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		79C96D501D4DD52D0060E662 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C96D9A1D4EEC870060E662 /* Constants.swift in Sources */,
+				79C96D971D4EEC380060E662 /* NetworkIO.swift in Sources */,
+				79C96D9C1D4EED490060E662 /* LocationManager.swift in Sources */,
 				79C96D5A1D4DD52D0060E662 /* ViewController.swift in Sources */,
 				79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */,
+				79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +671,7 @@
 		};
 		79C96D881D4DD52D0060E662 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -456,6 +686,7 @@
 		};
 		79C96D891D4DD52D0060E662 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -470,6 +701,7 @@
 		};
 		79C96D8C1D4DD52D0060E662 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169BF835F3FC15C021E696EB /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -486,6 +718,7 @@
 		};
 		79C96D8D1D4DD52D0060E662 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -502,23 +735,34 @@
 		};
 		79C96D901D4DD52D0060E662 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d3f42ee4-bd4a-4898-ab8a-2ecca990eebf";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		79C96D911D4DD52D0060E662 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59865A24933DCE6E8377B50F /* Pods-ResidentWKApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
+				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -541,6 +785,7 @@
 				79C96D891D4DD52D0060E662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79C96D8B1D4DD52D0060E662 /* Build configuration list for PBXNativeTarget "ResidentWKApp WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +794,7 @@
 				79C96D8D1D4DD52D0060E662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		79C96D8F1D4DD52D0060E662 /* Build configuration list for PBXNativeTarget "ResidentWKApp" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +803,7 @@
 				79C96D911D4DD52D0060E662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
