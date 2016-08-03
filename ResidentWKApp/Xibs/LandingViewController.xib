@@ -50,13 +50,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-78-vJb">
                     <rect key="frame" x="0.0" y="105" width="600" height="495"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-ob-WPK">
+                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-ob-WPK">
                             <rect key="frame" x="119.5" y="30" width="360" height="435"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-Of-hgg">
-                                    <rect key="frame" x="104.5" y="20" width="150" height="100"/>
+                                    <rect key="frame" x="104.5" y="20" width="150" height="120"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="ub2-Wa-dNX"/>
+                                        <constraint firstAttribute="height" constant="120" id="ub2-Wa-dNX"/>
                                         <constraint firstAttribute="width" constant="150" id="vuH-9E-SgD"/>
                                     </constraints>
                                     <state key="normal" image="IcnAssitanceButton"/>
@@ -65,13 +65,13 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ape-FW-PRe">
-                                    <rect key="frame" x="116" y="128" width="127" height="33"/>
+                                    <rect key="frame" x="116" y="148" width="127" height="33"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                     <color key="textColor" red="0.93333333333333335" green="0.42745098039215684" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYB-mI-5ai">
-                                    <rect key="frame" x="104.5" y="181" width="150" height="100"/>
+                                    <rect key="frame" x="104.5" y="201" width="150" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="zxa-gv-YLp"/>
                                     </constraints>
@@ -81,7 +81,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-xp-aDr">
-                                    <rect key="frame" x="122.5" y="289" width="115" height="33"/>
+                                    <rect key="frame" x="122.5" y="329" width="115" height="33"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                     <color key="textColor" red="0.50196078431372548" green="0.81568627450980391" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>

@@ -18,6 +18,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageDetailsViewController" customModule="ResidentWKApp" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="V2k-DW-fdl" id="VNX-SC-cCg"/>
+                <outlet property="fromLabel" destination="6w7-xB-Olt" id="4KL-Dj-rrS"/>
+                <outlet property="messagelabel" destination="Cfu-ag-mmp" id="4Pt-c8-Q9F"/>
+                <outlet property="timeLabel" destination="9gj-Jx-0tU" id="vdM-lG-jIR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="U0C-op-MUc"/>
             </connections>
         </placeholder>

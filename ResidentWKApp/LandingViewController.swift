@@ -20,8 +20,6 @@ class LandingViewController: UIViewController {
         } else {
             buttonHeightConstraint.constant = 150
         }
-        
-        
     }
     
     @IBAction func callAssistance(sender: UIButton) {
@@ -41,7 +39,6 @@ class LandingViewController: UIViewController {
              url += user.token ?? ""
         }
         
-        
         NetworkIO().post(url, json: json) { (data, response, error) in
             self.runOnUIThread({ 
                 if let _ = error {
@@ -58,7 +55,6 @@ class LandingViewController: UIViewController {
                 }
             })
         }
-        
     }
     
     @IBAction func showMessages(sender: UIButton) {

@@ -12,24 +12,22 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
 
     var isWorking = false
     var locationStatus : NSString = "Not Started"
-    let manager = CLLocationManager()
+    var manager : CLLocationManager?
     func startLocationUpdate () {
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.startUpdatingLocation()
-
-//        if  CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-//            manager.startUpdatingLocation()
-//        } else {
-//            manager.requestAlwaysAuthorization()
-//            
-//        }
+        manager = CLLocationManager()
+        manager?.delegate = self
+        manager?.desiredAccuracy = kCLLocationAccuracyBest
+        if  CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
+            manager?.startUpdatingLocation()
+        } else {
+            manager?.requestAlwaysAuthorization()
+        }
     }
     
     func stopLocationUpdate () {
         if isWorking {
             isWorking = !isWorking
-            manager.stopUpdatingLocation()
+            manager?.stopUpdatingLocation()
         }
     }
     

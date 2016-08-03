@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     var user : User?
     var locationManager : LocationManager?
     var location : CLLocation?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
         PushNotificationManager.pushManager().registerForPushNotifications()
         locationManager = LocationManager()
         locationManager?.startLocationUpdate()
+        
         if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
             self.user = self.getUser()
             self.launchLandingScreen()
