@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate {
@@ -14,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     var window: UIWindow?
     var user : User?
     var locationManager : LocationManager?
+    var location : CLLocation?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -28,14 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
             self.user = self.getUser()
             self.launchLandingScreen()
         } else {
-            self.launchLoginScreen()
+            self.launchLandingScreen()
         }
         return true
     }
     
     func launchLandingScreen () {
         let vc = LandingViewController(nibName: "LandingViewController", bundle: nil)
-        self.window?.rootViewController = vc
+        let nvc = UINavigationController(rootViewController: vc)
+        nvc.navigationBarHidden = true
+        self.window?.rootViewController = nvc
     }
     
     func launchLoginScreen () {

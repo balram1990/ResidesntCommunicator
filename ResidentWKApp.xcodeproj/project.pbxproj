@@ -45,6 +45,8 @@
 		79C96DC91D519D320060E662 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */; };
 		79C96DCA1D519D320060E662 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */; };
 		79C96DCC1D51B2120060E662 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DCB1D51B2120060E662 /* Util.swift */; };
+		79C96DCE1D5203EA0060E662 /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */; };
+		79C96DD01D5204170060E662 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DCF1D5204170060E662 /* MessagesViewController.swift */; };
 		D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		79C96DCB1D51B2120060E662 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Models/Util.swift; sourceTree = "<group>"; };
+		79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessagesViewController.xib; path = Xibs/MessagesViewController.xib; sourceTree = "<group>"; };
+		79C96DCF1D5204170060E662 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesViewController.swift; path = Controllers/MessagesViewController.swift; sourceTree = "<group>"; };
 		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 				79C96DB41D5195380060E662 /* KeyboardViewController.swift */,
 				79C96DAB1D50C4790060E662 /* LoginViewController.swift */,
 				79C96DAD1D5185EC0060E662 /* LandingViewController.swift */,
+				79C96DCF1D5204170060E662 /* MessagesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			children = (
 				79C96DB01D51864C0060E662 /* LoginViewController.xib */,
 				79C96DB21D5186660060E662 /* LandingViewController.xib */,
+				79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				79C96DC91D519D320060E662 /* OpenSans-Semibold.ttf in Resources */,
 				79C96DC31D519D320060E662 /* OpenSans-ExtraBold.ttf in Resources */,
 				79C96D5F1D4DD52D0060E662 /* Assets.xcassets in Resources */,
+				79C96DCE1D5203EA0060E662 /* MessagesViewController.xib in Resources */,
 				79C96DC71D519D320060E662 /* OpenSans-LightItalic.ttf in Resources */,
 				79C96DB31D5186660060E662 /* LandingViewController.xib in Resources */,
 				79C96DC11D519D320060E662 /* OpenSans-Bold.ttf in Resources */,
@@ -613,6 +620,7 @@
 				79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */,
 				79C96DCC1D51B2120060E662 /* Util.swift in Sources */,
 				79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */,
+				79C96DD01D5204170060E662 /* MessagesViewController.swift in Sources */,
 				79C96DA91D50C1D20060E662 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

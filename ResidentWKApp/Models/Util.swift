@@ -108,3 +108,11 @@ extension UIButton {
     }
 }
 
+extension UIDevice {
+    
+    func isPhone4CategoryDevice () -> Bool {
+        let height = UIScreen.mainScreen().bounds.size.height
+        return (height == 480 || height == 568)
+    }
+}
+

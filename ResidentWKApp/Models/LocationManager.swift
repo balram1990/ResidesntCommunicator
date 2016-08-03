@@ -41,6 +41,8 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         self.stopLocationUpdate()
+        let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        appdelegate?.location = newLocation
         //push new location to server
         let location = ["latitude" : newLocation.coordinate.latitude, "longitude" : newLocation.coordinate.longitude]
         NetworkIO().post(Constants.LOCATION_UPDATE_URL, json: location) { (data, response, error) in

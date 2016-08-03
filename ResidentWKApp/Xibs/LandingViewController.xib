@@ -3,10 +3,23 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController" customModule="ResidentWKApp" customModuleProvider="target">
             <connections>
+                <outlet property="assistanceBtn" destination="FEa-Of-hgg" id="qpJ-j9-ANx"/>
+                <outlet property="assistanceLabel" destination="Ape-FW-PRe" id="tpe-0d-YHQ"/>
+                <outlet property="buttonHeightConstraint" destination="ub2-Wa-dNX" id="RtZ-d3-s9g"/>
+                <outlet property="messagesBtn" destination="uYB-mI-5ai" id="dRQ-SE-JxT"/>
+                <outlet property="messagesLabel" destination="5zh-xp-aDr" id="PuJ-5G-5FJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="SaU-dA-Gsr"/>
             </connections>
         </placeholder>
@@ -14,7 +27,105 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-Ln-J4X">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-pj-35b">
+                            <rect key="frame" x="8" y="20" width="584" height="91"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7M3-pj-35b" secondAttribute="height" multiplier="193:30" id="iQ5-ZK-hjB"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="7M3-pj-35b" secondAttribute="trailing" constant="8" id="5vo-Gh-6zk"/>
+                        <constraint firstItem="7M3-pj-35b" firstAttribute="leading" secondItem="qs8-Ln-J4X" secondAttribute="leading" constant="8" id="9Rh-ng-iqJ"/>
+                        <constraint firstAttribute="height" constant="80" id="bzU-IX-Bph"/>
+                        <constraint firstItem="7M3-pj-35b" firstAttribute="top" secondItem="qs8-Ln-J4X" secondAttribute="top" constant="20" id="rYv-4b-Bly"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-78-vJb">
+                    <rect key="frame" x="0.0" y="110" width="600" height="490"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-ob-WPK">
+                            <rect key="frame" x="119.5" y="30" width="360" height="430"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-Of-hgg">
+                                    <rect key="frame" x="104.5" y="20" width="150" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="ub2-Wa-dNX"/>
+                                        <constraint firstAttribute="width" constant="150" id="vuH-9E-SgD"/>
+                                    </constraints>
+                                    <state key="normal" image="IcnAssitanceButton"/>
+                                    <connections>
+                                        <action selector="callAssistance:" destination="-1" eventType="touchUpInside" id="9Vt-bM-oaz"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ape-FW-PRe">
+                                    <rect key="frame" x="116" y="128" width="127" height="33"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                    <color key="textColor" red="0.93333333333333335" green="0.42745098039215684" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYB-mI-5ai">
+                                    <rect key="frame" x="104.5" y="181" width="150" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="zxa-gv-YLp"/>
+                                    </constraints>
+                                    <state key="normal" image="IcnMessageButton"/>
+                                    <connections>
+                                        <action selector="showMessages:" destination="-1" eventType="touchUpInside" id="C96-3f-VfT"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-xp-aDr">
+                                    <rect key="frame" x="122.5" y="289" width="115" height="33"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                    <color key="textColor" red="0.50196078431372548" green="0.81568627450980391" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Ape-FW-PRe" firstAttribute="top" secondItem="FEa-Of-hgg" secondAttribute="bottom" constant="8" id="157-V0-vmA"/>
+                                <constraint firstItem="uYB-mI-5ai" firstAttribute="centerX" secondItem="Ape-FW-PRe" secondAttribute="centerX" id="FCP-tp-J8m"/>
+                                <constraint firstItem="uYB-mI-5ai" firstAttribute="top" secondItem="Ape-FW-PRe" secondAttribute="bottom" constant="20" id="Inh-1F-AHq"/>
+                                <constraint firstItem="5zh-xp-aDr" firstAttribute="top" secondItem="uYB-mI-5ai" secondAttribute="bottom" constant="8" id="ZhD-Yx-Lnj"/>
+                                <constraint firstItem="5zh-xp-aDr" firstAttribute="centerX" secondItem="uYB-mI-5ai" secondAttribute="centerX" id="b5c-Og-pO5"/>
+                                <constraint firstItem="Ape-FW-PRe" firstAttribute="centerX" secondItem="FEa-Of-hgg" secondAttribute="centerX" id="f9j-We-MLg"/>
+                                <constraint firstItem="FEa-Of-hgg" firstAttribute="centerX" secondItem="fvN-ob-WPK" secondAttribute="centerX" id="u0a-2g-dNd"/>
+                                <constraint firstItem="FEa-Of-hgg" firstAttribute="top" secondItem="fvN-ob-WPK" secondAttribute="top" constant="20" id="uWY-Po-xZV"/>
+                                <constraint firstItem="uYB-mI-5ai" firstAttribute="height" secondItem="FEa-Of-hgg" secondAttribute="height" id="zpb-yL-Xwb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="fvN-ob-WPK" firstAttribute="centerX" secondItem="F3e-78-vJb" secondAttribute="centerX" id="EYh-9I-SJz"/>
+                        <constraint firstItem="fvN-ob-WPK" firstAttribute="centerY" secondItem="F3e-78-vJb" secondAttribute="centerY" id="KtN-yz-CC1"/>
+                        <constraint firstAttribute="bottom" secondItem="fvN-ob-WPK" secondAttribute="bottom" constant="30" id="NDB-61-uHv"/>
+                        <constraint firstItem="fvN-ob-WPK" firstAttribute="top" secondItem="F3e-78-vJb" secondAttribute="top" constant="30" id="fDz-0x-lhC"/>
+                        <constraint firstItem="fvN-ob-WPK" firstAttribute="width" secondItem="F3e-78-vJb" secondAttribute="width" multiplier="0.6" id="plf-PB-qCG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qs8-Ln-J4X" secondAttribute="trailing" id="Bcp-bU-fi3"/>
+                <constraint firstItem="F3e-78-vJb" firstAttribute="top" secondItem="qs8-Ln-J4X" secondAttribute="bottom" constant="30" id="cjm-67-cMv"/>
+                <constraint firstAttribute="trailing" secondItem="F3e-78-vJb" secondAttribute="trailing" id="eEe-Fc-izA"/>
+                <constraint firstAttribute="bottom" secondItem="F3e-78-vJb" secondAttribute="bottom" id="fDn-1A-nQL"/>
+                <constraint firstItem="qs8-Ln-J4X" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="jcT-9t-bvA"/>
+                <constraint firstItem="F3e-78-vJb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lRe-a7-oM0"/>
+                <constraint firstItem="qs8-Ln-J4X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="wYt-hN-IHc"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="IcnAssitanceButton" width="84" height="84"/>
+        <image name="IcnMessageButton" width="73" height="73"/>
+        <image name="IcnTopBanner" width="193" height="30"/>
+    </resources>
 </document>
