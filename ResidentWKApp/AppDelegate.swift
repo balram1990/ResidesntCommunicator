@@ -12,18 +12,36 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate {
 
     var window: UIWindow?
-
+    var user : User?
     var locationManager : LocationManager?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.hidden = false
         PushNotificationManager.pushManager().delegate = self
         PushNotificationManager.pushManager().handlePushReceived(launchOptions)
         PushNotificationManager.pushManager().sendAppOpen()
         PushNotificationManager.pushManager().registerForPushNotifications()
         locationManager = LocationManager()
         locationManager?.startLocationUpdate()
+        if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
+            self.user = self.getUser()
+            self.launchLandingScreen()
+        } else {
+            self.launchLoginScreen()
+        }
         return true
+    }
+    
+    func launchLandingScreen () {
+        let vc = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        self.window?.rootViewController = vc
+    }
+    
+    func launchLoginScreen () {
+        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        self.window?.rootViewController = vc
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -126,6 +144,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
         print("Push notification accepted: \(pushNotification)");
     }
     
-
+    func saveUser (user : User) {
+        let data = NSKeyedArchiver.archivedDataWithRootObject(user)
+        userDefaults().setObject(data, forKey: "user")
+        userDefaults().synchronize()
+    }
+    
+    func getUser () -> User? {
+        if let data = userDefaults().objectForKey("user") as? NSData {
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as?  User
+        }
+        return  nil
+    }
+    
+    func userDefaults () -> NSUserDefaults {
+        return NSUserDefaults.standardUserDefaults()
+    }
 }
 

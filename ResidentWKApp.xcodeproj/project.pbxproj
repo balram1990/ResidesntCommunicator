@@ -10,8 +10,6 @@
 		480ECCB097F22EB6A905A949 /* Pods_ResidentWKApp_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24789A004CE6620A566D8343 /* Pods_ResidentWKApp_WatchKit_App.framework */; };
 		77CEA2BED1BEBB21AA1F346C /* Pods_ResidentWKApp_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */; };
 		79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D571D4DD52D0060E662 /* AppDelegate.swift */; };
-		79C96D5A1D4DD52D0060E662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D591D4DD52D0060E662 /* ViewController.swift */; };
-		79C96D5D1D4DD52D0060E662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D5B1D4DD52D0060E662 /* Main.storyboard */; };
 		79C96D5F1D4DD52D0060E662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D5E1D4DD52D0060E662 /* Assets.xcassets */; };
 		79C96D621D4DD52D0060E662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D601D4DD52D0060E662 /* LaunchScreen.storyboard */; };
 		79C96D671D4DD52D0060E662 /* ResidentWKApp WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 79C96D661D4DD52D0060E662 /* ResidentWKApp WatchKit App.app */; };
@@ -30,6 +28,23 @@
 		79C96DA31D4FAD250060E662 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA21D4FAD250060E662 /* libz.tbd */; };
 		79C96DA51D4FAD4A0060E662 /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA41D4FAD4A0060E662 /* libz.1.1.3.tbd */; };
 		79C96DA71D4FAD9E0060E662 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C96DA61D4FAD9E0060E662 /* libstdc++.tbd */; };
+		79C96DA91D50C1D20060E662 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DA81D50C1D20060E662 /* User.swift */; };
+		79C96DAC1D50C4790060E662 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DAB1D50C4790060E662 /* LoginViewController.swift */; };
+		79C96DAE1D5185EC0060E662 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DAD1D5185EC0060E662 /* LandingViewController.swift */; };
+		79C96DB11D51864C0060E662 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB01D51864C0060E662 /* LoginViewController.xib */; };
+		79C96DB31D5186660060E662 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB21D5186660060E662 /* LandingViewController.xib */; };
+		79C96DB51D5195380060E662 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DB41D5195380060E662 /* KeyboardViewController.swift */; };
+		79C96DC11D519D320060E662 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB71D519D320060E662 /* OpenSans-Bold.ttf */; };
+		79C96DC21D519D320060E662 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB81D519D320060E662 /* OpenSans-BoldItalic.ttf */; };
+		79C96DC31D519D320060E662 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB91D519D320060E662 /* OpenSans-ExtraBold.ttf */; };
+		79C96DC41D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBA1D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf */; };
+		79C96DC51D519D320060E662 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBB1D519D320060E662 /* OpenSans-Italic.ttf */; };
+		79C96DC61D519D320060E662 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBC1D519D320060E662 /* OpenSans-Light.ttf */; };
+		79C96DC71D519D320060E662 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBD1D519D320060E662 /* OpenSans-LightItalic.ttf */; };
+		79C96DC81D519D320060E662 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBE1D519D320060E662 /* OpenSans-Regular.ttf */; };
+		79C96DC91D519D320060E662 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */; };
+		79C96DCA1D519D320060E662 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */; };
+		79C96DCC1D51B2120060E662 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DCB1D51B2120060E662 /* Util.swift */; };
 		D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,8 +98,6 @@
 		5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		79C96D541D4DD52D0060E662 /* ResidentWKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResidentWKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C96D571D4DD52D0060E662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79C96D591D4DD52D0060E662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		79C96D5C1D4DD52D0060E662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79C96D5E1D4DD52D0060E662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79C96D611D4DD52D0060E662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79C96D631D4DD52D0060E662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +121,23 @@
 		79C96DA21D4FAD250060E662 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		79C96DA41D4FAD4A0060E662 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
 		79C96DA61D4FAD9E0060E662 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		79C96DA81D50C1D20060E662 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		79C96DAB1D50C4790060E662 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		79C96DAD1D5185EC0060E662 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		79C96DB01D51864C0060E662 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Xibs/LoginViewController.xib; sourceTree = "<group>"; };
+		79C96DB21D5186660060E662 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LandingViewController.xib; path = Xibs/LandingViewController.xib; sourceTree = "<group>"; };
+		79C96DB41D5195380060E662 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardViewController.swift; path = Controllers/KeyboardViewController.swift; sourceTree = "<group>"; };
+		79C96DB71D519D320060E662 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		79C96DB81D519D320060E662 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		79C96DB91D519D320060E662 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		79C96DBA1D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		79C96DBB1D519D320060E662 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		79C96DBC1D519D320060E662 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		79C96DBD1D519D320060E662 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		79C96DBE1D519D320060E662 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		79C96DCB1D51B2120060E662 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Models/Util.swift; sourceTree = "<group>"; };
 		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,10 +215,11 @@
 		79C96D561D4DD52D0060E662 /* ResidentWKApp */ = {
 			isa = PBXGroup;
 			children = (
+				79C96DB61D519D170060E662 /* Fonts */,
+				79C96DAF1D51862A0060E662 /* Xibs */,
+				79C96DAA1D50C45E0060E662 /* Controllers */,
 				79C96D981D4EEC610060E662 /* Models */,
 				79C96D571D4DD52D0060E662 /* AppDelegate.swift */,
-				79C96D591D4DD52D0060E662 /* ViewController.swift */,
-				79C96D5B1D4DD52D0060E662 /* Main.storyboard */,
 				79C96D5E1D4DD52D0060E662 /* Assets.xcassets */,
 				79C96D601D4DD52D0060E662 /* LaunchScreen.storyboard */,
 				79C96D631D4DD52D0060E662 /* Info.plist */,
@@ -243,8 +274,46 @@
 				79C96D931D4EEC170060E662 /* Networking */,
 				79C96D991D4EEC870060E662 /* Constants.swift */,
 				79C96D9B1D4EED490060E662 /* LocationManager.swift */,
+				79C96DA81D50C1D20060E662 /* User.swift */,
+				79C96DCB1D51B2120060E662 /* Util.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		79C96DAA1D50C45E0060E662 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DB41D5195380060E662 /* KeyboardViewController.swift */,
+				79C96DAB1D50C4790060E662 /* LoginViewController.swift */,
+				79C96DAD1D5185EC0060E662 /* LandingViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		79C96DAF1D51862A0060E662 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DB01D51864C0060E662 /* LoginViewController.xib */,
+				79C96DB21D5186660060E662 /* LandingViewController.xib */,
+			);
+			name = Xibs;
+			sourceTree = "<group>";
+		};
+		79C96DB61D519D170060E662 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DB71D519D320060E662 /* OpenSans-Bold.ttf */,
+				79C96DB81D519D320060E662 /* OpenSans-BoldItalic.ttf */,
+				79C96DB91D519D320060E662 /* OpenSans-ExtraBold.ttf */,
+				79C96DBA1D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf */,
+				79C96DBB1D519D320060E662 /* OpenSans-Italic.ttf */,
+				79C96DBC1D519D320060E662 /* OpenSans-Light.ttf */,
+				79C96DBD1D519D320060E662 /* OpenSans-LightItalic.ttf */,
+				79C96DBE1D519D320060E662 /* OpenSans-Regular.ttf */,
+				79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */,
+				79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		CC17EBC06B8B5751F1D0621C /* Pods */ = {
@@ -371,9 +440,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79C96DC51D519D320060E662 /* OpenSans-Italic.ttf in Resources */,
+				79C96DC21D519D320060E662 /* OpenSans-BoldItalic.ttf in Resources */,
 				79C96D621D4DD52D0060E662 /* LaunchScreen.storyboard in Resources */,
+				79C96DC91D519D320060E662 /* OpenSans-Semibold.ttf in Resources */,
+				79C96DC31D519D320060E662 /* OpenSans-ExtraBold.ttf in Resources */,
 				79C96D5F1D4DD52D0060E662 /* Assets.xcassets in Resources */,
-				79C96D5D1D4DD52D0060E662 /* Main.storyboard in Resources */,
+				79C96DC71D519D320060E662 /* OpenSans-LightItalic.ttf in Resources */,
+				79C96DB31D5186660060E662 /* LandingViewController.xib in Resources */,
+				79C96DC11D519D320060E662 /* OpenSans-Bold.ttf in Resources */,
+				79C96DB11D51864C0060E662 /* LoginViewController.xib in Resources */,
+				79C96DCA1D519D320060E662 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				79C96DC61D519D320060E662 /* OpenSans-Light.ttf in Resources */,
+				79C96DC81D519D320060E662 /* OpenSans-Regular.ttf in Resources */,
+				79C96DC41D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,10 +606,14 @@
 			files = (
 				79C96D9A1D4EEC870060E662 /* Constants.swift in Sources */,
 				79C96D971D4EEC380060E662 /* NetworkIO.swift in Sources */,
+				79C96DAE1D5185EC0060E662 /* LandingViewController.swift in Sources */,
 				79C96D9C1D4EED490060E662 /* LocationManager.swift in Sources */,
-				79C96D5A1D4DD52D0060E662 /* ViewController.swift in Sources */,
+				79C96DB51D5195380060E662 /* KeyboardViewController.swift in Sources */,
+				79C96DAC1D50C4790060E662 /* LoginViewController.swift in Sources */,
 				79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */,
+				79C96DCC1D51B2120060E662 /* Util.swift in Sources */,
 				79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */,
+				79C96DA91D50C1D20060E662 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,14 +643,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		79C96D5B1D4DD52D0060E662 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79C96D5C1D4DD52D0060E662 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		79C96D601D4DD52D0060E662 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

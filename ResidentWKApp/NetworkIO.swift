@@ -17,7 +17,7 @@ class ErrorCodes {
 }
 
 class NetworkIO: BaseIO {
-    static var baseUrl = ""
+    
     func get(url: String, callback: (NSData?, NSURLResponse?, NSError?) -> Void) {
         doService("GET", url: url, body: nil, completionHandler: callback)
     }
@@ -36,7 +36,8 @@ class NetworkIO: BaseIO {
     
     private func doService(method : String, url : String, body : NSDictionary?, completionHandler :  (NSData?, NSURLResponse?, NSError?) -> Void) {
         
-        let fullURL = NSURL(string: NetworkIO.baseUrl + url)
+        let fullURL = NSURL(string: Constants.BASE_URL + url)
+        print("complete url \(fullURL)")
         let request = NSMutableURLRequest(URL: fullURL!)
         request.HTTPMethod = method
         

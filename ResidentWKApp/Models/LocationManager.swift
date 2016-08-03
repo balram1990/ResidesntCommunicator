@@ -16,12 +16,14 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     func startLocationUpdate () {
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        if  CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            manager.startUpdatingLocation()
-        } else {
-            manager.requestWhenInUseAuthorization()
-            
-        }
+        manager.startUpdatingLocation()
+
+//        if  CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+//            manager.startUpdatingLocation()
+//        } else {
+//            manager.requestAlwaysAuthorization()
+//            
+//        }
     }
     
     func stopLocationUpdate () {
