@@ -65,6 +65,4 @@ class LandingViewController: UIViewController {
         let vc = MessagesViewController(nibName: "MessagesViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
 }

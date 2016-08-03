@@ -47,6 +47,10 @@
 		79C96DCC1D51B2120060E662 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DCB1D51B2120060E662 /* Util.swift */; };
 		79C96DCE1D5203EA0060E662 /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */; };
 		79C96DD01D5204170060E662 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DCF1D5204170060E662 /* MessagesViewController.swift */; };
+		79C96DD21D520E610060E662 /* MessageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DD11D520E610060E662 /* MessageDetailsViewController.swift */; };
+		79C96DD41D520E850060E662 /* MessageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DD31D520E850060E662 /* MessageDetailsViewController.xib */; };
+		79C96DD61D5213B20060E662 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DD51D5213B20060E662 /* MessageCell.xib */; };
+		79C96DD91D5213EC0060E662 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DD81D5213EC0060E662 /* MessageCell.swift */; };
 		D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +146,10 @@
 		79C96DCB1D51B2120060E662 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Models/Util.swift; sourceTree = "<group>"; };
 		79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessagesViewController.xib; path = Xibs/MessagesViewController.xib; sourceTree = "<group>"; };
 		79C96DCF1D5204170060E662 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesViewController.swift; path = Controllers/MessagesViewController.swift; sourceTree = "<group>"; };
+		79C96DD11D520E610060E662 /* MessageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageDetailsViewController.swift; path = Controllers/MessageDetailsViewController.swift; sourceTree = "<group>"; };
+		79C96DD31D520E850060E662 /* MessageDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageDetailsViewController.xib; path = Xibs/MessageDetailsViewController.xib; sourceTree = "<group>"; };
+		79C96DD51D5213B20060E662 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = Xibs/MessageCell.xib; sourceTree = "<group>"; };
+		79C96DD81D5213EC0060E662 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
 		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +227,7 @@
 		79C96D561D4DD52D0060E662 /* ResidentWKApp */ = {
 			isa = PBXGroup;
 			children = (
+				79C96DD71D5213BE0060E662 /* Views */,
 				79C96DB61D519D170060E662 /* Fonts */,
 				79C96DAF1D51862A0060E662 /* Xibs */,
 				79C96DAA1D50C45E0060E662 /* Controllers */,
@@ -287,6 +296,7 @@
 		79C96DAA1D50C45E0060E662 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79C96DD11D520E610060E662 /* MessageDetailsViewController.swift */,
 				79C96DB41D5195380060E662 /* KeyboardViewController.swift */,
 				79C96DAB1D50C4790060E662 /* LoginViewController.swift */,
 				79C96DAD1D5185EC0060E662 /* LandingViewController.swift */,
@@ -301,6 +311,8 @@
 				79C96DB01D51864C0060E662 /* LoginViewController.xib */,
 				79C96DB21D5186660060E662 /* LandingViewController.xib */,
 				79C96DCD1D5203EA0060E662 /* MessagesViewController.xib */,
+				79C96DD31D520E850060E662 /* MessageDetailsViewController.xib */,
+				79C96DD51D5213B20060E662 /* MessageCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -320,6 +332,14 @@
 				79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		79C96DD71D5213BE0060E662 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DD81D5213EC0060E662 /* MessageCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CC17EBC06B8B5751F1D0621C /* Pods */ = {
@@ -452,11 +472,13 @@
 				79C96DC91D519D320060E662 /* OpenSans-Semibold.ttf in Resources */,
 				79C96DC31D519D320060E662 /* OpenSans-ExtraBold.ttf in Resources */,
 				79C96D5F1D4DD52D0060E662 /* Assets.xcassets in Resources */,
+				79C96DD41D520E850060E662 /* MessageDetailsViewController.xib in Resources */,
 				79C96DCE1D5203EA0060E662 /* MessagesViewController.xib in Resources */,
 				79C96DC71D519D320060E662 /* OpenSans-LightItalic.ttf in Resources */,
 				79C96DB31D5186660060E662 /* LandingViewController.xib in Resources */,
 				79C96DC11D519D320060E662 /* OpenSans-Bold.ttf in Resources */,
 				79C96DB11D51864C0060E662 /* LoginViewController.xib in Resources */,
+				79C96DD61D5213B20060E662 /* MessageCell.xib in Resources */,
 				79C96DCA1D519D320060E662 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				79C96DC61D519D320060E662 /* OpenSans-Light.ttf in Resources */,
 				79C96DC81D519D320060E662 /* OpenSans-Regular.ttf in Resources */,
@@ -615,9 +637,11 @@
 				79C96D971D4EEC380060E662 /* NetworkIO.swift in Sources */,
 				79C96DAE1D5185EC0060E662 /* LandingViewController.swift in Sources */,
 				79C96D9C1D4EED490060E662 /* LocationManager.swift in Sources */,
+				79C96DD91D5213EC0060E662 /* MessageCell.swift in Sources */,
 				79C96DB51D5195380060E662 /* KeyboardViewController.swift in Sources */,
 				79C96DAC1D50C4790060E662 /* LoginViewController.swift in Sources */,
 				79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */,
+				79C96DD21D520E610060E662 /* MessageDetailsViewController.swift in Sources */,
 				79C96DCC1D51B2120060E662 /* Util.swift in Sources */,
 				79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */,
 				79C96DD01D5204170060E662 /* MessagesViewController.swift in Sources */,

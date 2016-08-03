@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" rowHeight="100" id="i6q-cC-9w2" customClass="MessageCell" customModule="ResidentWKApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6q-cC-9w2" id="Uka-9D-TcN">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jhon Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YT-kf-5wh">
+                        <rect key="frame" x="8" y="8" width="304" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20.100000000000001" id="mGO-QG-2il"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 MINUTES AGO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Il-vh-6nT">
+                        <rect key="frame" x="8" y="28.5" width="304" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="5KN-35-euf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Lc8-BW-Jwa">
+                        <rect key="frame" x="8" y="43.5" width="304" height="48"/>
+                        <string key="text">Lorem ipsum dolor sit amet, erat ipsum justo tortor velit nec donec, ut eros sollicitudin commodo, sollicitudin libero sapien integer nostra, quis quam nibh nec auctor pede aliquam.</string>
+                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Lc8-BW-Jwa" firstAttribute="trailing" secondItem="Uka-9D-TcN" secondAttribute="trailingMargin" id="0an-7E-gzW"/>
+                    <constraint firstItem="7YT-kf-5wh" firstAttribute="leading" secondItem="Uka-9D-TcN" secondAttribute="leadingMargin" id="0dm-Ub-PJh"/>
+                    <constraint firstItem="Lc8-BW-Jwa" firstAttribute="top" secondItem="7Il-vh-6nT" secondAttribute="bottom" id="BnB-BZ-sh9"/>
+                    <constraint firstItem="7Il-vh-6nT" firstAttribute="trailing" secondItem="Uka-9D-TcN" secondAttribute="trailingMargin" id="MM9-GB-Xjl"/>
+                    <constraint firstItem="7YT-kf-5wh" firstAttribute="top" secondItem="Uka-9D-TcN" secondAttribute="topMargin" id="RhB-uQ-2TJ"/>
+                    <constraint firstItem="Lc8-BW-Jwa" firstAttribute="leading" secondItem="Uka-9D-TcN" secondAttribute="leadingMargin" id="TDn-Un-Uhg"/>
+                    <constraint firstItem="7Il-vh-6nT" firstAttribute="top" secondItem="7YT-kf-5wh" secondAttribute="bottom" id="UsN-3T-1SX"/>
+                    <constraint firstItem="7Il-vh-6nT" firstAttribute="leading" secondItem="Uka-9D-TcN" secondAttribute="leadingMargin" id="YXw-mU-g3A"/>
+                    <constraint firstItem="Lc8-BW-Jwa" firstAttribute="bottom" secondItem="Uka-9D-TcN" secondAttribute="bottomMargin" id="gSQ-3h-hR0"/>
+                    <constraint firstItem="7YT-kf-5wh" firstAttribute="trailing" secondItem="Uka-9D-TcN" secondAttribute="trailingMargin" id="pmx-A3-roK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="fromLabel" destination="7YT-kf-5wh" id="mwU-pE-yOj"/>
+                <outlet property="messageLabel" destination="Lc8-BW-Jwa" id="Qij-Cl-xxn"/>
+                <outlet property="timeLabel" destination="7Il-vh-6nT" id="FSU-ie-ziU"/>
+            </connections>
+            <point key="canvasLocation" x="484" y="376"/>
+        </tableViewCell>
+    </objects>
+</document>
