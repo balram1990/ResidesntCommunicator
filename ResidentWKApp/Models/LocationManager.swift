@@ -13,6 +13,7 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     var isWorking = false
     var locationStatus : NSString = "Not Started"
     var manager : CLLocationManager?
+    var isUpdateInProgress = false
     func startLocationUpdate () {
         manager = CLLocationManager()
         manager?.delegate = self
@@ -39,15 +40,39 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         self.stopLocationUpdate()
+        print("Did update new location, \(newLocation)")
         let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
         appdelegate?.location = newLocation
-        //push new location to server
-        let location = ["latitude" : newLocation.coordinate.latitude, "longitude" : newLocation.coordinate.longitude]
-        NetworkIO().post(Constants.LOCATION_UPDATE_URL, json: location) { (data, response, error) in
-            if error != nil {
-                print("error while updating location to server, \(error)")
+        if let user  = appdelegate?.getUser(){
+            if isUpdateInProgress {
+                return
+            }
+            isUpdateInProgress = true
+            let location = ["latitude" : newLocation.coordinate.latitude, "longitude" : newLocation.coordinate.longitude]
+            let completeURL =  Constants.LOCATION_UPDATE_URL  + String(format: "%d", user.userID!) + "?token=" + user.token!
+                NetworkIO().post(completeURL, json: location) { (data, response, error) in
+                    self.isUpdateInProgress = false
+                    if error != nil {
+                        print("error while updating location to server, \(error)")
+                    }else {
+                        if let httpResonse =  response as? NSHTTPURLResponse {
+                            let code =  httpResonse.statusCode
+                            
+                            if code == 400 || code == 404 {
+                                print("Somethong wrong happened")
+                            } else if code == 200 {
+                                print("successfully updated location to server")
+                            }
+                        }
+                    }
+                    
+                    
             }
         }
+        //push new location to server
+    
+        
+        
     }
     
     // authorization status

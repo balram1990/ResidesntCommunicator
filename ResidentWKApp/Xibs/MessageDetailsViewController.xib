@@ -12,6 +12,7 @@
         <mutableArray key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
             <string>OpenSans</string>
+            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -97,22 +98,22 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w7-xB-Olt">
-                            <rect key="frame" x="20" y="76" width="65.5" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="20" y="76" width="560" height="23.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 MINUTES AGO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gj-Jx-0tU">
-                            <rect key="frame" x="20" y="102" width="109.5" height="16"/>
+                            <rect key="frame" x="20" y="107" width="109.5" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfu-ag-mmp">
-                            <rect key="frame" x="15" y="126" width="570" height="303"/>
+                            <rect key="frame" x="15" y="131" width="570" height="297.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
@@ -129,6 +130,7 @@
                         <constraint firstItem="9gj-Jx-0tU" firstAttribute="top" secondItem="6w7-xB-Olt" secondAttribute="bottom" constant="8" id="l4q-3b-6yd"/>
                         <constraint firstItem="9gj-Jx-0tU" firstAttribute="leading" secondItem="6w7-xB-Olt" secondAttribute="leading" id="nar-kk-F7c"/>
                         <constraint firstItem="6w7-xB-Olt" firstAttribute="top" secondItem="duw-4E-9K2" secondAttribute="bottom" constant="8" id="rb2-UF-SOp"/>
+                        <constraint firstAttribute="trailing" secondItem="6w7-xB-Olt" secondAttribute="trailing" constant="20" id="xQW-J6-PBD"/>
                         <constraint firstItem="cXg-bV-Pr9" firstAttribute="leading" secondItem="duw-4E-9K2" secondAttribute="trailing" constant="15" id="ygT-Jm-kOZ"/>
                     </constraints>
                 </view>

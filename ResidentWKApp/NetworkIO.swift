@@ -57,8 +57,12 @@ class NetworkIO: BaseIO {
             request.HTTPBody = jsonData
         }
         //create session
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request, completionHandler: { data, response, error -> Void in
+            dispatch_async(dispatch_get_main_queue(), { 
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            })
             completionHandler(data, response, error)
         })
         

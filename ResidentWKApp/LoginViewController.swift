@@ -78,6 +78,8 @@ class LoginViewController: KeyboardViewController {
                                 user.parseJson(userData)
                                 let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
                                 delegate?.saveUser(user)
+                                delegate?.updatePushToken()
+                                delegate?.locationManager?.startLocationUpdate()
                                 delegate?.launchLandingScreen()
                             }
                         }
@@ -97,6 +99,4 @@ class LoginViewController: KeyboardViewController {
         }
         return true
     }
-    
-    
 }

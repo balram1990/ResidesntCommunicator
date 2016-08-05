@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate {
@@ -16,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     var user : User?
     var locationManager : LocationManager?
     var location : CLLocation?
-    
+    var pushToken : String?
+    static let NotificationListUpdate = "NotificationListUpdate"
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.hidden = false
         PushNotificationManager.pushManager().delegate = self
@@ -32,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
             self.user = self.getUser()
             self.launchLandingScreen()
         } else {
-            self.launchLandingScreen()
+            self.launchLoginScreen()
         }
         return true
     }
@@ -58,6 +61,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -96,19 +101,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         PushNotificationManager.pushManager().handlePushRegistration(deviceToken)
-//        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-//        var tokenString = ""
-//        
-//        for i in 0..<deviceToken.length {
-//            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-//        }
-//        
-//        print("Device Token:", tokenString)
-//        NetworkIO().post(Constants.TOKEN_UPDATE_URL, json: ["token" : tokenString]) { (data, response, error) in
-//            if error != nil {
-//                print("failed to update token to server, \(error)")
-//            }
-//        }
+        
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        self.pushToken = tokenString
+        print("device did registered with token \(tokenString)")
+        self.updatePushToken()
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -121,33 +124,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
         PushNotificationManager.pushManager().handlePushReceived(userInfo)
-        let aps = userInfo["aps"] as! [String: AnyObject]
-        print("did receive notification \(aps)")
+        print("did receive notification \(userInfo)")
     
-        //createNewNewsItem(aps)
+        if let message = self.saveNotification(userInfo) {
+            if application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background {
+                self.launchMessagesScreen(message)
+            }
+        }
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
         // 1
-        let aps = userInfo["aps"] as! [String: AnyObject]
-        
+        print("Handle Action with identifier \(userInfo)")
         // 2
-//        if let newsItem = createNewNewsItem(aps) {
-//            (window?.rootViewController as? UITabBarController)?.selectedIndex = 1
-//            
-//            // 3
-//            if identifier == "VIEW_IDENTIFIER", let url = NSURL(string: newsItem.link) {
-//                let safari = SFSafariViewController(URL: url)
-//                window?.rootViewController?.presentViewController(safari, animated: true, completion: nil)
-//            }
-//        }
-        
-        // 4
+        if let message = saveNotification(userInfo) {
+            if let navVC = window?.rootViewController as? UINavigationController {
+                let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
+                vc.message = message
+                navVC.pushViewController(vc, animated: true)
+            }
+        }
         completionHandler()
     }
     
     func onPushAccepted(pushManager: PushNotificationManager!, withNotification pushNotification: [NSObject : AnyObject]!, onStart: Bool) {
         print("Push notification accepted: \(pushNotification)");
+    }
+    
+    func launchMessagesScreen(message : Notification) {
+        if let navVC = window?.rootViewController as? UINavigationController {
+            let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
+            vc.message = message
+            navVC.pushViewController(vc, animated: true)
+        }
     }
     
     func saveUser (user : User) {
@@ -166,5 +175,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     func userDefaults () -> NSUserDefaults {
         return NSUserDefaults.standardUserDefaults()
     }
+    
+    func updatePushToken () {
+        let user = self.getUser()
+        if let token = self.pushToken, tokenString = user?.token {
+            let completeURL = Constants.TOKEN_UPDATE_URL + "?token=" + tokenString
+            let json = ["user_id" : (user?.userID)!, "device_type" : "ios", "dedvice_token" : token]
+            NetworkIO().post(completeURL, json: json) { (data, response, error) in
+                if error != nil {
+                    print("failed to update token to server, \(error)")
+                }else {
+                    print("Success when update token to server")
+                }
+            }
+        }
+    }
+    
+    func saveNotification (dictionary : NSDictionary) -> Notification?{
+
+        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.NotificationListUpdate, object: nil)
+        let manager = DataManager.sharedInstance()
+        if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
+            notif.from = dictionary["from"] as? String
+            notif.msg = dictionary["message"] as? String
+            notif.notifId = dictionary["id"] as? String
+            notif.timeinterval = NSDate().timeIntervalSince1970
+            manager.saveContext()
+            return notif
+        }
+        return nil
+    }
+
 }
 

@@ -22,7 +22,7 @@ class User: NSObject, NSCoding {
     
     func parseJson (json : NSDictionary) {
         
-        self.token = getString(json, key: "token")
+        self.token = getString(json, key: "user_token")
         self.userID = getInt(json, key: "id")
         self.username = getString(json, key: "username")
         self.niceName = getString(json, key: "nicename")
@@ -50,6 +50,7 @@ class User: NSObject, NSCoding {
     convenience required init?(coder aDecoder: NSCoder) {
         
         let atoken = aDecoder.decodeObjectForKey("token") as? String
+        let anID =  aDecoder.decodeObjectForKey("id") as? Int
         let aurl = aDecoder.decodeObjectForKey("url") as? String
         let ausername = aDecoder.decodeObjectForKey("username") as? String
         let aniceName = aDecoder.decodeObjectForKey("nicename") as? String
@@ -62,6 +63,7 @@ class User: NSObject, NSCoding {
         
         self.init()
         self.token = atoken
+        self.userID = anID
         self.url = aurl
         self.displayName = adisplayName
         self.nickName = anickName

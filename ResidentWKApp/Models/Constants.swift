@@ -10,7 +10,7 @@
 class Constants {
     static var BASE_URL = "http://aptoseniorcare.com/wp-json/"
     static let LOGIN_URL = "v1/account/login"
-    static let TOKEN_UPDATE_URL = ""
+    static let TOKEN_UPDATE_URL = "v1/push-service"
     static let LOCATION_UPDATE_URL = "v1/user/location/"//v1/user/location/{user_id}?token={user_token}
     static let ASSISTANCE_URL = "v1/assistance"//?token=<token value>
     static let USER_LOGGED_IN_KEY = "isUserLoggedIn"

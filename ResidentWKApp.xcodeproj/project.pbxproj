@@ -51,6 +51,10 @@
 		79C96DD41D520E850060E662 /* MessageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DD31D520E850060E662 /* MessageDetailsViewController.xib */; };
 		79C96DD61D5213B20060E662 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DD51D5213B20060E662 /* MessageCell.xib */; };
 		79C96DD91D5213EC0060E662 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DD81D5213EC0060E662 /* MessageCell.swift */; };
+		79C96DDE1D52D0720060E662 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DDB1D52D0720060E662 /* DataManager.swift */; };
+		79C96DDF1D52D0720060E662 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DDC1D52D0720060E662 /* DataModel.xcdatamodeld */; };
+		79C96DE61D52D1C80060E662 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DE41D52D1C80060E662 /* Notification+CoreDataProperties.swift */; };
+		79C96DE71D52D1C80060E662 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DE51D52D1C80060E662 /* Notification.swift */; };
 		D21D7727127C3C03AFBE5D5C /* Pods_ResidentWKApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +154,10 @@
 		79C96DD31D520E850060E662 /* MessageDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageDetailsViewController.xib; path = Xibs/MessageDetailsViewController.xib; sourceTree = "<group>"; };
 		79C96DD51D5213B20060E662 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = Xibs/MessageCell.xib; sourceTree = "<group>"; };
 		79C96DD81D5213EC0060E662 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
+		79C96DDB1D52D0720060E662 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		79C96DDD1D52D0720060E662 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		79C96DE41D52D1C80060E662 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Notification+CoreDataProperties.swift"; path = "Models/Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		79C96DE51D52D1C80060E662 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
 		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -227,6 +235,7 @@
 		79C96D561D4DD52D0060E662 /* ResidentWKApp */ = {
 			isa = PBXGroup;
 			children = (
+				79C96DDA1D52D0550060E662 /* Data Manager */,
 				79C96DD71D5213BE0060E662 /* Views */,
 				79C96DB61D519D170060E662 /* Fonts */,
 				79C96DAF1D51862A0060E662 /* Xibs */,
@@ -340,6 +349,17 @@
 				79C96DD81D5213EC0060E662 /* MessageCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		79C96DDA1D52D0550060E662 /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				79C96DE41D52D1C80060E662 /* Notification+CoreDataProperties.swift */,
+				79C96DE51D52D1C80060E662 /* Notification.swift */,
+				79C96DDB1D52D0720060E662 /* DataManager.swift */,
+				79C96DDC1D52D0720060E662 /* DataModel.xcdatamodeld */,
+			);
+			name = "Data Manager";
 			sourceTree = "<group>";
 		};
 		CC17EBC06B8B5751F1D0621C /* Pods */ = {
@@ -635,9 +655,12 @@
 			files = (
 				79C96D9A1D4EEC870060E662 /* Constants.swift in Sources */,
 				79C96D971D4EEC380060E662 /* NetworkIO.swift in Sources */,
+				79C96DE61D52D1C80060E662 /* Notification+CoreDataProperties.swift in Sources */,
 				79C96DAE1D5185EC0060E662 /* LandingViewController.swift in Sources */,
+				79C96DDE1D52D0720060E662 /* DataManager.swift in Sources */,
 				79C96D9C1D4EED490060E662 /* LocationManager.swift in Sources */,
 				79C96DD91D5213EC0060E662 /* MessageCell.swift in Sources */,
+				79C96DDF1D52D0720060E662 /* DataModel.xcdatamodeld in Sources */,
 				79C96DB51D5195380060E662 /* KeyboardViewController.swift in Sources */,
 				79C96DAC1D50C4790060E662 /* LoginViewController.swift in Sources */,
 				79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */,
@@ -646,6 +669,7 @@
 				79C96D961D4EEC380060E662 /* BaseIO.swift in Sources */,
 				79C96DD01D5204170060E662 /* MessagesViewController.swift in Sources */,
 				79C96DA91D50C1D20060E662 /* User.swift in Sources */,
+				79C96DE71D52D1C80060E662 /* Notification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,7 +893,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
+				PROVISIONING_PROFILE = "973c7b2f-22e6-47eb-a285-e175901066d0";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 			};
 			name = Release;
@@ -914,6 +938,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79C96DDC1D52D0720060E662 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79C96DDD1D52D0720060E662 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 79C96DDD1D52D0720060E662 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 79C96D4C1D4DD52C0060E662 /* Project object */;
 }

@@ -116,3 +116,113 @@ extension UIDevice {
     }
 }
 
+extension NSDate {
+    
+    public var timeAgo: String {
+        let components = self.dateComponents()
+        
+        if components.year > 0 {
+            if components.year < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last year")
+            } else {
+                return stringFromFormat("%%d %@years ago", withValue: components.year)
+            }
+        }
+        
+        if components.month > 0 {
+            if components.month < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last Month")
+            } else {
+                return stringFromFormat("%%d %@months ago", withValue: components.month)
+            }
+        }
+        
+        // TODO: localize for other calanders
+        if components.day >= 7 {
+            let week = components.day/7
+            if week < 2 {
+                return NSDateTimeAgoLocalizedStrings("Last week")
+            } else {
+                return stringFromFormat("%%d %@weeks ago", withValue: week)
+            }
+        }
+        
+        if components.day > 0 {
+            if components.day < 2 {
+                return NSDateTimeAgoLocalizedStrings("Yesterday")
+            } else  {
+                return stringFromFormat("%%d %@days ago", withValue: components.day)
+            }
+        }
+        
+        if components.hour > 0 {
+            if components.hour < 2 {
+                return NSDateTimeAgoLocalizedStrings("An hour ago")
+            } else  {
+                return stringFromFormat("%%d %@hours ago", withValue: components.hour)
+            }
+        }
+        
+        if components.minute > 0 {
+            if components.minute < 2 {
+                return NSDateTimeAgoLocalizedStrings("A minute ago")
+            } else {
+                return stringFromFormat("%%d %@minutes ago", withValue: components.minute)
+            }
+        }
+        
+        if components.second > 0 {
+            if components.second < 5 {
+                return NSDateTimeAgoLocalizedStrings("Just Now")
+            } else {
+                return stringFromFormat("%%d %@seconds ago", withValue: components.second)
+            }
+        }
+        
+        return ""
+    }
+    
+    private func dateComponents() -> NSDateComponents {
+        let calander = NSCalendar.currentCalendar()
+        return calander.components([.Second, .Minute, .Hour, .Day, .Month, .Year], fromDate: self, toDate: NSDate(), options: [])
+    }
+    
+    private func stringFromFormat(format: String, withValue value: Int) -> String {
+        let localeFormat = String(format: format, getLocaleFormatUnderscoresWithValue(Double(value)))
+        return String(format: NSDateTimeAgoLocalizedStrings(localeFormat), value)
+    }
+    
+    private func getLocaleFormatUnderscoresWithValue(value: Double) -> String {
+        guard let localeCode = NSLocale.preferredLanguages().first else {
+            return ""
+        }
+        
+        // Russian (ru) and Ukrainian (uk)
+        if localeCode == "ru" || localeCode == "uk" {
+            let XY = Int(floor(value)) % 100
+            let Y = Int(floor(value)) % 10
+            
+            if Y == 0 || Y > 4 || (XY > 10 && XY < 15) {
+                return ""
+            }
+            
+            if Y > 1 && Y < 5 && (XY < 10 || XY > 20) {
+                return "_"
+            }
+            
+            if Y == 1 && XY != 11 {
+                return "__"
+            }
+        }
+        
+        return ""
+    }
+    
+}
+
+func NSDateTimeAgoLocalizedStrings(key: String) -> String {
+    
+    return NSLocalizedString(key, comment: "")
+}
+
+
