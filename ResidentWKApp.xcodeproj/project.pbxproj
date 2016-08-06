@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		480ECCB097F22EB6A905A949 /* Pods_ResidentWKApp_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24789A004CE6620A566D8343 /* Pods_ResidentWKApp_WatchKit_App.framework */; };
 		77CEA2BED1BEBB21AA1F346C /* Pods_ResidentWKApp_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */; };
+		796CF1171D55AC6D0080FB07 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CF1161D55AC6D0080FB07 /* MessagesController.swift */; };
+		796CF1191D55B4380080FB07 /* MessageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CF1181D55B4380080FB07 /* MessageRow.swift */; };
+		796CF11B1D55C5250080FB07 /* MessageDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CF11A1D55C5250080FB07 /* MessageDetailsController.swift */; };
+		796CF11C1D55CBE90080FB07 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB71D519D320060E662 /* OpenSans-Bold.ttf */; };
+		796CF11D1D55CBE90080FB07 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB81D519D320060E662 /* OpenSans-BoldItalic.ttf */; };
+		796CF11E1D55CBE90080FB07 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DB91D519D320060E662 /* OpenSans-ExtraBold.ttf */; };
+		796CF11F1D55CBE90080FB07 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBA1D519D320060E662 /* OpenSans-ExtraBoldItalic.ttf */; };
+		796CF1201D55CBE90080FB07 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBB1D519D320060E662 /* OpenSans-Italic.ttf */; };
+		796CF1211D55CBE90080FB07 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBC1D519D320060E662 /* OpenSans-Light.ttf */; };
+		796CF1221D55CBE90080FB07 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBD1D519D320060E662 /* OpenSans-LightItalic.ttf */; };
+		796CF1231D55CBE90080FB07 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBE1D519D320060E662 /* OpenSans-Regular.ttf */; };
+		796CF1241D55CBE90080FB07 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DBF1D519D320060E662 /* OpenSans-Semibold.ttf */; };
+		796CF1251D55CBE90080FB07 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79C96DC01D519D320060E662 /* OpenSans-SemiboldItalic.ttf */; };
+		796CF1291D55FBB20080FB07 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DE51D52D1C80060E662 /* Notification.swift */; };
+		796CF12A1D55FBB60080FB07 /* Notification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96DE41D52D1C80060E662 /* Notification+CoreDataProperties.swift */; };
+		796CF12E1D564E840080FB07 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CF1261D55FB260080FB07 /* Message.swift */; };
 		79C96D581D4DD52D0060E662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C96D571D4DD52D0060E662 /* AppDelegate.swift */; };
 		79C96D5F1D4DD52D0060E662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D5E1D4DD52D0060E662 /* Assets.xcassets */; };
 		79C96D621D4DD52D0060E662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79C96D601D4DD52D0060E662 /* LaunchScreen.storyboard */; };
@@ -106,6 +122,10 @@
 		512C53FF2946C6207E8BF804 /* Pods_ResidentWKApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59865A24933DCE6E8377B50F /* Pods-ResidentWKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.release.xcconfig"; sourceTree = "<group>"; };
 		5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		796CF1161D55AC6D0080FB07 /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		796CF1181D55B4380080FB07 /* MessageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
+		796CF11A1D55C5250080FB07 /* MessageDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsController.swift; sourceTree = "<group>"; };
+		796CF1261D55FB260080FB07 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		79C96D541D4DD52D0060E662 /* ResidentWKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResidentWKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C96D571D4DD52D0060E662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C96D5E1D4DD52D0060E662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -263,12 +283,16 @@
 		79C96D791D4DD52D0060E662 /* ResidentWKApp WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				79C96D7C1D4DD52D0060E662 /* InterfaceController.swift */,
-				79C96D7E1D4DD52D0060E662 /* ExtensionDelegate.swift */,
-				79C96D801D4DD52D0060E662 /* NotificationController.swift */,
 				79C96D821D4DD52D0060E662 /* Assets.xcassets */,
+				79C96D7E1D4DD52D0060E662 /* ExtensionDelegate.swift */,
 				79C96D841D4DD52D0060E662 /* Info.plist */,
+				79C96D7C1D4DD52D0060E662 /* InterfaceController.swift */,
+				796CF11A1D55C5250080FB07 /* MessageDetailsController.swift */,
+				796CF1181D55B4380080FB07 /* MessageRow.swift */,
+				796CF1161D55AC6D0080FB07 /* MessagesController.swift */,
+				79C96D801D4DD52D0060E662 /* NotificationController.swift */,
 				79C96D7A1D4DD52D0060E662 /* Supporting Files */,
+				796CF1261D55FB260080FB07 /* Message.swift */,
 			);
 			path = "ResidentWKApp WatchKit Extension";
 			sourceTree = "<group>";
@@ -455,6 +479,7 @@
 					};
 					79C96D651D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S2T5RH48ZP;
 					};
 					79C96D741D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -510,8 +535,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796CF1231D55CBE90080FB07 /* OpenSans-Regular.ttf in Resources */,
+				796CF1241D55CBE90080FB07 /* OpenSans-Semibold.ttf in Resources */,
 				79C96D6F1D4DD52D0060E662 /* Assets.xcassets in Resources */,
+				796CF11F1D55CBE90080FB07 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				796CF1251D55CBE90080FB07 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				796CF1211D55CBE90080FB07 /* OpenSans-Light.ttf in Resources */,
 				79C96D6D1D4DD52D0060E662 /* Interface.storyboard in Resources */,
+				796CF11D1D55CBE90080FB07 /* OpenSans-BoldItalic.ttf in Resources */,
+				796CF11C1D55CBE90080FB07 /* OpenSans-Bold.ttf in Resources */,
+				796CF11E1D55CBE90080FB07 /* OpenSans-ExtraBold.ttf in Resources */,
+				796CF1201D55CBE90080FB07 /* OpenSans-Italic.ttf in Resources */,
+				796CF1221D55CBE90080FB07 /* OpenSans-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +715,12 @@
 				79C96D811D4DD52D0060E662 /* NotificationController.swift in Sources */,
 				79C96D7F1D4DD52D0060E662 /* ExtensionDelegate.swift in Sources */,
 				79C96D7D1D4DD52D0060E662 /* InterfaceController.swift in Sources */,
+				796CF12E1D564E840080FB07 /* Message.swift in Sources */,
+				796CF1171D55AC6D0080FB07 /* MessagesController.swift in Sources */,
+				796CF1291D55FBB20080FB07 /* Notification.swift in Sources */,
+				796CF12A1D55FBB60080FB07 /* Notification+CoreDataProperties.swift in Sources */,
+				796CF11B1D55C5250080FB07 /* MessageDetailsController.swift in Sources */,
+				796CF1191D55B4380080FB07 /* MessageRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,10 +846,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -820,10 +863,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -836,11 +881,13 @@
 			baseConfigurationReference = 169BF835F3FC15C021E696EB /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -853,11 +900,14 @@
 			baseConfigurationReference = C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

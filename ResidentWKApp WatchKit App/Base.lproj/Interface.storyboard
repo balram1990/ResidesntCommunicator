@@ -4,24 +4,95 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+            <string>OpenSans-Bold</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Italic.ttf">
+            <string>OpenSans-Italic</string>
+            <string>OpenSans-Italic</string>
+        </mutableArray>
+        <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+            <string>OpenSans</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ResidentWKApp_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <slider width="1" alignment="left" value="1" maximum="5" steps="5" id="zqi-Kq-Spw"/>
-                        <picker height="100" alignment="left" id="Kc6-ww-42p"/>
-                        <button width="1" alignment="left" title="Show alert" id="Ylf-Y2-IBg">
-                            <connections>
-                                <action selector="showPressed" destination="AgC-eL-Hgc" id="AFM-uZ-2ec"/>
-                            </connections>
-                        </button>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="Xc9-X7-WUU">
+                            <items>
+                                <group width="1" height="40" alignment="left" id="qmx-0Z-Hfg">
+                                    <items>
+                                        <group width="1" alignment="center" layout="vertical" spacing="0.0" id="H9d-7m-h6W">
+                                            <items>
+                                                <imageView alignment="center" verticalAlignment="center" image="IcnCloudTopBanner" id="epR-Vz-AVX"/>
+                                            </items>
+                                            <edgeInsets key="margins" left="0.0" right="0.0" top="4" bottom="0.0"/>
+                                            <variation key="device=watch42mm">
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="0.0"/>
+                                            </variation>
+                                        </group>
+                                    </items>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <variation key="device=watch42mm" height="50"/>
+                                </group>
+                                <group width="1" height="108" alignment="center" verticalAlignment="bottom" radius="0.0" id="Va6-on-WEg">
+                                    <items>
+                                        <group width="0.5" height="1" alignment="left" contentMode="center" layout="vertical" id="HW1-h9-5og">
+                                            <items>
+                                                <group width="1" alignment="left" id="Qah-4Y-jYY">
+                                                    <items>
+                                                        <button alignment="center" backgroundImage="IcnAssistance" id="sOK-dd-ee6">
+                                                            <connections>
+                                                                <action selector="callAssistance" destination="AgC-eL-Hgc" id="wJ7-ht-370"/>
+                                                            </connections>
+                                                        </button>
+                                                    </items>
+                                                    <edgeInsets key="margins" left="0.0" right="0.0" top="30" bottom="0.0"/>
+                                                </group>
+                                                <label alignment="center" verticalAlignment="center" text="Assistance" id="YNN-cp-LJd">
+                                                    <color key="textColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                                </label>
+                                            </items>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </group>
+                                        <group width="0.5" height="1" alignment="left" contentMode="center" layout="vertical" id="18Z-Ok-NC0">
+                                            <items>
+                                                <group width="1" alignment="left" id="89q-0w-9ih">
+                                                    <items>
+                                                        <button alignment="center" backgroundImage="IcnMessage" id="blL-y7-q1T">
+                                                            <connections>
+                                                                <action selector="showMessages" destination="AgC-eL-Hgc" id="aJn-MF-EmT"/>
+                                                            </connections>
+                                                        </button>
+                                                    </items>
+                                                    <edgeInsets key="margins" left="0.0" right="0.0" top="30" bottom="0.0"/>
+                                                </group>
+                                                <label alignment="center" verticalAlignment="center" text="Messages" id="h6o-CH-SEe">
+                                                    <color key="textColor" red="0.50196078430000002" green="0.81568627449999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="12"/>
+                                                </label>
+                                            </items>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </group>
+                                    </items>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </group>
+                            </items>
+                        </group>
                     </items>
-                    <connections>
-                        <outlet property="picker" destination="Kc6-ww-42p" id="qoN-fu-hCE"/>
-                        <outlet property="slider" destination="zqi-Kq-Spw" id="g0u-Wp-bUu"/>
-                    </connections>
+                    <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
@@ -41,6 +112,152 @@
                 </notificationController>
             </objects>
             <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="fxo-lv-qNl">
+            <objects>
+                <controller identifier="Messages" id="EVI-R2-k4e" customClass="MessagesController" customModule="ResidentWKApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" id="zxq-1L-YJC">
+                            <items>
+                                <group width="1" alignment="left" id="qHK-im-Mqd">
+                                    <items>
+                                        <imageView alignment="left" image="IcnMessage" id="WFM-1O-cvD"/>
+                                        <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="OmK-KN-9Ns">
+                                            <connections>
+                                                <action selector="pop" destination="EVI-R2-k4e" id="N2C-9r-XIa"/>
+                                            </connections>
+                                        </button>
+                                        <button width="50" alignment="right" verticalAlignment="center" title="Back" id="w38-a0-YnK">
+                                            <color key="titleColor" red="0.50196078430000002" green="0.81568627449999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="15"/>
+                                            <connections>
+                                                <action selector="pop" destination="EVI-R2-k4e" id="pxy-jS-cpL"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                        <group width="1" alignment="left" id="s6e-c4-knz">
+                            <items>
+                                <label width="1" alignment="left" text="No messages" textAlignment="center" id="MgS-gw-f4b">
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </group>
+                        <group width="1" alignment="left" id="Bdq-WP-Vkf">
+                            <items>
+                                <table alignment="left" id="qF5-yA-pSE">
+                                    <items>
+                                        <tableRow identifier="MessageRow" id="v1X-7v-IXw" customClass="MessageRow" customModule="ResidentWKApp_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="70" alignment="left" layout="vertical" id="4uC-xS-shR">
+                                                <items>
+                                                    <label width="1" height="15" alignment="left" text="LaJohn" id="l5F-iv-lcJ">
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                                    </label>
+                                                    <label width="1" height="15" alignment="left" text="34 Minutes ago" textAlignment="left" minimumScaleFactor="0.69999999999999996" id="Mpy-q7-wPe">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
+                                                    </label>
+                                                    <label width="125.5" height="28.5" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="2" minimumScaleFactor="0.40000000000000002" id="EVi-1j-s95">
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" name="OpenSans-Italic" family="Open Sans" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </group>
+                                            <connections>
+                                                <outlet property="fromLabel" destination="l5F-iv-lcJ" id="Bx3-oK-hf3"/>
+                                                <outlet property="messgeLabel" destination="EVi-1j-s95" id="zkv-XD-YRn"/>
+                                                <outlet property="timeLabel" destination="Mpy-q7-wPe" id="idV-dn-rdl"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="messageTable" destination="qF5-yA-pSE" id="CxR-qe-dpF"/>
+                        <outlet property="noMessageLabel" destination="MgS-gw-f4b" id="1V9-Fe-zo1"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--MessageDetails-->
+        <scene sceneID="02r-D5-Bn3">
+            <objects>
+                <controller identifier="MessageDetails" id="sA0-xL-iHu" customClass="MessageDetailsController" customModule="ResidentWKApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" id="653-pJ-FwX">
+                            <items>
+                                <group width="1" alignment="left" id="lnX-Ac-1MW">
+                                    <items>
+                                        <imageView alignment="left" image="IcnMessage" id="sdK-2i-uob"/>
+                                        <button width="50" alignment="right" verticalAlignment="center" title="Back" id="eTN-85-hK0">
+                                            <color key="titleColor" red="0.50196078430000002" green="0.81568627449999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="15"/>
+                                            <connections>
+                                                <action selector="pop" destination="sA0-xL-iHu" id="BBZ-m3-vpI"/>
+                                            </connections>
+                                        </button>
+                                        <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="Gqj-nd-bPL">
+                                            <connections>
+                                                <action selector="pop" destination="sA0-xL-iHu" id="ZTY-Av-LG8"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                                <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="Apy-pe-rAB">
+                                    <connections>
+                                        <action selector="pop" destination="EVI-R2-k4e" id="M52-MG-uVn"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="Kt4-V6-MmH">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" id="rv9-Ng-3CK">
+                                    <items>
+                                        <label width="1" height="15" alignment="left" text="LaJohn" id="aO2-nj-rnl">
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                        </label>
+                                        <label width="1" height="15" alignment="left" text="34 Minutes ago" textAlignment="left" minimumScaleFactor="0.69999999999999996" id="oNT-dN-hbC">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
+                                        </label>
+                                        <label width="1" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="34" minimumScaleFactor="0.40000000000000002" id="h9M-fM-cok">
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" name="OpenSans-Italic" family="Open Sans" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="10" right="10" top="10" bottom="10"/>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="fromLabel" destination="aO2-nj-rnl" id="g9F-ND-LEL"/>
+                        <outlet property="messageLabel" destination="h9M-fM-cok" id="ZnW-VG-Ody"/>
+                        <outlet property="timeLabel" destination="oNT-dN-hbC" id="4uZ-wW-WfL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="763" y="345"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">

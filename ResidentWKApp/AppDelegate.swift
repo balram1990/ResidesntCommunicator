@@ -9,9 +9,10 @@
 import UIKit
 import CoreLocation
 import CoreData
+import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
     var user : User?
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
     var location : CLLocation?
     var pushToken : String?
     static let NotificationListUpdate = "NotificationListUpdate"
+    var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -37,6 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
         } else {
             self.launchLoginScreen()
         }
+        
+        if (WCSession.isSupported()) {
+            session = WCSession.defaultSession()
+            session?.delegate = self;
+            session?.activateSession()
+        }
+        
         return true
     }
     
@@ -206,5 +215,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate 
         return nil
     }
 
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        let message = message["message"] as? String
+        if message == "Notifications" {
+            var json = [NSDictionary]()
+            let notifications = DataManager.sharedInstance().getAllNotifications()
+            for nt in notifications {
+                json.append(self.getJSON(nt))
+            }
+            replyHandler(["notifications" : json])
+        }
+    }
+    
+    func getJSON (notif : Notification) -> NSDictionary {
+        var timeAgo : String?
+        if let time = notif.timeinterval {
+            let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
+            timeAgo = date.timeAgo
+        }
+        let json : NSDictionary = ["from": notif.from ?? "", "message": notif.msg ?? "", "time" : timeAgo ?? "", "id" : notif.notifId ?? ""]
+        return json
+    }
+
+    
+    //WARNING: Load somedata here 
+    func loadData () {
+        let data = ["from" : "Balram", "message":"This is Balram this side. Hope everything is good there", "id" : 1234]
+        self.saveNotification(data)
+
+        let data1 = ["from" : "Vijay", "message":"This is Vijay this side. We'll have a get togather soon at Santa Clara town hall.", "id" : 12345]
+        self.saveNotification(data1)
+
+        let dat2 = ["from" : "Nandan", "message":"Hey, where you have being all the time? Call me back ASAP", "id" : 123456]
+        self.saveNotification(dat2)
+
+        
+        
+    }
 }
 

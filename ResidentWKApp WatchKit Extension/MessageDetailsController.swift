@@ -1,37 +1,40 @@
 //
-//  InterfaceController.swift
-//  ResidentWKApp WatchKit Extension
+//  MessageDetailsController.swift
+//  ResidentWKApp
 //
-//  Created by Balram Singh on 31/07/16.
+//  Created by Balram Singh on 06/08/16.
 //  Copyright © 2016 Balram Singh. All rights reserved.
 //
 
 import WatchKit
 import Foundation
 
-
-class InterfaceController: WKInterfaceController {
-
+class MessageDetailsController: WKInterfaceController {
+    
+    @IBOutlet var fromLabel: WKInterfaceLabel!
+    @IBOutlet var timeLabel: WKInterfaceLabel!
+    @IBOutlet var messageLabel: WKInterfaceLabel!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
+        if let msg = context as? Message {
+            self.messageLabel.setText(msg.msg)
+            self.fromLabel.setText(msg.from)
+            self.timeLabel.setText(msg.timeAgo)
+        }
         // Configure interface objects here.
     }
-
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
     }
-
+    
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-    
-    @IBAction func callAssistance() {
+    @IBAction func pop() {
+        self.popController()
     }
-    
-    @IBAction func showMessages() {
-        self.pushControllerWithName("Messages", context: nil)
-    }
+
 }
