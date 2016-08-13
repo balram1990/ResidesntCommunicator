@@ -113,7 +113,7 @@
                             <rect key="frame" x="15" y="131" width="570" height="297.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
@@ -152,7 +152,7 @@
     </objects>
     <resources>
         <image name="IcnBackButton" width="27" height="28"/>
-        <image name="IcnMessageButton" width="73" height="73"/>
+        <image name="IcnMessageButton" width="142" height="142"/>
         <image name="IcnTopBanner" width="193" height="30"/>
     </resources>
 </document>

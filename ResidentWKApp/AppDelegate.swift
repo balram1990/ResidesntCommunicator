@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
+        NSLog("App Did finish launching with optipns \(launchOptions)")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.hidden = false
         PushNotificationManager.pushManager().delegate = self
@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
             self.user = self.getUser()
             self.launchLandingScreen()
+            if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as! [NSObject : AnyObject]? {
+                self.launchMessageDetailsSceen(remoteNotification)
+                
+            }
         } else {
             self.launchLoginScreen()
         }
@@ -45,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             session?.delegate = self;
             session?.activateSession()
         }
+        
+        
         
         return true
     }
@@ -146,6 +152,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         // 1
         print("Handle Action with identifier \(userInfo)")
         // 2
+        self.launchMessageDetailsSceen(userInfo)
+        completionHandler()
+    }
+    
+    
+    func launchMessageDetailsSceen (userInfo: [NSObject : AnyObject]) {
         if let message = saveNotification(userInfo) {
             if let navVC = window?.rootViewController as? UINavigationController {
                 let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
@@ -153,7 +165,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
                 navVC.pushViewController(vc, animated: true)
             }
         }
-        completionHandler()
     }
     
     func onPushAccepted(pushManager: PushNotificationManager!, withNotification pushNotification: [NSObject : AnyObject]!, onStart: Bool) {
@@ -216,14 +227,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     }
 
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
-        let message = message["message"] as? String
-        if message == "Notifications" {
-            var json = [NSDictionary]()
-            let notifications = DataManager.sharedInstance().getAllNotifications()
-            for nt in notifications {
-                json.append(self.getJSON(nt))
+        if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
+        
+            let msg = message["message"] as? String
+            if msg == "Notifications" {
+                var json = [NSDictionary]()
+                let notifications = DataManager.sharedInstance().getAllNotifications()
+                for nt in notifications {
+                    json.append(self.getJSON(nt))
+                }
+                replyHandler(["notifications" : json])
+            }else if msg == "assistance" {
+                self.callAssistance(replyHandler)
+            }else if msg ==  "saveNotification" {
+                if let notif = message["notification"] as? [NSObject : AnyObject] {
+                    self.saveNotification(notif)
+                }
             }
-            replyHandler(["notifications" : json])
+        } else {
+            replyHandler(["message" : "Authorization Failed", "code" : 401])
         }
     }
     
@@ -248,9 +270,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
         let dat2 = ["from" : "Nandan", "message":"Hey, where you have being all the time? Call me back ASAP", "id" : 123456]
         self.saveNotification(dat2)
+    }
+    
+    func callAssistance (replyHandler: ([String : AnyObject]) -> Void) {
+        var json : NSMutableDictionary = [:]
+        if let location = self.location {
+            json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
+        }
+        if let user = self.getUser() {
+            json.addEntriesFromDictionary(["user_id" : user.userID ?? 0])
+            var url = Constants.ASSISTANCE_URL + "?" + "token="
+            url += user.token ?? ""
+            NetworkIO().post(url, json: json) { (data, response, error) in
+                if let _ = error {
+                    replyHandler(["message" : "Error", "code" : 500])
+                } else {
+                    if let httpResponse = response as? NSHTTPURLResponse {
+                        let code = httpResponse.statusCode
+                        if code == 200 {
+                            replyHandler(["message" : "Success", "code" : code])
+                        } else if code == 400 || code == 404 {
+                            replyHandler(["message" : "Failure",  "code" : code])
+                        }
+                    }
+                }
+            }
+            
+        }
 
-        
-        
     }
 }
 

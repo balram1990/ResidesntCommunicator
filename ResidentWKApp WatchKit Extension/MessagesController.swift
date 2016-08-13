@@ -49,18 +49,27 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
         }
         session.sendMessage(["message":"Notifications"], replyHandler: { (data) in
             print("Data received \(data)")
-            if let data = data["notifications"] as? [NSDictionary] {
-                for dict in data {
-                    let newMessage = Message()
-                    newMessage.parseJSON(dict)
-                    self.messages.append(newMessage)
+            if let code = data["code"] as? Int {
+                if code == 200 {
+                    if let data = data["notifications"] as? [NSDictionary] {
+                        for dict in data {
+                            let newMessage = Message()
+                            newMessage.parseJSON(dict)
+                            self.messages.append(newMessage)
+                        }
+                    }
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.loadTable()
+                    })
+
+                } else {
+                    self.showFailure(code)
                 }
             }
-            dispatch_async(dispatch_get_main_queue(), { 
-                self.loadTable()
-            })
+            
         }) { (error) in
             print("Error while loading notifications \(error)")
+            self.showFailure(100)
         }
     }
     

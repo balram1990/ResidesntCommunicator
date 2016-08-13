@@ -48,7 +48,7 @@ class LandingViewController: UIViewController {
                         if let httpResponse = response as? NSHTTPURLResponse {
                             let code = httpResponse.statusCode
                             if code == 200 {
-                                self.showAlert("Success", msg: "Concerned people have been informed. They will contact you soon", dismissBtnTitle: "Dismiss", dismissHandler: nil)
+                                self.showAlert("Success", msg: "Concerned people have been informed. They will contact you soon.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
                             } else if code == 400 || code == 404 {
                                 self.showAlert("Error!!", msg: "Something went wrong, please try again.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
                             }

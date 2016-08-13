@@ -20,6 +20,11 @@ class MessageDetailsController: WKInterfaceController {
             self.messageLabel.setText(msg.msg)
             self.fromLabel.setText(msg.from)
             self.timeLabel.setText(msg.timeAgo)
+        } else {
+            //handle push notification
+            if let notif = context {
+                print("MessageDetailsController:AwakeWithContext:\(notif)")
+            }
         }
         // Configure interface objects here.
     }

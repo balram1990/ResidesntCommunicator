@@ -40,7 +40,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Lc8-BW-Jwa">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lc8-BW-Jwa">
                         <rect key="frame" x="8" y="43.5" width="304" height="48"/>
                         <string key="text">Lorem ipsum dolor sit amet, erat ipsum justo tortor velit nec donec, ut eros sollicitudin commodo, sollicitudin libero sapien integer nostra, quis quam nibh nec auctor pede aliquam.</string>
                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
