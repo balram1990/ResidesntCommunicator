@@ -38,6 +38,14 @@ class LoginViewController: KeyboardViewController {
 
         self.loginButton.layer.cornerRadius = 5.0
         self.loginButton.disable()
+        
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
+            if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                let userEmailID = appdelegate.getUser()?.email
+                self.usernameTextField.text = userEmailID
+            }
+        }
     }
     
     func textChanged (){

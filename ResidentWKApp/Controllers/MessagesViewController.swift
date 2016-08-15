@@ -55,6 +55,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         let message = self.messages[indexPath.row]
         let vc =  MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
         vc.message = message
+        vc.isFromMessages = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

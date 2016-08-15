@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     static let NotificationListUpdate = "NotificationListUpdate"
     var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        //self.loadData()
         // Override point for customization after application launch.
         NSLog("App Did finish launching with optipns \(launchOptions)")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -162,6 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             if let navVC = window?.rootViewController as? UINavigationController {
                 let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
                 vc.message = message
+                vc.backLabel.text = "Back"
                 navVC.pushViewController(vc, animated: true)
             }
         }

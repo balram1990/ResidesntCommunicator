@@ -14,13 +14,20 @@ class MessageDetailsViewController: UIViewController {
     @IBOutlet weak var fromLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var messagelabel: UITextView!
+    @IBOutlet weak var backLabel: UILabel!
     var message : Notification?
+    var isFromMessages = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fromLabel.text = message?.from
         self.messagelabel.text = message?.msg
         let date = NSDate(timeIntervalSince1970: NSTimeInterval((message?.timeinterval)!))
         self.timeLabel.text = date.timeAgo
+        if isFromMessages {
+            self.backLabel.text = "Back To Messages"
+        } else {
+            self.backLabel.text = "Back"
+        }
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
