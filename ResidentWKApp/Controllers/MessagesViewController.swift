@@ -24,6 +24,11 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+    }
+    
     func reloadList () {
         self.messages = DataManager.sharedInstance().getAllNotifications()
         self.tableView.reloadData()
@@ -46,6 +51,13 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         cell?.fromLabel.text = message.from
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(message.timeinterval!))
         cell?.timeLabel.text = date.timeAgo
+        if message.isRead == true {
+            cell?.backgroundColor = .whiteColor()
+            cell?.timeLabel.textColor = .lightGrayColor()
+        } else {
+            cell?.backgroundColor =  UIColor(red: 208.0/255.0, green: 242.0/255.0, blue: 1.0, alpha: 1.0)
+            cell?.timeLabel.textColor = UIColor.blueColor()
+        }
         return cell!
     }
     

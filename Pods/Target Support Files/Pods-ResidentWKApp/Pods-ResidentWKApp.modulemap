@@ -1,0 +1,6 @@
+framework module Pods_ResidentWKApp {
+  umbrella header "Pods-ResidentWKApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

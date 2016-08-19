@@ -19,6 +19,9 @@ class MessageDetailsViewController: UIViewController {
     var isFromMessages = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.message?.isRead = true
+        DataManager.sharedInstance().saveContext()
         self.fromLabel.text = message?.from
         self.messagelabel.text = message?.msg
         let date = NSDate(timeIntervalSince1970: NSTimeInterval((message?.timeinterval)!))
@@ -28,6 +31,7 @@ class MessageDetailsViewController: UIViewController {
         } else {
             self.backLabel.text = "Back"
         }
+        
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {

@@ -1,0 +1,12 @@
+PODS:
+  - Pushwoosh (4.0.7)
+
+DEPENDENCIES:
+  - Pushwoosh
+
+SPEC CHECKSUMS:
+  Pushwoosh: a27f7152ca7893b8f5c4d2e0ccb16221ac51c307
+
+PODFILE CHECKSUM: 7df62d802f025497aadb2ea2fe1eebda1d0f410d
+
+COCOAPODS: 1.0.1

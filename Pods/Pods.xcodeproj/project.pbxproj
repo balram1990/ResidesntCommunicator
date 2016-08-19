@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FD9FD179800B57E7A3EB5B894E5301A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB21402F2628AE5AD7FE931E3C014436 /* Foundation.framework */; };
+		36D9018258D1B19D503E2D7DBB745A4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A136DB53B8E99DF02F7BC3BDCD940258 /* Foundation.framework */; };
+		3DEB1E57E144F1D7F587D6404B37DFE6 /* Pods-ResidentWKApp WatchKit Extension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 630403DAFD18A40FC1D55733B792BA76 /* Pods-ResidentWKApp WatchKit Extension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		77F253EB08CE952B306D4B557C206FC3 /* Pods-ResidentWKApp WatchKit App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B18BAB3F441888377CD1D70CC56E6C /* Pods-ResidentWKApp WatchKit App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E554C4A4FA06718D0905117149FD2C5 /* Pods-ResidentWKApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54C82D5FC708BF88D1BC1849D3A0C2BD /* Pods-ResidentWKApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94492FB906508B054F72BE1F30EF8BAD /* Pods-ResidentWKApp WatchKit App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C21B0E6F1F9452B509D7889590F16720 /* Pods-ResidentWKApp WatchKit App-dummy.m */; };
+		9BCCFE89BE4236D3054F03B07435EE9A /* Pods-ResidentWKApp WatchKit Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4751081B471A7538D98D02614E4ED15F /* Pods-ResidentWKApp WatchKit Extension-dummy.m */; };
+		FCA4EA501E9B788871E0F7E8D083F3F7 /* Pods-ResidentWKApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D96139319A127577CB32351B62B6DB6 /* Pods-ResidentWKApp-dummy.m */; };
+		FD349E67EAF7B908B9D437B202F1AA95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB21402F2628AE5AD7FE931E3C014436 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01FB0B3FE316DA3971C8228ADD351920 /* Pods-ResidentWKApp WatchKit Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResidentWKApp WatchKit Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		13AE32DE23E2C04046219EE23B67DE50 /* Pods-ResidentWKApp WatchKit App-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp WatchKit App-frameworks.sh"; sourceTree = "<group>"; };
+		1E02C8BF4A537B423BFEBF8CC9BC3AF0 /* Pods-ResidentWKApp WatchKit App-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResidentWKApp WatchKit App-acknowledgements.plist"; sourceTree = "<group>"; };
+		1FD8D17579C9552A575F46DD8D6C933B /* Pods-ResidentWKApp WatchKit Extension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResidentWKApp WatchKit Extension.modulemap"; sourceTree = "<group>"; };
+		268B7929760E64EE832AB9EA6AA24D85 /* Pods-ResidentWKApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp-frameworks.sh"; sourceTree = "<group>"; };
+		2D96139319A127577CB32351B62B6DB6 /* Pods-ResidentWKApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResidentWKApp-dummy.m"; sourceTree = "<group>"; };
+		30727E3F9CFA4311705DD04C0969E04E /* Pods-ResidentWKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp.release.xcconfig"; sourceTree = "<group>"; };
+		31778F6251ACF7D94912C91763E8FC2D /* Pushwoosh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pushwoosh.framework; path = Framework/Pushwoosh.framework; sourceTree = "<group>"; };
+		35238CA34C5CDEC5A47D587C6E33AFF5 /* Pods-ResidentWKApp WatchKit Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResidentWKApp WatchKit Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		3A23E5B2253263D81724D757395E89D9 /* Pods_ResidentWKApp_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401EC7E3526DCEE7DE25AA9AA01C77BB /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		4751081B471A7538D98D02614E4ED15F /* Pods-ResidentWKApp WatchKit Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResidentWKApp WatchKit Extension-dummy.m"; sourceTree = "<group>"; };
+		480C3397C0D11409C7559D9E87289958 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5267DD6DD6BC4740C39510D604B32DF8 /* Pods-ResidentWKApp WatchKit Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp WatchKit Extension-resources.sh"; sourceTree = "<group>"; };
+		54C82D5FC708BF88D1BC1849D3A0C2BD /* Pods-ResidentWKApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ResidentWKApp-umbrella.h"; sourceTree = "<group>"; };
+		5CF54862680324F09F0BAF6378F7CAB2 /* Pods-ResidentWKApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp-resources.sh"; sourceTree = "<group>"; };
+		5FB6AA810B78159B94E1AAF2FC64DC8B /* Pods-ResidentWKApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResidentWKApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6187B987ABB72F76B70F9BBBAE950D25 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61B18BAB3F441888377CD1D70CC56E6C /* Pods-ResidentWKApp WatchKit App-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ResidentWKApp WatchKit App-umbrella.h"; sourceTree = "<group>"; };
+		630403DAFD18A40FC1D55733B792BA76 /* Pods-ResidentWKApp WatchKit Extension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ResidentWKApp WatchKit Extension-umbrella.h"; sourceTree = "<group>"; };
+		67DFDC6317A48D3EECF48A7D6C534E9C /* Pods-ResidentWKApp WatchKit App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResidentWKApp WatchKit App-acknowledgements.markdown"; sourceTree = "<group>"; };
+		693FFCAE5A1CB40D013B9168BFCDD371 /* Pods-ResidentWKApp WatchKit App.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResidentWKApp WatchKit App.modulemap"; sourceTree = "<group>"; };
+		6AC3A7030839501406045B6A7B58B404 /* Pods-ResidentWKApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResidentWKApp.modulemap"; sourceTree = "<group>"; };
+		7D0FFAF146900A272F2C76A17262A569 /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0F39956837D16FFE6C4E53A41C8D692 /* Pods_ResidentWKApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A136DB53B8E99DF02F7BC3BDCD940258 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AB21402F2628AE5AD7FE931E3C014436 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		BB8A17FCF68A39DB0A6E25E44768D9FA /* Pods-ResidentWKApp WatchKit Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp WatchKit Extension-frameworks.sh"; sourceTree = "<group>"; };
+		C21B0E6F1F9452B509D7889590F16720 /* Pods-ResidentWKApp WatchKit App-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResidentWKApp WatchKit App-dummy.m"; sourceTree = "<group>"; };
+		CD9524FB687184288B3FBBEFC94E5D27 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F22B636CA6B8E5E9658DB1058C72FC /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		D552A7D61E157FA42BAFAF587169DE68 /* Pods-ResidentWKApp WatchKit App-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResidentWKApp WatchKit App-resources.sh"; sourceTree = "<group>"; };
+		DE8B0FBBEA617FAAD65981BDEA88EA5A /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DEB602924754BBB65CB590DA681402D9 /* Pods-ResidentWKApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResidentWKApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		E1BE335A53B975EE03F089A78EBF4595 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResidentWKApp WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		E2AC5DA7B529D231CCEC20DE61E2726A /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13E531C19CF6025ED4DC8C71232E53C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FD9FD179800B57E7A3EB5B894E5301A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		722536E8FB64E821A6B6D26138EE1C4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD349E67EAF7B908B9D437B202F1AA95 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2CFAE46AE5D4531F3D8917C84AAF065 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36D9018258D1B19D503E2D7DBB745A4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DACD8F3A3F8148838F7522733CF978A /* Pushwoosh */ = {
+			isa = PBXGroup;
+			children = (
+				81A515E7A2DC0DAE4E0F23A6C7C796AA /* Frameworks */,
+			);
+			path = Pushwoosh;
+			sourceTree = "<group>";
+		};
+		26F9C39E7BC340A22D0172E36DD814C7 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A136DB53B8E99DF02F7BC3BDCD940258 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		28BF3D1B33460FDA5F803A6DF7DA693E /* Pods-ResidentWKApp WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				480C3397C0D11409C7559D9E87289958 /* Info.plist */,
+				1FD8D17579C9552A575F46DD8D6C933B /* Pods-ResidentWKApp WatchKit Extension.modulemap */,
+				01FB0B3FE316DA3971C8228ADD351920 /* Pods-ResidentWKApp WatchKit Extension-acknowledgements.markdown */,
+				35238CA34C5CDEC5A47D587C6E33AFF5 /* Pods-ResidentWKApp WatchKit Extension-acknowledgements.plist */,
+				4751081B471A7538D98D02614E4ED15F /* Pods-ResidentWKApp WatchKit Extension-dummy.m */,
+				BB8A17FCF68A39DB0A6E25E44768D9FA /* Pods-ResidentWKApp WatchKit Extension-frameworks.sh */,
+				5267DD6DD6BC4740C39510D604B32DF8 /* Pods-ResidentWKApp WatchKit Extension-resources.sh */,
+				630403DAFD18A40FC1D55733B792BA76 /* Pods-ResidentWKApp WatchKit Extension-umbrella.h */,
+				D2F22B636CA6B8E5E9658DB1058C72FC /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */,
+				E1BE335A53B975EE03F089A78EBF4595 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */,
+			);
+			name = "Pods-ResidentWKApp WatchKit Extension";
+			path = "Target Support Files/Pods-ResidentWKApp WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		69F424F28F998CB5A06656DF8042A4CB /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				AB21402F2628AE5AD7FE931E3C014436 /* Foundation.framework */,
+			);
+			name = watchOS;
+			sourceTree = "<group>";
+		};
+		78E04D0CA9FF91802E947CEE412020AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DACD8F3A3F8148838F7522733CF978A /* Pushwoosh */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				8F91EE078EA3977443D1BDC2601132EF /* Frameworks */,
+				78E04D0CA9FF91802E947CEE412020AF /* Pods */,
+				9D9CF10DF0B35B0F497A54F0D6F47093 /* Products */,
+				A0DE62A9C0B7FA85CD118745ABA7AE19 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81A515E7A2DC0DAE4E0F23A6C7C796AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31778F6251ACF7D94912C91763E8FC2D /* Pushwoosh.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F91EE078EA3977443D1BDC2601132EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26F9C39E7BC340A22D0172E36DD814C7 /* iOS */,
+				69F424F28F998CB5A06656DF8042A4CB /* watchOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B61D5D2BC1C6CFF19F52AD56A839FAD /* Pods-ResidentWKApp */ = {
+			isa = PBXGroup;
+			children = (
+				CD9524FB687184288B3FBBEFC94E5D27 /* Info.plist */,
+				6AC3A7030839501406045B6A7B58B404 /* Pods-ResidentWKApp.modulemap */,
+				5FB6AA810B78159B94E1AAF2FC64DC8B /* Pods-ResidentWKApp-acknowledgements.markdown */,
+				DEB602924754BBB65CB590DA681402D9 /* Pods-ResidentWKApp-acknowledgements.plist */,
+				2D96139319A127577CB32351B62B6DB6 /* Pods-ResidentWKApp-dummy.m */,
+				268B7929760E64EE832AB9EA6AA24D85 /* Pods-ResidentWKApp-frameworks.sh */,
+				5CF54862680324F09F0BAF6378F7CAB2 /* Pods-ResidentWKApp-resources.sh */,
+				54C82D5FC708BF88D1BC1849D3A0C2BD /* Pods-ResidentWKApp-umbrella.h */,
+				DE8B0FBBEA617FAAD65981BDEA88EA5A /* Pods-ResidentWKApp.debug.xcconfig */,
+				30727E3F9CFA4311705DD04C0969E04E /* Pods-ResidentWKApp.release.xcconfig */,
+			);
+			name = "Pods-ResidentWKApp";
+			path = "Target Support Files/Pods-ResidentWKApp";
+			sourceTree = "<group>";
+		};
+		9D9CF10DF0B35B0F497A54F0D6F47093 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0F39956837D16FFE6C4E53A41C8D692 /* Pods_ResidentWKApp.framework */,
+				3A23E5B2253263D81724D757395E89D9 /* Pods_ResidentWKApp_WatchKit_App.framework */,
+				E2AC5DA7B529D231CCEC20DE61E2726A /* Pods_ResidentWKApp_WatchKit_Extension.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A0DE62A9C0B7FA85CD118745ABA7AE19 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B61D5D2BC1C6CFF19F52AD56A839FAD /* Pods-ResidentWKApp */,
+				E2CE97A842F45602C94332322B917EF9 /* Pods-ResidentWKApp WatchKit App */,
+				28BF3D1B33460FDA5F803A6DF7DA693E /* Pods-ResidentWKApp WatchKit Extension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E2CE97A842F45602C94332322B917EF9 /* Pods-ResidentWKApp WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				6187B987ABB72F76B70F9BBBAE950D25 /* Info.plist */,
+				693FFCAE5A1CB40D013B9168BFCDD371 /* Pods-ResidentWKApp WatchKit App.modulemap */,
+				67DFDC6317A48D3EECF48A7D6C534E9C /* Pods-ResidentWKApp WatchKit App-acknowledgements.markdown */,
+				1E02C8BF4A537B423BFEBF8CC9BC3AF0 /* Pods-ResidentWKApp WatchKit App-acknowledgements.plist */,
+				C21B0E6F1F9452B509D7889590F16720 /* Pods-ResidentWKApp WatchKit App-dummy.m */,
+				13AE32DE23E2C04046219EE23B67DE50 /* Pods-ResidentWKApp WatchKit App-frameworks.sh */,
+				D552A7D61E157FA42BAFAF587169DE68 /* Pods-ResidentWKApp WatchKit App-resources.sh */,
+				61B18BAB3F441888377CD1D70CC56E6C /* Pods-ResidentWKApp WatchKit App-umbrella.h */,
+				7D0FFAF146900A272F2C76A17262A569 /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */,
+				401EC7E3526DCEE7DE25AA9AA01C77BB /* Pods-ResidentWKApp WatchKit App.release.xcconfig */,
+			);
+			name = "Pods-ResidentWKApp WatchKit App";
+			path = "Target Support Files/Pods-ResidentWKApp WatchKit App";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		04E05FBDAA4510FAF14F8E4920E14A6A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DEB1E57E144F1D7F587D6404B37DFE6 /* Pods-ResidentWKApp WatchKit Extension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AA8570C0FD9E0A6DDA2B2F75AFDAAE8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E554C4A4FA06718D0905117149FD2C5 /* Pods-ResidentWKApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9A7D641AC20597924D909B77F74A134 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77F253EB08CE952B306D4B557C206FC3 /* Pods-ResidentWKApp WatchKit App-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5CC44BA34A8A75F7FBAB7C62EE0F1BC5 /* Pods-ResidentWKApp WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C15B945F39F9BACC2DAB3EB1E154A8C /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp WatchKit Extension" */;
+			buildPhases = (
+				F99AEB4F13C05AAC3A4069AFD959E079 /* Sources */,
+				13E531C19CF6025ED4DC8C71232E53C8 /* Frameworks */,
+				04E05FBDAA4510FAF14F8E4920E14A6A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ResidentWKApp WatchKit Extension";
+			productName = "Pods-ResidentWKApp WatchKit Extension";
+			productReference = E2AC5DA7B529D231CCEC20DE61E2726A /* Pods_ResidentWKApp_WatchKit_Extension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B2CB3029D9F691245DC9D02E93F36629 /* Pods-ResidentWKApp WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50DC43A70BDFDF420FED68C62793225C /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp WatchKit App" */;
+			buildPhases = (
+				091B9B1206193254BF13DF622E56427D /* Sources */,
+				722536E8FB64E821A6B6D26138EE1C4D /* Frameworks */,
+				D9A7D641AC20597924D909B77F74A134 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ResidentWKApp WatchKit App";
+			productName = "Pods-ResidentWKApp WatchKit App";
+			productReference = 3A23E5B2253263D81724D757395E89D9 /* Pods_ResidentWKApp_WatchKit_App.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D338A8596880EA892388C466EAF5A143 /* Pods-ResidentWKApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C503068EA98269D679B4362545E8112 /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp" */;
+			buildPhases = (
+				BE18856314462BBBE8CB686C3CED893B /* Sources */,
+				F2CFAE46AE5D4531F3D8917C84AAF065 /* Frameworks */,
+				6AA8570C0FD9E0A6DDA2B2F75AFDAAE8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ResidentWKApp";
+			productName = "Pods-ResidentWKApp";
+			productReference = A0F39956837D16FFE6C4E53A41C8D692 /* Pods_ResidentWKApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 9D9CF10DF0B35B0F497A54F0D6F47093 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D338A8596880EA892388C466EAF5A143 /* Pods-ResidentWKApp */,
+				B2CB3029D9F691245DC9D02E93F36629 /* Pods-ResidentWKApp WatchKit App */,
+				5CC44BA34A8A75F7FBAB7C62EE0F1BC5 /* Pods-ResidentWKApp WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		091B9B1206193254BF13DF622E56427D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94492FB906508B054F72BE1F30EF8BAD /* Pods-ResidentWKApp WatchKit App-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE18856314462BBBE8CB686C3CED893B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCA4EA501E9B788871E0F7E8D083F3F7 /* Pods-ResidentWKApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F99AEB4F13C05AAC3A4069AFD959E079 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BCCFE89BE4236D3054F03B07435EE9A /* Pods-ResidentWKApp WatchKit Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DC63F1A044A96E9F1E7A34D0745224D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1BE335A53B975EE03F089A78EBF4595 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp_WatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		73BF05A43990442C38B3CA3481E222BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 401EC7E3526DCEE7DE25AA9AA01C77BB /* Pods-ResidentWKApp WatchKit App.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp_WatchKit_App;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		A6DA4985635A6DCE8DD2474F29810890 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		B839463A183A092E64CD3F2C1C5D988C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		BA50BCE53A51F566A004FC435A86E382 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D0FFAF146900A272F2C76A17262A569 /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit App/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp_WatchKit_App;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		CB73B018DA0CAC25BC1E117922744EE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8B0FBBEA617FAAD65981BDEA88EA5A /* Pods-ResidentWKApp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4CBFAAE23D0F66EDA62A08669E1413F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2F22B636CA6B8E5E9658DB1058C72FC /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit Extension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp WatchKit Extension/Pods-ResidentWKApp WatchKit Extension.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp_WatchKit_Extension;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		EB82B94E6F594FD819B0E3099F5AC501 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30727E3F9CFA4311705DD04C0969E04E /* Pods-ResidentWKApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResidentWKApp/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResidentWKApp;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C503068EA98269D679B4362545E8112 /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB73B018DA0CAC25BC1E117922744EE9 /* Debug */,
+				EB82B94E6F594FD819B0E3099F5AC501 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6DA4985635A6DCE8DD2474F29810890 /* Debug */,
+				B839463A183A092E64CD3F2C1C5D988C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50DC43A70BDFDF420FED68C62793225C /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA50BCE53A51F566A004FC435A86E382 /* Debug */,
+				73BF05A43990442C38B3CA3481E222BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C15B945F39F9BACC2DAB3EB1E154A8C /* Build configuration list for PBXNativeTarget "Pods-ResidentWKApp WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4CBFAAE23D0F66EDA62A08669E1413F /* Debug */,
+				1DC63F1A044A96E9F1E7A34D0745224D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

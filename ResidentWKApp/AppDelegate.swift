@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     static let NotificationListUpdate = "NotificationListUpdate"
     var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        //self.loadData()
+        self.loadData()
         // Override point for customization after application launch.
         NSLog("App Did finish launching with optipns \(launchOptions)")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -299,6 +299,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             
         }
 
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        NSLog("App did receive local notification")
     }
 }
 
