@@ -926,7 +926,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d3f42ee4-bd4a-4898-ab8a-2ecca990eebf";
+				PROVISIONING_PROFILE = "b5f6ad09-0511-4e54-bc0f-188efc786477";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};

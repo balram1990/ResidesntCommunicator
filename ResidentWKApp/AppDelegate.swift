@@ -163,7 +163,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             if let navVC = window?.rootViewController as? UINavigationController {
                 let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
                 vc.message = message
-                vc.backLabel.text = "Back"
                 navVC.pushViewController(vc, animated: true)
             }
         }
