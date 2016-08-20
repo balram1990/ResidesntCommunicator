@@ -7,7 +7,7 @@ target 'ResidentWKApp' do
 
   # Pods for ResidentWKApp
   pod 'Pushwoosh'
-
+  pod 'BRYXBanner'
 end
 
 target 'ResidentWKApp WatchKit App' do

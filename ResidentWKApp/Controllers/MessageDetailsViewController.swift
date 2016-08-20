@@ -20,12 +20,7 @@ class MessageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.message?.isRead = true
-        DataManager.sharedInstance().saveContext()
-        self.fromLabel.text = message?.from
-        self.messagelabel.text = message?.msg
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval((message?.timeinterval)!))
-        self.timeLabel.text = date.timeAgo
+        self.showNewMessage(self.message)
         if isFromMessages {
             self.backLabel.text = "Back To Messages"
         } else {
@@ -36,5 +31,16 @@ class MessageDetailsViewController: UIViewController {
 
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func showNewMessage (notification : Notification?) {
+        self.message = notification
+        self.message?.isRead = true
+        DataManager.sharedInstance().saveContext()
+        self.fromLabel.text = message?.from
+        self.messagelabel.text = message?.msg
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval((message?.timeinterval)!))
+        self.timeLabel.text = date.timeAgo
+
     }
 }

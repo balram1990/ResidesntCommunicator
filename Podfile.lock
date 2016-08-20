@@ -1,12 +1,17 @@
 PODS:
+  - BRYXBanner (0.5.2):
+    - BRYXBanner/Core (= 0.5.2)
+  - BRYXBanner/Core (0.5.2)
   - Pushwoosh (4.0.7)
 
 DEPENDENCIES:
+  - BRYXBanner
   - Pushwoosh
 
 SPEC CHECKSUMS:
+  BRYXBanner: 5f0911d52e0a77e088f7ea7ddcdebd02afb7828a
   Pushwoosh: a27f7152ca7893b8f5c4d2e0ccb16221ac51c307
 
-PODFILE CHECKSUM: 7df62d802f025497aadb2ea2fe1eebda1d0f410d
+PODFILE CHECKSUM: 68d42f6a02d2774ae6bc562e2353bcc27653753c
 
 COCOAPODS: 1.0.1

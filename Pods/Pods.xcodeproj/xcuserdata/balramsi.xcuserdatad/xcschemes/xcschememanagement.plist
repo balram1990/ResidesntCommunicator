@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BRYXBanner-BRYXBanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BRYXBanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-ResidentWKApp WatchKit App.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6651545C46A982F45286BD6BA4706D38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75AEEEFD7E431013E8E60009251D5797</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B2CB3029D9F691245DC9D02E93F36629</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D338A8596880EA892388C466EAF5A143</key>
+		<key>E45C60E65DC7B25E659C0A735F907FC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

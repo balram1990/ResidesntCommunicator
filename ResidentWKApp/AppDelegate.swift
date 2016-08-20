@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import CoreData
 import WatchConnectivity
+import BRYXBanner
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate, WCSessionDelegate {
@@ -22,15 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     static let NotificationListUpdate = "NotificationListUpdate"
     var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.loadData()
+        //self.loadData()
         // Override point for customization after application launch.
         NSLog("App Did finish launching with optipns \(launchOptions)")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.hidden = false
-        PushNotificationManager.pushManager().delegate = self
-        PushNotificationManager.pushManager().handlePushReceived(launchOptions)
-        PushNotificationManager.pushManager().sendAppOpen()
-        PushNotificationManager.pushManager().registerForPushNotifications()
+        self.registerForPushNotifications(application)
         locationManager = LocationManager()
         locationManager?.startLocationUpdate()
         
@@ -116,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        PushNotificationManager.pushManager().handlePushRegistration(deviceToken)
+        //PushNotificationManager.pushManager().handlePushRegistration(deviceToken)
         
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
@@ -132,19 +130,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         print("Failed to register:", error)
-        PushNotificationManager.pushManager().handlePushRegistrationFailure(error)
     }
     
     //push notification services delegate
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-        PushNotificationManager.pushManager().handlePushReceived(userInfo)
         print("did receive notification \(userInfo)")
     
         if let message = self.saveNotification(userInfo) {
             if application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background {
                 self.launchMessagesScreen(message)
+            }else if application.applicationState == .Active {
+                self.handleNotificationInActiveMode(message)
+                
             }
         }
     }
@@ -216,13 +215,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
         NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.NotificationListUpdate, object: nil)
         let manager = DataManager.sharedInstance()
-        if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
-            notif.from = dictionary["from"] as? String
-            notif.msg = dictionary["message"] as? String
-            notif.notifId = dictionary["id"] as? String
-            notif.timeinterval = NSDate().timeIntervalSince1970
-            manager.saveContext()
-            return notif
+        if let data = dictionary["aps"] as? NSDictionary {
+            if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
+                
+                notif.from = data["from"] as? String
+                notif.msg = data["message"] as? String
+                notif.notifId = data["id"] as? String
+                notif.timeinterval = NSDate().timeIntervalSince1970
+                manager.saveContext()
+                return notif
+            }
         }
         return nil
     }
@@ -301,8 +303,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
     }
     
-    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        NSLog("App did receive local notification")
+    func handleNotificationInActiveMode (message : Notification) {
+        if let _ = message.from,_  = message.msg {
+            let banner = Banner(title: message.from, subtitle: message.msg, image: nil, backgroundColor: UIColor.blackColor())
+            banner.textColor = UIColor.whiteColor()
+            let completionBlock = {
+                    if let navVC = self.window?.rootViewController as? UINavigationController {
+                        if let messageDetailsVC = navVC.topViewController as? MessageDetailsViewController {
+                            messageDetailsVC.showNewMessage(message)
+                        }else {
+                            let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
+                            vc.message = message
+                            navVC.pushViewController(vc, animated: true)
+                        }
+                }
+            }
+            banner.didTapBlock = completionBlock
+            banner.show()
+        }
+
     }
 }
 
