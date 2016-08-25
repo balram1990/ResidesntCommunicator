@@ -9,11 +9,11 @@
 import UIKit
 
 protocol BaseIO {
-    func get(url: String, callback: (NSData?, NSURLResponse?, NSError?) -> Void)
+    func get(url: String, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void)
     
-    func update(url: String, json: NSDictionary?, callback: (NSData?, NSURLResponse?, NSError?) -> Void)
+    func update(url: String, json: NSDictionary?, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void)
     
-    func post(url: String, json: NSDictionary?, callback: (NSData?, NSURLResponse?, NSError?) -> Void)
+    func post(url: String, json: NSDictionary?, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void)
     
-    func delete(url: String, json: NSDictionary?, callback:(NSData?, NSURLResponse?, NSError?) -> Void)
+    func delete(url: String, json: NSDictionary?, callback:(NSDictionary?, NSURLResponse?, NSError?) -> Void)
 }

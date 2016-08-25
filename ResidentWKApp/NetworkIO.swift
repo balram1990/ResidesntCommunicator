@@ -18,23 +18,23 @@ class ErrorCodes {
 
 class NetworkIO: BaseIO {
     
-    func get(url: String, callback: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func get(url: String, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void) {
         doService("GET", url: url, body: nil, completionHandler: callback)
     }
     
-    func post(url: String, json: NSDictionary?, callback: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func post(url: String, json: NSDictionary?, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void) {
         doService("POST", url: url, body: json, completionHandler: callback)
     }
     
-    func update(url: String, json: NSDictionary?, callback: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func update(url: String, json: NSDictionary?, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void) {
         doService("PUT", url: url, body: json, completionHandler: callback)
     }
     
-    func delete(url: String, json: NSDictionary?, callback: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func delete(url: String, json: NSDictionary?, callback: (NSDictionary?, NSURLResponse?, NSError?) -> Void) {
         doService("DELETE", url: url, body: json, completionHandler: callback)
     }
     
-    private func doService(method : String, url : String, body : NSDictionary?, completionHandler :  (NSData?, NSURLResponse?, NSError?) -> Void) {
+    private func doService(method : String, url : String, body : NSDictionary?, completionHandler :  (NSDictionary?, NSURLResponse?, NSError?) -> Void) {
         
         let fullURL = NSURL(string: Constants.BASE_URL + url)
         print("complete url \(fullURL)")
@@ -63,10 +63,23 @@ class NetworkIO: BaseIO {
             dispatch_async(dispatch_get_main_queue(), { 
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             })
-            completionHandler(data, response, error)
+            let dict = self.createJSONFromData(data)
+            completionHandler(dict, response, error)
         })
         
         //intitilze session
         task.resume()
+    }
+    
+    func createJSONFromData(data: NSData?) -> NSDictionary? {
+        var json: NSDictionary? = nil
+        if let _ = data {
+            do {
+                json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? NSDictionary
+            } catch {
+                json = nil
+            }
+        }
+        return json
     }
 }

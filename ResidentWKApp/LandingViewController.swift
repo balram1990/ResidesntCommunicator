@@ -66,8 +66,9 @@ class LandingViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func logout(sender: UIButton) {
+        NSUserDefaults.standardUserDefaults().setObject(false, forKey: Constants.USER_LOGGED_IN_KEY)
         let appdelegate =  UIApplication.sharedApplication().delegate as? AppDelegate
-        appdelegate?.launchLoginScreen()
+        appdelegate?.launchLoginScreen(nil)
         
     }
 }

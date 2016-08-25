@@ -14,9 +14,9 @@ class LoginViewController: KeyboardViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var messageAfterLogin : Notification?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +39,24 @@ class LoginViewController: KeyboardViewController {
         self.loginButton.layer.cornerRadius = 5.0
         self.loginButton.disable()
         
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
-            if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                let userEmailID = appdelegate.getUser()?.email
-                self.usernameTextField.text = userEmailID
-            }
+        if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            let userEmailID = appdelegate.getUser()?.email
+            self.usernameTextField.text = userEmailID
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if let _ = self.messageAfterLogin {
+            self.showAlertForLatestMessage()
+        }
+    }
+    
+    func showAlertForLatestMessage () {
+        let okayAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
+        let vc = UIAlertController(title: "Alert!!", message: "Please login to see message", preferredStyle: .Alert)
+        vc.addAction(okayAction)
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     func textChanged (){
@@ -79,7 +90,7 @@ class LoginViewController: KeyboardViewController {
                             self.passwordTextField.text = nil
                             self.loginButton.enabled = false
                         }else if httpResponse.statusCode == 200 {
-                            if let userData = Util.createJSONFromData(data) {
+                            if let userData = data {
                                 print("Login response \(response)")
                                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: Constants.USER_LOGGED_IN_KEY)
                                 let user = User()
@@ -88,7 +99,11 @@ class LoginViewController: KeyboardViewController {
                                 delegate?.saveUser(user)
                                 delegate?.updatePushToken()
                                 delegate?.locationManager?.startLocationUpdate()
-                                delegate?.launchLandingScreen()
+                                if let _ = self.messageAfterLogin {
+                                    delegate?.launchMessagesListAfterLogin(self.messageAfterLogin!)
+                                }else {
+                                    delegate?.launchLandingScreen()
+                                }
                             }
                         }
                     }

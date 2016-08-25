@@ -96,4 +96,11 @@ class DataManager: NSObject {
         }
         return []
     }
+    
+    func getUnreadNotificaitons () -> [Notification] {
+        let notifcations = self.getAllNotifications()
+        return notifcations.filter { (notif) -> Bool in
+            return notif.isRead == false
+        }
+    }
 }
