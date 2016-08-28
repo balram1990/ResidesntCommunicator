@@ -32,6 +32,13 @@ class LandingViewController: UIViewController {
         var json : NSMutableDictionary = [:]
         if let location = appdelegate?.location {
             json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
+        }else {
+            self.showAlert("Oops!!", msg: "Seems like you have not enabled location services for the app. Please enable   the same and try again.", positiveTitle: "Settings", negativeTitle: "Not Now", positiveHandler: {
+                    UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
+                }, negativeHandler: { 
+                    
+            })
+            return
         }
        
         if let user = appdelegate?.getUser() {

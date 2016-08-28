@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     var session : WCSession?
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.loadData()
         NSLog("App Did finish launching with optipns \(launchOptions)")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.hidden = false
@@ -294,7 +295,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
                 for nt in notifications {
                     json.append(self.getJSON(nt))
                 }
-                replyHandler(["notifications" : json])
+                replyHandler(["notifications" : json, "code" : 200])
             }else if msg == "assistance" {
                 self.callAssistance(replyHandler)
             }else if msg ==  "saveNotification" {
@@ -311,25 +312,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         var json : NSMutableDictionary = [:]
         if let location = self.location {
             json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
-        }
-        if let user = self.getUser() {
-            json.addEntriesFromDictionary(["user_id" : user.userID ?? 0])
-            var url = Constants.ASSISTANCE_URL + "?" + "token="
-            url += user.token ?? ""
-            NetworkIO().post(url, json: json) { (data, response, error) in
-                if let _ = error {
-                    replyHandler(["message" : "Error", "code" : 500])
-                } else {
-                    if let httpResponse = response as? NSHTTPURLResponse {
-                        let code = httpResponse.statusCode
-                        if code == 200 {
-                            replyHandler(["message" : "Success", "code" : code])
-                        } else if code == 400 || code == 404 {
-                            replyHandler(["message" : "Failure",  "code" : code])
+            if let user = self.getUser() {
+                json.addEntriesFromDictionary(["user_id" : user.userID ?? 0])
+                var url = Constants.ASSISTANCE_URL + "?" + "token="
+                url += user.token ?? ""
+                NetworkIO().post(url, json: json) { (data, response, error) in
+                    if let _ = error {
+                        replyHandler(["message" : "Error", "code" : 500])
+                    } else {
+                        if let httpResponse = response as? NSHTTPURLResponse {
+                            let code = httpResponse.statusCode
+                            if code == 200 {
+                                replyHandler(["message" : "Success", "code" : code])
+                            } else if code == 400 || code == 404 {
+                                replyHandler(["message" : "Failure",  "code" : code])
+                            }
                         }
                     }
                 }
+                
+            }else {
+                //No login
+                replyHandler(["message" : "Failure",  "code" : 401])
             }
+
+        }else {
+            //location services not available
+            replyHandler(["message" : "Failure",  "code" : 300])
             
         }
         

@@ -40,8 +40,14 @@ class LoginViewController: KeyboardViewController {
         self.loginButton.disable()
         
         if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            let userEmailID = appdelegate.getUser()?.email
-            self.usernameTextField.text = userEmailID
+            let user = appdelegate.getUser()
+            var username : String? = nil
+            if user?.loginType == "email" {
+                username = user?.email
+            }else {
+                username = user?.username
+            }
+            self.usernameTextField.text = username
         }
     }
     
@@ -95,6 +101,7 @@ class LoginViewController: KeyboardViewController {
                                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: Constants.USER_LOGGED_IN_KEY)
                                 let user = User()
                                 user.parseJson(userData)
+                                user.loginType = key
                                 let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
                                 delegate?.saveUser(user)
                                 delegate?.updatePushToken()

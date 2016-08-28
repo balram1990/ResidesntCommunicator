@@ -18,16 +18,17 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-    }
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
         if (WCSession.isSupported()) {
             session = WCSession.defaultSession()
             session.delegate = self
             session.activateSession()
         }
+    }
+
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+       
     }
 
     override func didDeactivate() {
@@ -75,6 +76,8 @@ extension WKInterfaceController {
         switch code {
         case 100:
             message = "Something went wrong. Please make sure that your Apple Watch is paired properly with your iPhone."
+        case 300:
+            message = "Seems like location services are not enabled for this app in your iPhone. Please enable the same and try again."
         case 401:
             message = "Please login through iPhone before proceeding further."
         case 400, 500:
@@ -86,7 +89,7 @@ extension WKInterfaceController {
         }
         
         dispatch_async(dispatch_get_main_queue()) { 
-            let action = WKAlertAction(title: "Dismiss", style: .Default, handler:{})
+            let action = WKAlertAction(title: "Dismiss", style: .Default, handler:{ self.popController()})
             self.presentAlertControllerWithTitle("Failure", message: message, preferredStyle: .Alert, actions: [action])
         }
        
