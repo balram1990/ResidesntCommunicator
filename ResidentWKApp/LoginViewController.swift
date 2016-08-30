@@ -48,6 +48,11 @@ class LoginViewController: KeyboardViewController {
                 username = user?.username
             }
             self.usernameTextField.text = username
+            self.passwordTextField.text = user?.password
+            
+            if let _ =  user?.username, _ = user?.password {
+                self.loginButton.enable()
+            }
         }
     }
     
@@ -102,6 +107,7 @@ class LoginViewController: KeyboardViewController {
                                 let user = User()
                                 user.parseJson(userData)
                                 user.loginType = key
+                                user.password = self.passwordTextField.text
                                 let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
                                 delegate?.saveUser(user)
                                 delegate?.updatePushToken()

@@ -20,6 +20,7 @@ class User: NSObject, NSCoding {
     var userDescription : String?
     var nickName : String?
     var loginType : String?
+    var password : String?
     
     func parseJson (json : NSDictionary) {
         
@@ -34,6 +35,7 @@ class User: NSObject, NSCoding {
         self.lastName = getString(json, key: "lastname")
         self.nickName = getString(json, key: "nickname")
         self.userDescription = getString(json, key: "description")
+        
     }
     
     func getString(object: NSDictionary?, key: String) -> String? {
@@ -62,6 +64,7 @@ class User: NSObject, NSCoding {
         let anickName = aDecoder.decodeObjectForKey("nickname") as? String
         let auserDescription = aDecoder.decodeObjectForKey("description") as? String
         let currentLoginType = aDecoder.decodeObjectForKey("loginType") as? String
+        let apassword = aDecoder.decodeObjectForKey("password") as? String
         
         self.init()
         self.token = atoken
@@ -76,6 +79,7 @@ class User: NSObject, NSCoding {
         self.userDescription =  auserDescription
         self.username = ausername
         self.loginType = currentLoginType
+        self.password = apassword
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -91,5 +95,6 @@ class User: NSObject, NSCoding {
         aCoder.encodeObject(self.nickName, forKey: "nickname")
         aCoder.encodeObject(self.userDescription, forKey: "description")
         aCoder.encodeObject(self.loginType, forKey:  "loginType")
+        aCoder.encodeObject(self.password, forKey: "password")
     }
 }

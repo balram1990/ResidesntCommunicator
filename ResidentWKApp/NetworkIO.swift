@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ErrorCodes {
     static let NO_NETWORK = -1
@@ -41,9 +42,6 @@ class NetworkIO: BaseIO {
         let request = NSMutableURLRequest(URL: fullURL!)
         request.HTTPMethod = method
         
-        //Add Any Header value here, like Authorization
-        //request.addValue("", forHTTPHeaderField: "")
-        
         if  let _ = body {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
@@ -55,6 +53,7 @@ class NetworkIO: BaseIO {
                print("Something went wrong while parsing JSON")
             }
             request.HTTPBody = jsonData
+            print("Request Body, \(body?.description)")
         }
         //create session
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -64,6 +63,7 @@ class NetworkIO: BaseIO {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             })
             let dict = self.createJSONFromData(data)
+            print("Response data, \(dict)")
             completionHandler(dict, response, error)
         })
         
@@ -75,11 +75,18 @@ class NetworkIO: BaseIO {
         var json: NSDictionary? = nil
         if let _ = data {
             do {
-                json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as? NSDictionary
+                json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? NSDictionary
+                if json == nil {
+                    let arrayData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue : 0)) as? NSArray
+                    if arrayData != nil {
+                        json = [ "messages": arrayData!]
+                    }
+                }
             } catch {
                 json = nil
             }
         }
+        
         return json
     }
 }

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
 
 class MessagesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     let CellIdentifier = "MessageCell"
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     var messages : [Notification] = []
+    var dFormatter : NSDateFormatter?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,8 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         self.tableView.rowHeight = 100
         self.messages = DataManager.sharedInstance().getAllNotifications()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadList), name: AppDelegate.NotificationListUpdate, object: nil)
+        
+        self.getAllMessages ()
         
     }
     
@@ -71,4 +76,71 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func getAllMessages () {
+        let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        if  let user = appdelegate?.getUser() {
+            let url = Constants.MESSAGES_URL + "/" + String(user.userID!) + "/messages" + "?" + "token=" + (user.token ?? "")
+            NetworkIO().get(url, callback: { (data, response, error) in
+                if let _ = error {
+                    self.runOnUIThread({ 
+                        self.showAlert("Error!!", msg: error?.localizedDescription, dismissBtnTitle: "Ok")
+                        return
+                    })
+                }
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if httpResponse.statusCode == 404 {
+                        self.runOnUIThread({ 
+                            self.showAlert("Error!!", msg: "Something went wrong while trying to get new messages, please try again.", dismissBtnTitle: "Ok")
+                        })
+                        
+                    }else if httpResponse.statusCode == 200 {
+                        print("data \(data)")
+                        if let dict = data {
+                            let msgs = dict["messages"] as! NSArray
+                            self.handleMessagesResponse(msgs)
+                            self.runOnUIThread({ 
+                                self.tableView.reloadData()
+                            })
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    func handleMessagesResponse (dict : NSArray) {
+        let manager = DataManager.sharedInstance()
+        for item in dict {
+            let itemId = item["id"] as? String
+            let list = self.messages.filter({ (msg) -> Bool in
+                msg.notifId == itemId
+            })
+            if list.count == 0 {
+                //create notfication object
+                if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
+                    notif.from = item["sender_display_name"] as? String
+                    notif.msg = item["message"] as? String
+                    notif.notifId = item["id"] as? String
+                    let dateString = item["time"] as? String
+                    notif.timeinterval = self.dateFromString(dateString).timeIntervalSince1970
+                }
+            }
+        }
+        manager.saveContext()
+        self.messages = manager.getAllNotifications()
+    }
+    
+    func dateFromString (dateString : String?) -> NSDate {
+        if dFormatter == nil {
+            dFormatter = NSDateFormatter()
+            dFormatter?.timeZone = NSTimeZone(name: "UTC")
+            dFormatter?.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        }
+        if let date = dFormatter?.dateFromString(dateString ?? "") {
+            return date
+        }else {
+            return NSDate()
+        }
+    }
+
 }

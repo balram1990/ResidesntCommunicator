@@ -229,7 +229,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         if let data = dictionary["aps"] as? NSDictionary {
             if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
                 
-                notif.from = data["from"] as? String
+                notif.from = data["sender_display_name"] as? String
                 notif.msg = data["message"] as? String
                 notif.notifId = data["id"] as? String
                 notif.timeinterval = NSDate().timeIntervalSince1970
@@ -343,7 +343,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         }
         
     }
-
-
 }
 

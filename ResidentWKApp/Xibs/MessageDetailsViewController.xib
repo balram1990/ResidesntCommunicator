@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -32,22 +31,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O65-Or-PHT">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-2g-OJj">
-                            <rect key="frame" x="8" y="20" width="584" height="91"/>
+                            <rect key="frame" x="112.5" y="17.5" width="375" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="gD5-2g-OJj" secondAttribute="height" multiplier="193:30" id="huG-PY-zNk"/>
-                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="JFK-hJ-HXV"/>
-                        <constraint firstItem="gD5-2g-OJj" firstAttribute="leading" secondItem="O65-Or-PHT" secondAttribute="leading" constant="8" id="XE8-ub-cpv"/>
-                        <constraint firstItem="gD5-2g-OJj" firstAttribute="top" secondItem="O65-Or-PHT" secondAttribute="top" constant="20" id="nFQ-PX-MCw"/>
-                        <constraint firstAttribute="trailing" secondItem="gD5-2g-OJj" secondAttribute="trailing" constant="8" id="vvc-ED-rij"/>
+                        <constraint firstItem="gD5-2g-OJj" firstAttribute="centerX" secondItem="O65-Or-PHT" secondAttribute="centerX" id="0zy-0Y-paO"/>
+                        <constraint firstAttribute="height" constant="75" id="JFK-hJ-HXV"/>
+                        <constraint firstItem="gD5-2g-OJj" firstAttribute="centerY" secondItem="O65-Or-PHT" secondAttribute="centerY" id="zWE-x7-4tg"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ptw-OW-Ms3">
@@ -83,7 +78,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEI-AT-k1Q">
-                    <rect key="frame" x="0.0" y="105" width="600" height="437"/>
+                    <rect key="frame" x="0.0" y="100" width="600" height="442"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnMessageButton" translatesAutoresizingMaskIntoConstraints="NO" id="duw-4E-9K2">
                             <rect key="frame" x="20" y="8" width="60" height="60"/>
@@ -111,7 +106,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfu-ag-mmp">
-                            <rect key="frame" x="15" y="131" width="570" height="297.5"/>
+                            <rect key="frame" x="15" y="131" width="570" height="302.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
@@ -154,6 +149,6 @@
     <resources>
         <image name="IcnBackButton" width="27" height="28"/>
         <image name="IcnMessageButton" width="142" height="142"/>
-        <image name="IcnTopBanner" width="193" height="30"/>
+        <image name="IcnTopBanner" width="375" height="40"/>
     </resources>
 </document>

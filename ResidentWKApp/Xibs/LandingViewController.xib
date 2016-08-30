@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -29,29 +28,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-Ln-J4X">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-pj-35b">
-                            <rect key="frame" x="8" y="20" width="584" height="91"/>
+                            <rect key="frame" x="112.5" y="17.5" width="375" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="7M3-pj-35b" secondAttribute="height" multiplier="193:30" id="iQ5-ZK-hjB"/>
-                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="7M3-pj-35b" secondAttribute="trailing" constant="8" id="5vo-Gh-6zk"/>
-                        <constraint firstItem="7M3-pj-35b" firstAttribute="leading" secondItem="qs8-Ln-J4X" secondAttribute="leading" constant="8" id="9Rh-ng-iqJ"/>
-                        <constraint firstAttribute="height" constant="80" id="bzU-IX-Bph"/>
-                        <constraint firstItem="7M3-pj-35b" firstAttribute="top" secondItem="qs8-Ln-J4X" secondAttribute="top" constant="20" id="rYv-4b-Bly"/>
+                        <constraint firstItem="7M3-pj-35b" firstAttribute="centerY" secondItem="qs8-Ln-J4X" secondAttribute="centerY" id="LAH-5G-LwY"/>
+                        <constraint firstItem="7M3-pj-35b" firstAttribute="centerX" secondItem="qs8-Ln-J4X" secondAttribute="centerX" id="W4K-mg-JuV"/>
+                        <constraint firstAttribute="height" constant="75" id="bzU-IX-Bph"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-78-vJb">
-                    <rect key="frame" x="0.0" y="105" width="600" height="495"/>
+                    <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-ob-WPK">
-                            <rect key="frame" x="120" y="30" width="360" height="435"/>
+                            <rect key="frame" x="120" y="30" width="360" height="440"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-Of-hgg">
                                     <rect key="frame" x="120" y="20" width="120" height="120"/>
@@ -64,14 +59,14 @@
                                         <action selector="callAssistance:" destination="-1" eventType="touchUpInside" id="9Vt-bM-oaz"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assistance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ape-FW-PRe">
-                                    <rect key="frame" x="116" y="148" width="127" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Assistance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ape-FW-PRe">
+                                    <rect key="frame" x="121.5" y="148" width="116.5" height="28"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                     <color key="textColor" red="0.93333333333333335" green="0.42745098039215684" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYB-mI-5ai">
-                                    <rect key="frame" x="119.5" y="201" width="120" height="120"/>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYB-mI-5ai">
+                                    <rect key="frame" x="119" y="196" width="120" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="uYB-mI-5ai" secondAttribute="height" multiplier="1:1" id="KD9-cw-gSG"/>
                                     </constraints>
@@ -80,8 +75,8 @@
                                         <action selector="showMessages:" destination="-1" eventType="touchUpInside" id="C96-3f-VfT"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-xp-aDr">
-                                    <rect key="frame" x="122" y="329" width="115" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-xp-aDr">
+                                    <rect key="frame" x="125" y="324" width="109.5" height="28"/>
                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
                                     <color key="textColor" red="0.50196078431372548" green="0.81568627450980391" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -101,7 +96,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH3-hH-Axb">
-                            <rect key="frame" x="544" y="457" width="48" height="30"/>
+                            <rect key="frame" x="544" y="462" width="48" height="30"/>
                             <state key="normal" title="Logout"/>
                             <connections>
                                 <action selector="logout:" destination="-1" eventType="touchUpInside" id="HE7-Zd-Wfr"/>
@@ -135,6 +130,6 @@
     <resources>
         <image name="IcnAssitanceButton" width="143" height="143"/>
         <image name="IcnMessageButton" width="142" height="142"/>
-        <image name="IcnTopBanner" width="193" height="30"/>
+        <image name="IcnTopBanner" width="375" height="40"/>
     </resources>
 </document>
