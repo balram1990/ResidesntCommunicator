@@ -19,5 +19,6 @@ extension Notification {
     @NSManaged var timeinterval: NSNumber?
     @NSManaged var msg: String?
     @NSManaged var isRead : NSNumber?
+    @NSManaged var hasContent : NSNumber?
 
 }

@@ -16,7 +16,7 @@ class LoginViewController: KeyboardViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var messageAfterLogin : Notification?
+    var messageAfterLogin : [NSObject : AnyObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,16 +90,22 @@ class LoginViewController: KeyboardViewController {
         NetworkIO().post(Constants.LOGIN_URL, json: json) { (data, response, error) in
             self.runOnUIThread({
                 if let _ = error {
-                    self.showAlert("Error!!", msg: error?.localizedDescription, dismissBtnTitle: "Ok")
+                    
                     self.passwordTextField.text = nil
                     self.loginButton.enabled = false
+                    
+                    if error?.code == 404 {
+                        self.showAlert("Error!!", msg: "Username or password entered are wrong, please try again.", dismissBtnTitle: "Ok")
+                        self.passwordTextField.text = nil
+                        self.loginButton.enabled = false
+                    }else {
+                        self.handleError(error!)
+                    }
                 } else {
                     
                     if let httpResponse = response as? NSHTTPURLResponse {
                         if httpResponse.statusCode == 404 {
-                            self.showAlert("Error!!", msg: "Username or password entered are wrong, please try again.", dismissBtnTitle: "Ok")
-                            self.passwordTextField.text = nil
-                            self.loginButton.enabled = false
+                            
                         }else if httpResponse.statusCode == 200 {
                             if let userData = data {
                                 print("Login response \(response)")
@@ -113,7 +119,7 @@ class LoginViewController: KeyboardViewController {
                                 delegate?.updatePushToken()
                                 delegate?.locationManager?.startLocationUpdate()
                                 if let _ = self.messageAfterLogin {
-                                    delegate?.launchMessagesListAfterLogin(self.messageAfterLogin!)
+                                    delegate?.launchMessageDetailsAfterLogin(self.messageAfterLogin!)
                                 }else {
                                     delegate?.launchLandingScreen()
                                 }

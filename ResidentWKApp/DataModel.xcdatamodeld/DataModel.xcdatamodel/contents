@@ -2,12 +2,13 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
     <entity name="Notification" representedClassName=".Notification" syncable="YES">
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasContent" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="isRead" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="msg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notifId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeinterval" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Notification" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Notification" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

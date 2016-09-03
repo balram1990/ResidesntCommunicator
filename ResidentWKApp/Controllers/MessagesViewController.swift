@@ -83,26 +83,17 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
             NetworkIO().get(url, callback: { (data, response, error) in
                 if let _ = error {
                     self.runOnUIThread({ 
-                        self.showAlert("Error!!", msg: error?.localizedDescription, dismissBtnTitle: "Ok")
+                        self.handleError(error!)
                         return
                     })
                 }
-                if let httpResponse = response as? NSHTTPURLResponse {
-                    if httpResponse.statusCode == 404 {
-                        self.runOnUIThread({ 
-                            self.showAlert("Error!!", msg: "Something went wrong while trying to get new messages, please try again.", dismissBtnTitle: "Ok")
-                        })
-                        
-                    }else if httpResponse.statusCode == 200 {
-                        print("data \(data)")
-                        if let dict = data {
-                            let msgs = dict["messages"] as! NSArray
-                            self.handleMessagesResponse(msgs)
-                            self.runOnUIThread({ 
-                                self.tableView.reloadData()
-                            })
-                        }
-                    }
+                print("data \(data)")
+                if let dict = data {
+                    let msgs = dict["messages"] as! NSArray
+                    self.handleMessagesResponse(msgs)
+                    self.runOnUIThread({
+                        self.tableView.reloadData()
+                    })
                 }
             })
         }
@@ -122,25 +113,11 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
                     notif.msg = item["message"] as? String
                     notif.notifId = item["id"] as? String
                     let dateString = item["time"] as? String
-                    notif.timeinterval = self.dateFromString(dateString).timeIntervalSince1970
+                    notif.timeinterval = Util.dateFromString(dateString).timeIntervalSince1970
                 }
             }
         }
         manager.saveContext()
         self.messages = manager.getAllNotifications()
     }
-    
-    func dateFromString (dateString : String?) -> NSDate {
-        if dFormatter == nil {
-            dFormatter = NSDateFormatter()
-            dFormatter?.timeZone = NSTimeZone(name: "UTC")
-            dFormatter?.dateFormat = "yyyy-MM-dd hh:mm:ss"
-        }
-        if let date = dFormatter?.dateFromString(dateString ?? "") {
-            return date
-        }else {
-            return NSDate()
-        }
-    }
-
 }

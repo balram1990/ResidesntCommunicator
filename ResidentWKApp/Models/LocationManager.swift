@@ -50,29 +50,15 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
             isUpdateInProgress = true
             let location = ["latitude" : newLocation.coordinate.latitude, "longitude" : newLocation.coordinate.longitude]
             let completeURL =  Constants.LOCATION_UPDATE_URL  + String(format: "%d", user.userID!) + "?token=" + user.token!
-                NetworkIO().post(completeURL, json: location) { (data, response, error) in
-                    self.isUpdateInProgress = false
-                    if error != nil {
-                        print("error while updating location to server, \(error)")
-                    }else {
-                        if let httpResonse =  response as? NSHTTPURLResponse {
-                            let code =  httpResonse.statusCode
-                            
-                            if code == 400 || code == 404 {
-                                print("Somethong wrong happened")
-                            } else if code == 200 {
-                                print("successfully updated location to server")
-                            }
-                        }
-                    }
-                    
-                    
+            NetworkIO().post(completeURL, json: location) { (data, response, error) in
+                self.isUpdateInProgress = false
+                if error != nil {
+                    print("error while updating location to server, \(error)")
+                }else {
+                    print("successfully updated location to server")
+                }
             }
         }
-        //push new location to server
-    
-        
-        
     }
     
     // authorization status

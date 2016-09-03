@@ -64,7 +64,16 @@ class NetworkIO: BaseIO {
             })
             let dict = self.createJSONFromData(data)
             print("Response data, \(dict)")
-            completionHandler(dict, response, error)
+            if let httpResponse = response as? NSHTTPURLResponse {
+                let code =  httpResponse.statusCode
+                if code == 404 || code == 400 || code == 401{
+                    let someError = NSError(domain: "com.communicator", code: code, userInfo: nil)
+                    completionHandler(dict, response, someError)
+                    return
+                }
+                completionHandler(dict, response, error)
+            }
+            
         })
         
         //intitilze session

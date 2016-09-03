@@ -21,8 +21,17 @@ class Util: NSObject {
         }
         return json
     }
-
     
+    class func dateFromString (dateString : String?) -> NSDate {
+        let dFormatter = NSDateFormatter()
+        dFormatter.timeZone = NSTimeZone(name: "UTC")
+        dFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        if let date = dFormatter.dateFromString(dateString ?? "") {
+            return date
+        }else {
+            return NSDate()
+        }
+    }
 }
 
 
@@ -68,6 +77,25 @@ extension UIViewController {
         self.presentViewController(alert, animated: true, completion:nil)
     }
 
+    func handleError (error : NSError) {
+        
+        self.runOnUIThread {
+            let errorCode = error.code
+            switch errorCode {
+            case 400, 404:
+                self.showAlert("Error", msg: "Something went wrong. Please try again", dismissBtnTitle: "Dismiss")
+            case 401:
+                self.showAlert("Opps!!", msg: "Your session is expired. Please login again.", dismissBtnTitle: "Ok", dismissHandler: {
+                    if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+                        appdelegate.launchLoginScreen(nil)
+                    }
+                })
+            default:
+                break
+            }
+
+        }
+    }
 }
 
 extension UITextField {

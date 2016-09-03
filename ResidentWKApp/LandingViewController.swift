@@ -50,16 +50,10 @@ class LandingViewController: UIViewController {
                 self.runOnUIThread({
                     self.assistanceBtn.enabled = true
                     if let _ = error {
-                        self.showAlert("Error!!", msg: error?.localizedDescription, dismissBtnTitle: "Dismiss", dismissHandler: nil)
+                        self.handleError(error!)
+                        return
                     } else {
-                        if let httpResponse = response as? NSHTTPURLResponse {
-                            let code = httpResponse.statusCode
-                            if code == 200 {
-                                self.showAlert("Success", msg: "Concerned people have been informed. They will contact you soon.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
-                            } else if code == 400 || code == 404 {
-                                self.showAlert("Error!!", msg: "Something went wrong, please try again.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
-                            }
-                        }
+                        self.showAlert("Success", msg: "Concerned people have been informed. They will contact you soon.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
                     }
                 })
             }

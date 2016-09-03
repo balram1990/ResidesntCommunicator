@@ -103,4 +103,21 @@ class DataManager: NSObject {
             return notif.isRead == false
         }
     }
+    
+    func getNotifcationById (messageId : String) -> Notification? {
+        let fetchRequest = NSFetchRequest(entityName: "Notification")
+        let predicate = NSPredicate(format: "notifId == %@", messageId)
+        fetchRequest.predicate = predicate
+        do  {
+            var arry = try self.managedObjectContext.executeFetchRequest(fetchRequest) as? [Notification]
+            arry?.sortInPlace { (n1, n2) -> Bool in
+                return n1.timeinterval?.doubleValue > n2.timeinterval?.doubleValue
+            }
+            return arry?.count > 0 ? arry?.first : nil
+        }catch {
+            
+        }
+        return nil
+        
+    }
 }
