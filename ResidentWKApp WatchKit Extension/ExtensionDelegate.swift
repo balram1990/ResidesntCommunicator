@@ -11,7 +11,7 @@ import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
-    var session : WCSession!
+    
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
     }
@@ -29,15 +29,22 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     //Handle remote notificaton when user clickes on view button on watchkip app
     func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
         let root = WKExtension.sharedExtension().rootInterfaceController
-        root?.pushControllerWithName("MessageDetails", context: remoteNotification)
         //make session to save the notifcaiton in in iOS app
         if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
+            let session : WCSession = WCSession.defaultSession()
             session.delegate = self
             session.activateSession()
-            
-            session.sendMessage(["message": "saveNotification", "notification" : remoteNotification], replyHandler: nil, errorHandler: nil)
+            session.sendMessage(["message": "saveNotification", "notification" : remoteNotification], replyHandler: { (data) in
+                root?.pushControllerWithName("MessageDetails", context: data)
+                }, errorHandler: { (error) in
+                    root?.showFailure(error.code)
+            })
         }
+        
+    }
+    
+    //Called in Active mode
+    func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject]) {
         
     }
 

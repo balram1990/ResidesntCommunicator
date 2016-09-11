@@ -37,9 +37,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     @IBAction func callAssistance() {
+        NSLog("Extension Delegate callAssistance")
         self.assistanceButton.setEnabled(false)
         session.sendMessage(["message":"assistance"], replyHandler: { (data) in
-            print("Data received \(data)")
+            NSLog("Data received \(data)")
             dispatch_async(dispatch_get_main_queue()) {
                 self.assistanceButton.setEnabled(true)
             }
@@ -57,7 +58,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             }
            
         }) { (error) in
-            print("Error while calling for assistance \(error)")
+            NSLog("ExtensionDelegate: Error while calling for assistance \(error.localizedDescription)")
             dispatch_async(dispatch_get_main_queue()) {
                 self.assistanceButton.setEnabled(true)
             }
@@ -85,7 +86,7 @@ extension WKInterfaceController {
         case 404:
             message = "Please login again thorugh iPhone and try again."
         default:
-            message = "something went wrong. Please try again later"
+            message = "Something went wrong. Please try again later"
         }
         
         dispatch_async(dispatch_get_main_queue()) { 

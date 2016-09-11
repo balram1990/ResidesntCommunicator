@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
@@ -8,14 +8,10 @@
         <mutableArray key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
             <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
-            <string>OpenSans-Bold</string>
-        </mutableArray>
-        <mutableArray key="OpenSans-Italic.ttf">
-            <string>OpenSans-Italic</string>
-            <string>OpenSans-Italic</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -121,30 +117,6 @@
             <objects>
                 <controller identifier="Messages" id="EVI-R2-k4e" customClass="MessagesController" customModule="ResidentWKApp_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="center" id="zxq-1L-YJC">
-                            <items>
-                                <group width="1" alignment="left" id="qHK-im-Mqd">
-                                    <items>
-                                        <imageView alignment="left" image="IcnMessage" id="WFM-1O-cvD"/>
-                                        <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="OmK-KN-9Ns">
-                                            <connections>
-                                                <action selector="pop" destination="EVI-R2-k4e" id="N2C-9r-XIa"/>
-                                            </connections>
-                                        </button>
-                                        <button width="50" alignment="right" verticalAlignment="center" title="Back" id="w38-a0-YnK">
-                                            <color key="titleColor" red="0.50196078430000002" green="0.81568627449999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="15"/>
-                                            <connections>
-                                                <action selector="pop" destination="EVI-R2-k4e" id="pxy-jS-cpL"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                </group>
-                            </items>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </group>
                         <group width="1" alignment="left" id="s6e-c4-knz">
                             <items>
                                 <label width="1" alignment="left" text="No messages" textAlignment="center" id="MgS-gw-f4b">
@@ -159,7 +131,7 @@
                                 <table alignment="left" id="qF5-yA-pSE">
                                     <items>
                                         <tableRow identifier="MessageRow" id="v1X-7v-IXw" customClass="MessageRow" customModule="ResidentWKApp_WatchKit_Extension">
-                                            <group key="rootItem" width="1" height="70" alignment="left" layout="vertical" id="4uC-xS-shR">
+                                            <group key="rootItem" width="1" height="63" alignment="left" layout="vertical" id="4uC-xS-shR">
                                                 <items>
                                                     <label width="1" height="15" alignment="left" text="LaJohn" id="l5F-iv-lcJ">
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,9 +141,9 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
                                                     </label>
-                                                    <label width="125.5" height="28.5" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="2" minimumScaleFactor="0.40000000000000002" id="EVi-1j-s95">
+                                                    <label width="125.5" height="19.5" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="2" id="EVi-1j-s95">
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="font" name="OpenSans-Italic" family="Open Sans" pointSize="10"/>
+                                                        <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                     </label>
                                                 </items>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -201,34 +173,6 @@
             <objects>
                 <controller identifier="MessageDetails" id="sA0-xL-iHu" customClass="MessageDetailsController" customModule="ResidentWKApp_WatchKit_Extension">
                     <items>
-                        <group width="1" alignment="center" id="653-pJ-FwX">
-                            <items>
-                                <group width="1" alignment="left" id="lnX-Ac-1MW">
-                                    <items>
-                                        <imageView alignment="left" image="IcnMessage" id="sdK-2i-uob"/>
-                                        <button width="50" alignment="right" verticalAlignment="center" title="Back" id="eTN-85-hK0">
-                                            <color key="titleColor" red="0.50196078430000002" green="0.81568627449999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" name="OpenSans-Bold" family="Open Sans" pointSize="15"/>
-                                            <connections>
-                                                <action selector="pop" destination="sA0-xL-iHu" id="BBZ-m3-vpI"/>
-                                            </connections>
-                                        </button>
-                                        <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="Gqj-nd-bPL">
-                                            <connections>
-                                                <action selector="pop" destination="sA0-xL-iHu" id="ZTY-Av-LG8"/>
-                                            </connections>
-                                        </button>
-                                    </items>
-                                </group>
-                                <button alignment="center" verticalAlignment="center" backgroundImage="IcnBack" id="Apy-pe-rAB">
-                                    <connections>
-                                        <action selector="pop" destination="EVI-R2-k4e" id="M52-MG-uVn"/>
-                                    </connections>
-                                </button>
-                            </items>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </group>
                         <group width="1" alignment="left" layout="vertical" id="Kt4-V6-MmH">
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="rv9-Ng-3CK">
@@ -241,9 +185,9 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
                                         </label>
-                                        <label width="1" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="34" minimumScaleFactor="0.40000000000000002" id="h9M-fM-cok">
+                                        <label width="1" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="34" id="h9M-fM-cok">
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" name="OpenSans-Italic" family="Open Sans" pointSize="10"/>
+                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
                                         </label>
                                     </items>
                                     <edgeInsets key="margins" left="10" right="10" top="10" bottom="10"/>

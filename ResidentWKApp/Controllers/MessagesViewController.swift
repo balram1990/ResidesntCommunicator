@@ -86,6 +86,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
                         self.handleError(error!)
                         return
                     })
+                    return
                 }
                 print("data \(data)")
                 if let dict = data {

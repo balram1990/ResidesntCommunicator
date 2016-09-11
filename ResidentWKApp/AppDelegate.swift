@@ -130,7 +130,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             self.launchMessageDetailsForMessage(userInfo)
             completionHandler(UIBackgroundFetchResult.NewData)
         }else if application.applicationState == .Active {
-            self.downlaodMessageContent(userInfo, completionHandler: completionHandler)
+            self.downlaodMessageContent(userInfo, completionHandler: completionHandler, replyHandler: nil)
             self.handleNotificationInActiveMode(userInfo)
             completionHandler(UIBackgroundFetchResult.NewData)
         }else {
@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
             let count = DataManager.sharedInstance().getUnreadNotificaitons().count
             UIApplication.sharedApplication().applicationIconBadgeNumber = (count+1)
             //download content and save data
-            self.downlaodMessageContent(userInfo, completionHandler: completionHandler)
+            self.downlaodMessageContent(userInfo, completionHandler: completionHandler, replyHandler: nil)
         }
     }
     
@@ -164,25 +164,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
     
     
-    func downlaodMessageContent (userInfo: [NSObject : AnyObject], completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func downlaodMessageContent (userInfo: [NSObject : AnyObject], completionHandler: ((UIBackgroundFetchResult) -> Void)? , replyHandler: ([String : AnyObject] -> Void)?) {
+        NSLog("Starting download of content message userinfo \(userInfo)")
         let user = self.getUser()
         if let tokenString = user?.token, data = userInfo["aps"] as? NSDictionary, messageID = data["message_id"] as? String{
             let completeURL = Constants.MESSAGES_URL + "/" + String(user!.userID!) + "/message/" +  String(messageID) + "?token=" + tokenString
             NetworkIO().get(completeURL, callback: { (data, response, error) in
                 if let _ = error {
                     NSLog("Something went wrong while fetching content %@", error!.localizedDescription)
-                    completionHandler(UIBackgroundFetchResult.NewData)
+                    if let _ = completionHandler {
+                        completionHandler!(UIBackgroundFetchResult.NewData)
+                    }else if let _ = replyHandler {
+                        replyHandler!(["notifications" : "", "code" : error!.code])
+                    }
                     return
                 }else {
                     //save notfication
                     if let _ = data {
                         self.addNotification(data!)
-                        completionHandler(UIBackgroundFetchResult.NewData)
+                        if let _ = completionHandler {
+                            completionHandler!(UIBackgroundFetchResult.NewData)
+                        }else if let _ = replyHandler {
+                            //get curent notification
+                            if let msg = DataManager.sharedInstance().getNotifcationById(messageID) {
+                                replyHandler!(["notifications" : self.getJSON(msg), "code" : 200])
+                            }else {
+                                replyHandler!(["notifications" : [:], "code" : 200])
+                            }
+                            
+                        }
                     }
                 }
             })
         }else {
-            completionHandler(UIBackgroundFetchResult.NewData)
+            if let _ = completionHandler {
+                completionHandler!(UIBackgroundFetchResult.NewData)
+            }else if let _ = replyHandler {
+                replyHandler!(["notifications" : "", "code" : 500])
+            }
         }
     }
     
@@ -296,6 +315,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     
     //MARK: Watch handling
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        NSLog("Session did receive message: \(message)")
         if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
             
             let msg = message["message"] as? String
@@ -304,14 +324,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
                 let notifications = DataManager.sharedInstance().getAllNotifications()
                 for nt in notifications {
                     json.append(self.getJSON(nt))
+                    if json.count == 10 {
+                        break
+                    }
                 }
                 replyHandler(["notifications" : json, "code" : 200])
             }else if msg == "assistance" {
                 self.callAssistance(replyHandler)
             }else if msg ==  "saveNotification" {
-                if let notif = message["notification"] as? [NSObject : AnyObject] {
-                    self.saveNotification(notif)
-                }
+                self.downlaodMessageContent(message, completionHandler: nil, replyHandler: replyHandler)
             }
         } else {
             replyHandler(["message" : "Authorization Failed", "code" : 401])
@@ -319,6 +340,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     }
     
     func callAssistance (replyHandler: ([String : AnyObject]) -> Void) {
+        NSLog("Call Assistance from watch")
         var json : NSMutableDictionary = [:]
         if let location = self.location {
             json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
@@ -328,6 +350,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
                 url += user.token ?? ""
                 NetworkIO().post(url, json: json) { (data, response, error) in
                     if let _ = error {
+                        NSLog("App Delegate Error while calling assistance error: \(error!.localizedDescription)")
                         replyHandler(["message" : "Error", "code" : error!.code])
                     } else {
                         replyHandler(["message" : "Success", "code" : 200])

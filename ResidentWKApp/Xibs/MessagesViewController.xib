@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="OpenSans-ExtraBold.ttf">
@@ -22,22 +23,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRO-a2-tDU">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="YbV-qX-vMt">
-                            <rect key="frame" x="112.5" y="17.5" width="375" height="40"/>
+                            <rect key="frame" x="112" y="2" width="375" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="YbV-qX-vMt" secondAttribute="height" multiplier="75:16" id="szq-VG-Ymh"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="Ble-RG-omX"/>
+                        <constraint firstAttribute="height" constant="85" id="Ble-RG-omX"/>
                         <constraint firstItem="YbV-qX-vMt" firstAttribute="centerY" secondItem="lRO-a2-tDU" secondAttribute="centerY" id="Khz-ym-RMR"/>
                         <constraint firstItem="YbV-qX-vMt" firstAttribute="centerX" secondItem="lRO-a2-tDU" secondAttribute="centerX" id="Td8-7K-Bbu"/>
+                        <constraint firstItem="YbV-qX-vMt" firstAttribute="width" relation="lessThanOrEqual" secondItem="lRO-a2-tDU" secondAttribute="width" id="dkR-Go-Yui"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="90p-Rd-jCo">
-                    <rect key="frame" x="0.0" y="95" width="600" height="447"/>
+                    <rect key="frame" x="0.0" y="105" width="600" height="437"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="BXn-Qm-bms"/>
@@ -94,6 +99,6 @@
     </objects>
     <resources>
         <image name="IcnBackButton" width="27" height="28"/>
-        <image name="IcnTopBanner" width="375" height="40"/>
+        <image name="IcnTopBanner" width="375" height="80"/>
     </resources>
 </document>

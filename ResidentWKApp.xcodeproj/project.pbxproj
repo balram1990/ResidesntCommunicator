@@ -483,6 +483,7 @@
 					};
 					79C96D741D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S2T5RH48ZP;
 					};
 				};
 			};
@@ -846,12 +847,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
+				PROVISIONING_PROFILE = "9c41af64-51cd-46f3-8577-316e77b37ff9";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -863,12 +864,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
+				PROVISIONING_PROFILE = "f6dbcfbe-ec45-42af-9954-17f2096f4b53";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -887,7 +888,7 @@
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c33b0037-6a3c-4e9c-8831-5bea44635b07";
+				PROVISIONING_PROFILE = "9c41af64-51cd-46f3-8577-316e77b37ff9";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -907,7 +908,7 @@
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5532f4d3-90ca-44e3-876f-4eeb6c416923";
+				PROVISIONING_PROFILE = "f6dbcfbe-ec45-42af-9954-17f2096f4b53";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;

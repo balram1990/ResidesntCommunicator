@@ -28,25 +28,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-Ln-J4X">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-pj-35b">
-                            <rect key="frame" x="112.5" y="17.5" width="375" height="40"/>
+                            <rect key="frame" x="112" y="2" width="375" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7M3-pj-35b" secondAttribute="height" multiplier="75:16" id="pr4-u0-Slm"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="7M3-pj-35b" firstAttribute="centerY" secondItem="qs8-Ln-J4X" secondAttribute="centerY" id="LAH-5G-LwY"/>
                         <constraint firstItem="7M3-pj-35b" firstAttribute="centerX" secondItem="qs8-Ln-J4X" secondAttribute="centerX" id="W4K-mg-JuV"/>
-                        <constraint firstAttribute="height" constant="75" id="bzU-IX-Bph"/>
+                        <constraint firstAttribute="height" constant="85" id="bzU-IX-Bph"/>
+                        <constraint firstItem="7M3-pj-35b" firstAttribute="width" relation="lessThanOrEqual" secondItem="qs8-Ln-J4X" secondAttribute="width" id="euW-eR-WYE"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-78-vJb">
-                    <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                    <rect key="frame" x="0.0" y="110" width="600" height="490"/>
                     <subviews>
                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvN-ob-WPK">
-                            <rect key="frame" x="120" y="30" width="360" height="440"/>
+                            <rect key="frame" x="120" y="30" width="360" height="430"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-Of-hgg">
                                     <rect key="frame" x="120" y="20" width="120" height="120"/>
@@ -96,7 +100,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DH3-hH-Axb">
-                            <rect key="frame" x="544" y="462" width="48" height="30"/>
+                            <rect key="frame" x="544" y="452" width="48" height="30"/>
                             <state key="normal" title="Logout"/>
                             <connections>
                                 <action selector="logout:" destination="-1" eventType="touchUpInside" id="HE7-Zd-Wfr"/>
@@ -130,6 +134,6 @@
     <resources>
         <image name="IcnAssitanceButton" width="143" height="143"/>
         <image name="IcnMessageButton" width="142" height="142"/>
-        <image name="IcnTopBanner" width="375" height="40"/>
+        <image name="IcnTopBanner" width="375" height="80"/>
     </resources>
 </document>

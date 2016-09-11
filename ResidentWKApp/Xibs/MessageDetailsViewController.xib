@@ -31,17 +31,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O65-Or-PHT">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="gD5-2g-OJj">
-                            <rect key="frame" x="112.5" y="17.5" width="375" height="40"/>
+                            <rect key="frame" x="112" y="2" width="375" height="80"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="gD5-2g-OJj" secondAttribute="height" multiplier="75:16" id="Eac-zh-Pho"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="gD5-2g-OJj" firstAttribute="centerX" secondItem="O65-Or-PHT" secondAttribute="centerX" id="0zy-0Y-paO"/>
-                        <constraint firstAttribute="height" constant="75" id="JFK-hJ-HXV"/>
+                        <constraint firstItem="gD5-2g-OJj" firstAttribute="width" relation="lessThanOrEqual" secondItem="O65-Or-PHT" secondAttribute="width" id="51E-9S-5aM"/>
+                        <constraint firstAttribute="height" constant="85" id="JFK-hJ-HXV"/>
                         <constraint firstItem="gD5-2g-OJj" firstAttribute="centerY" secondItem="O65-Or-PHT" secondAttribute="centerY" id="zWE-x7-4tg"/>
                     </constraints>
                 </view>
@@ -78,7 +82,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEI-AT-k1Q">
-                    <rect key="frame" x="0.0" y="100" width="600" height="442"/>
+                    <rect key="frame" x="0.0" y="110" width="600" height="432"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnMessageButton" translatesAutoresizingMaskIntoConstraints="NO" id="duw-4E-9K2">
                             <rect key="frame" x="20" y="8" width="60" height="60"/>
@@ -95,20 +99,20 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6w7-xB-Olt">
                             <rect key="frame" x="20" y="76" width="560" height="0.0"/>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gj-Jx-0tU">
-                            <rect key="frame" x="20" y="83.5" width="0.0" height="0.0"/>
+                            <rect key="frame" x="20" y="84" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfu-ag-mmp">
-                            <rect key="frame" x="15" y="91.5" width="570" height="342"/>
+                            <rect key="frame" x="15" y="92" width="570" height="332"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
@@ -148,6 +152,6 @@
     <resources>
         <image name="IcnBackButton" width="27" height="28"/>
         <image name="IcnMessageButton" width="142" height="142"/>
-        <image name="IcnTopBanner" width="375" height="40"/>
+        <image name="IcnTopBanner" width="375" height="80"/>
     </resources>
 </document>

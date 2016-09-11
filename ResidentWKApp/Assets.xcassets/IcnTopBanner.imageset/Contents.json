@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "header_image_750x80@2x.png",
+      "filename" : "RC_Hor_750x160.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "header_image_1242x80@3x.png",
+      "filename" : "RC_Hor_1080x240.png",
       "scale" : "3x"
     }
   ],

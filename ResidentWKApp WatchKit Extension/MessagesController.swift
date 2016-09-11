@@ -19,7 +19,6 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var noMessageLabel: WKInterfaceLabel!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        self.noMessageLabel.setHeight(0)
         
         super.willActivate()
         if (WCSession.isSupported()) {
@@ -27,6 +26,9 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
             session.delegate = self
             session.activateSession()
         }
+        self.noMessageLabel.setText("Loading...")
+        self.noMessageLabel.setHeight(25)
+        self.messageTable.setHidden(true)
         session.sendMessage(["message":"Notifications"], replyHandler: { (data) in
             print("Data received \(data)")
             if let code = data["code"] as? Int {
@@ -57,6 +59,8 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
     func loadTable () {
     
         if self.messages.count != 0 {
+            self.noMessageLabel.setHeight(0)
+            self.messageTable.setHidden(false)
             self.messageTable.setNumberOfRows(self.messages.count, withRowType: "MessageRow")
             for (index, notif) in (self.messages.enumerate()) {
                 if let row = messageTable.rowControllerAtIndex(index) as? MessageRow {

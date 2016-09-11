@@ -17,16 +17,23 @@ class MessageDetailsController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         if let msg = context as? Message {
-            self.messageLabel.setText(msg.msg)
-            self.fromLabel.setText(msg.from)
-            self.timeLabel.setText(msg.timeAgo)
+            self.showMessage(msg)
         } else {
             //handle push notification
-            if let notif = context {
+            if let notif = context as? NSDictionary{
                 print("MessageDetailsController:AwakeWithContext:\(notif)")
+                let newMessage = Message()
+                newMessage.parseJSON(notif)
+                self.showMessage(newMessage)
             }
         }
         // Configure interface objects here.
+    }
+    
+    func showMessage(msg : Message) {
+        self.messageLabel.setText(msg.msg)
+        self.fromLabel.setText(msg.from)
+        self.timeLabel.setText(msg.timeAgo)
     }
     
     override func willActivate() {
