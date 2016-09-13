@@ -11,13 +11,13 @@ import Foundation
 
 class MessageDetailsController: WKInterfaceController {
     
-    @IBOutlet var fromLabel: WKInterfaceLabel!
     @IBOutlet var timeLabel: WKInterfaceLabel!
     @IBOutlet var messageLabel: WKInterfaceLabel!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         if let msg = context as? Message {
             self.showMessage(msg)
+            self.setTitle(msg.from)
         } else {
             //handle push notification
             if let notif = context as? NSDictionary{
@@ -25,6 +25,8 @@ class MessageDetailsController: WKInterfaceController {
                 let newMessage = Message()
                 newMessage.parseJSON(notif)
                 self.showMessage(newMessage)
+                self.setTitle(newMessage.from)
+                
             }
         }
         // Configure interface objects here.
@@ -32,7 +34,6 @@ class MessageDetailsController: WKInterfaceController {
     
     func showMessage(msg : Message) {
         self.messageLabel.setText(msg.msg)
-        self.fromLabel.setText(msg.from)
         self.timeLabel.setText(msg.timeAgo)
     }
     

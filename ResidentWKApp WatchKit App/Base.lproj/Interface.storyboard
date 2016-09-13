@@ -16,7 +16,6 @@
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
-            <string>OpenSans</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -134,19 +133,19 @@
                                             <group key="rootItem" width="1" height="63" alignment="left" layout="vertical" id="4uC-xS-shR">
                                                 <items>
                                                     <label width="1" height="15" alignment="left" text="LaJohn" id="l5F-iv-lcJ">
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                                    </label>
+                                                    <label width="125.5" height="19.5" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="2" id="EVi-1j-s95">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                     </label>
                                                     <label width="1" height="15" alignment="left" text="34 Minutes ago" textAlignment="left" minimumScaleFactor="0.69999999999999996" id="Mpy-q7-wPe">
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
                                                     </label>
-                                                    <label width="125.5" height="19.5" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="2" id="EVi-1j-s95">
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
-                                                    </label>
                                                 </items>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </group>
                                             <connections>
                                                 <outlet property="fromLabel" destination="l5F-iv-lcJ" id="Bx3-oK-hf3"/>
@@ -155,7 +154,7 @@
                                             </connections>
                                         </tableRow>
                                     </items>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </table>
                             </items>
                         </group>
@@ -177,17 +176,13 @@
                             <items>
                                 <group width="1" alignment="left" layout="vertical" id="rv9-Ng-3CK">
                                     <items>
-                                        <label width="1" height="15" alignment="left" text="LaJohn" id="aO2-nj-rnl">
+                                        <label width="1" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="34" id="h9M-fM-cok">
                                             <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
                                         </label>
                                         <label width="1" height="15" alignment="left" text="34 Minutes ago" textAlignment="left" minimumScaleFactor="0.69999999999999996" id="oNT-dN-hbC">
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="10"/>
-                                        </label>
-                                        <label width="1" alignment="left" text="Hey this is John G. Call me back when yousee this message" numberOfLines="34" id="h9M-fM-cok">
-                                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" name="OpenSans" family="Open Sans" pointSize="15"/>
                                         </label>
                                     </items>
                                     <edgeInsets key="margins" left="10" right="10" top="10" bottom="10"/>
@@ -198,7 +193,6 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="fromLabel" destination="aO2-nj-rnl" id="g9F-ND-LEL"/>
                         <outlet property="messageLabel" destination="h9M-fM-cok" id="ZnW-VG-Ody"/>
                         <outlet property="timeLabel" destination="oNT-dN-hbC" id="4uZ-wW-WfL"/>
                     </connections>
@@ -214,4 +208,5 @@
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

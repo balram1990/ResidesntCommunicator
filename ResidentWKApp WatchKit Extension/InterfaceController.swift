@@ -13,16 +13,11 @@ import WatchConnectivity
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
 
     @IBOutlet var assistanceButton: WKInterfaceButton!
-    var session : WCSession!
+    
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
-        if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
-            session.delegate = self
-            session.activateSession()
-        }
     }
 
     override func willActivate() {
@@ -38,7 +33,13 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func callAssistance() {
         NSLog("Extension Delegate callAssistance")
+        var session : WCSession!
         self.assistanceButton.setEnabled(false)
+        if (WCSession.isSupported()) {
+            session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
         session.sendMessage(["message":"assistance"], replyHandler: { (data) in
             NSLog("Data received \(data)")
             dispatch_async(dispatch_get_main_queue()) {
@@ -96,4 +97,6 @@ extension WKInterfaceController {
        
     }
 
+    
+    
 }

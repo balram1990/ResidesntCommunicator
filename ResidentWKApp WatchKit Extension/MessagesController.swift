@@ -19,8 +19,7 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var noMessageLabel: WKInterfaceLabel!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        super.willActivate()
+        self.setTitle("Back")
         if (WCSession.isSupported()) {
             session = WCSession.defaultSession()
             session.delegate = self
@@ -54,6 +53,7 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
             print("Error while loading notifications \(error)")
             self.showFailure(100)
         }
+
     }
     
     func loadTable () {
@@ -77,7 +77,10 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
-           }
+        super.willActivate()
+    }
+    
+    
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
