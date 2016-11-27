@@ -19,7 +19,7 @@ class MessageDetailsViewController: UIViewController {
     var isFromMessages = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         if let _ = self.message {
              self.showNewMessage(self.message)
         }

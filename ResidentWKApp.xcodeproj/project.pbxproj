@@ -234,8 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				79C96D561D4DD52D0060E662 /* ResidentWKApp */,
-				79C96D6A1D4DD52D0060E662 /* ResidentWKApp WatchKit App */,
-				79C96D791D4DD52D0060E662 /* ResidentWKApp WatchKit Extension */,
+				79C96D6A1D4DD52D0060E662 /* Communicator */,
+				79C96D791D4DD52D0060E662 /* Communicator */,
 				79C96D551D4DD52D0060E662 /* Products */,
 				CC17EBC06B8B5751F1D0621C /* Pods */,
 				3BEA0D06E89FE5E55636E3AB /* Frameworks */,
@@ -270,17 +270,18 @@
 			path = ResidentWKApp;
 			sourceTree = "<group>";
 		};
-		79C96D6A1D4DD52D0060E662 /* ResidentWKApp WatchKit App */ = {
+		79C96D6A1D4DD52D0060E662 /* Communicator */ = {
 			isa = PBXGroup;
 			children = (
 				79C96D6B1D4DD52D0060E662 /* Interface.storyboard */,
 				79C96D6E1D4DD52D0060E662 /* Assets.xcassets */,
 				79C96D701D4DD52D0060E662 /* Info.plist */,
 			);
+			name = Communicator;
 			path = "ResidentWKApp WatchKit App";
 			sourceTree = "<group>";
 		};
-		79C96D791D4DD52D0060E662 /* ResidentWKApp WatchKit Extension */ = {
+		79C96D791D4DD52D0060E662 /* Communicator */ = {
 			isa = PBXGroup;
 			children = (
 				79C96D821D4DD52D0060E662 /* Assets.xcassets */,
@@ -294,6 +295,7 @@
 				79C96D7A1D4DD52D0060E662 /* Supporting Files */,
 				796CF1261D55FB260080FB07 /* Message.swift */,
 			);
+			name = Communicator;
 			path = "ResidentWKApp WatchKit Extension";
 			sourceTree = "<group>";
 		};
@@ -476,6 +478,7 @@
 				TargetAttributes = {
 					79C96D531D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = TRKTS43S8B;
 					};
 					79C96D651D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -850,9 +853,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "9c41af64-51cd-46f3-8577-316e77b37ff9";
+				PROVISIONING_PROFILE = "9d5615d1-3d45-4287-91b1-9c32dd813089";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -867,9 +870,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "f6dbcfbe-ec45-42af-9954-17f2096f4b53";
+				PROVISIONING_PROFILE = "eb061c6d-c028-4003-bc20-aa23a703e671";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -886,9 +889,9 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9c41af64-51cd-46f3-8577-316e77b37ff9";
+				PROVISIONING_PROFILE = "9d5615d1-3d45-4287-91b1-9c32dd813089";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -906,9 +909,9 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f6dbcfbe-ec45-42af-9954-17f2096f4b53";
+				PROVISIONING_PROFILE = "e96008f4-0b69-410b-aa9f-9866fe6db247";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -922,11 +925,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d767045-2616-4372-91eb-10ad774b48b8";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
@@ -940,13 +943,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ResidentWKApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "973c7b2f-22e6-47eb-a285-e175901066d0";
+				PROVISIONING_PROFILE = "37e03e5c-edb5-419b-8704-72ae51c0b57f";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 			};
 			name = Release;

@@ -85,7 +85,7 @@ extension UIViewController {
             case 400, 404:
                 self.showAlert("Error", msg: "Something went wrong. Please try again", dismissBtnTitle: "Dismiss")
             case 401:
-                self.showAlert("Opps!!", msg: "Your session is expired. Please login again.", dismissBtnTitle: "Ok", dismissHandler: {
+                self.showAlert("Oops!!", msg: "Your session is expired. Please login again.", dismissBtnTitle: "Ok", dismissHandler: {
                     if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                         appdelegate.launchLoginScreen(nil)
                     }
