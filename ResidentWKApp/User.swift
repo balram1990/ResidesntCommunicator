@@ -22,7 +22,7 @@ class User: NSObject, NSCoding {
     var loginType : String?
     var password : String?
     
-    func parseJson (json : NSDictionary) {
+    func parseJson (_ json : NSDictionary) {
         
         self.token = getString(json, key: "user_token")
         self.userID = getInt(json, key: "id")
@@ -38,11 +38,11 @@ class User: NSObject, NSCoding {
         
     }
     
-    func getString(object: NSDictionary?, key: String) -> String? {
+    func getString(_ object: NSDictionary?, key: String) -> String? {
         return object?[key as NSString] as? String
     }
     
-    func getInt(object: NSDictionary?, key: String) -> Int {
+    func getInt(_ object: NSDictionary?, key: String) -> Int {
         let val = object?[key as NSString] as? Int
         if nil == val {
             return 0
@@ -52,19 +52,19 @@ class User: NSObject, NSCoding {
     
     convenience required init?(coder aDecoder: NSCoder) {
         
-        let atoken = aDecoder.decodeObjectForKey("token") as? String
-        let anID =  aDecoder.decodeObjectForKey("id") as? Int
-        let aurl = aDecoder.decodeObjectForKey("url") as? String
-        let ausername = aDecoder.decodeObjectForKey("username") as? String
-        let aniceName = aDecoder.decodeObjectForKey("nicename") as? String
-        let anemail = aDecoder.decodeObjectForKey("email") as? String
-        let adisplayName = aDecoder.decodeObjectForKey("displayname") as? String
-        let afirstName = aDecoder.decodeObjectForKey("firstname") as? String
-        let alastName = aDecoder.decodeObjectForKey("lastname") as? String
-        let anickName = aDecoder.decodeObjectForKey("nickname") as? String
-        let auserDescription = aDecoder.decodeObjectForKey("description") as? String
-        let currentLoginType = aDecoder.decodeObjectForKey("loginType") as? String
-        let apassword = aDecoder.decodeObjectForKey("password") as? String
+        let atoken = aDecoder.decodeObject(forKey: "token") as? String
+        let anID =  aDecoder.decodeObject(forKey: "id") as? Int
+        let aurl = aDecoder.decodeObject(forKey: "url") as? String
+        let ausername = aDecoder.decodeObject(forKey: "username") as? String
+        let aniceName = aDecoder.decodeObject(forKey: "nicename") as? String
+        let anemail = aDecoder.decodeObject(forKey: "email") as? String
+        let adisplayName = aDecoder.decodeObject(forKey: "displayname") as? String
+        let afirstName = aDecoder.decodeObject(forKey: "firstname") as? String
+        let alastName = aDecoder.decodeObject(forKey: "lastname") as? String
+        let anickName = aDecoder.decodeObject(forKey: "nickname") as? String
+        let auserDescription = aDecoder.decodeObject(forKey: "description") as? String
+        let currentLoginType = aDecoder.decodeObject(forKey: "loginType") as? String
+        let apassword = aDecoder.decodeObject(forKey: "password") as? String
         
         self.init()
         self.token = atoken
@@ -82,19 +82,19 @@ class User: NSObject, NSCoding {
         self.password = apassword
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.token, forKey: "token")
-        aCoder.encodeObject(self.userID, forKey: "id")
-        aCoder.encodeObject(self.username, forKey: "username")
-        aCoder.encodeObject(self.niceName, forKey: "nicename")
-        aCoder.encodeObject(self.email, forKey: "email")
-        aCoder.encodeObject(self.url, forKey: "url")
-        aCoder.encodeObject(self.displayName, forKey: "displayname")
-        aCoder.encodeObject(self.firstName, forKey: "firstname")
-        aCoder.encodeObject(self.lastName, forKey: "lastname")
-        aCoder.encodeObject(self.nickName, forKey: "nickname")
-        aCoder.encodeObject(self.userDescription, forKey: "description")
-        aCoder.encodeObject(self.loginType, forKey:  "loginType")
-        aCoder.encodeObject(self.password, forKey: "password")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.token, forKey: "token")
+        aCoder.encode(self.userID, forKey: "id")
+        aCoder.encode(self.username, forKey: "username")
+        aCoder.encode(self.niceName, forKey: "nicename")
+        aCoder.encode(self.email, forKey: "email")
+        aCoder.encode(self.url, forKey: "url")
+        aCoder.encode(self.displayName, forKey: "displayname")
+        aCoder.encode(self.firstName, forKey: "firstname")
+        aCoder.encode(self.lastName, forKey: "lastname")
+        aCoder.encode(self.nickName, forKey: "nickname")
+        aCoder.encode(self.userDescription, forKey: "description")
+        aCoder.encode(self.loginType, forKey:  "loginType")
+        aCoder.encode(self.password, forKey: "password")
     }
 }

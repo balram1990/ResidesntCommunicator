@@ -18,7 +18,7 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
         manager = CLLocationManager()
         manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
-        if  CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
+        if  CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
             manager?.startUpdatingLocation()
         } else {
             manager?.requestAlwaysAuthorization()
@@ -33,24 +33,24 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     }
     
     //MARK: CLLocationManagerDelegate
-    @objc func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    @objc func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("Error while updating the location, \(error)")
     }
     
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.stopLocationUpdate()
+        let newLocation = locations.last
         print("Did update new location, \(newLocation)")
-        let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let appdelegate = UIApplication.shared.delegate as? AppDelegate
         appdelegate?.location = newLocation
         if let user  = appdelegate?.getUser(){
             if isUpdateInProgress {
                 return
             }
             isUpdateInProgress = true
-            let location = ["latitude" : newLocation.coordinate.latitude, "longitude" : newLocation.coordinate.longitude]
+            let location = ["latitude" : newLocation?.coordinate.latitude, "longitude" : newLocation?.coordinate.longitude]
             let completeURL =  Constants.LOCATION_UPDATE_URL  + String(format: "%d", user.userID!) + "?token=" + user.token!
-            NetworkIO().post(completeURL, json: location) { (data, response, error) in
+            NetworkIO().post(completeURL, json: location as NSDictionary?) { (data, response, error) in
                 self.isUpdateInProgress = false
                 if error != nil {
                     print("error while updating location to server, \(error)")
@@ -62,16 +62,16 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     }
     
     // authorization status
-    func locationManager(manager: CLLocationManager,
-                         didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager,
+                         didChangeAuthorization status: CLAuthorizationStatus) {
         var shouldIAllow = false
         
         switch status {
-        case CLAuthorizationStatus.Restricted:
+        case CLAuthorizationStatus.restricted:
             locationStatus = "Restricted Access to location"
-        case CLAuthorizationStatus.Denied:
+        case CLAuthorizationStatus.denied:
             locationStatus = "User denied access to location"
-        case CLAuthorizationStatus.NotDetermined:
+        case CLAuthorizationStatus.notDetermined:
             locationStatus = "Status not determined"
         default:
             locationStatus = "Allowed to location Access"

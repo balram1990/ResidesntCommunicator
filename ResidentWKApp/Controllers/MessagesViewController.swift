@@ -15,21 +15,21 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     var messages : [Notification] = []
-    var dFormatter : NSDateFormatter?
+    var dFormatter : DateFormatter?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.tableView.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: CellIdentifier)
+        self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: CellIdentifier)
         self.tableView.rowHeight = 100
         self.messages = DataManager.sharedInstance().getAllNotifications()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(reloadList), name: AppDelegate.NotificationListUpdate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadList), name: NSNotification.Name(rawValue: AppDelegate.NotificationListUpdate), object: nil)
         
         self.getAllMessages ()
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
     }
@@ -39,36 +39,36 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         self.tableView.reloadData()
     }
     
-    @IBAction func backButtonPressed(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as? MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier) as? MessageCell
         let message = self.messages[indexPath.row]
         cell?.messageLabel.text = message.msg
         cell?.fromLabel.text = message.from
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval(message.timeinterval!))
-        cell?.timeLabel.text = date.timeAgo
+        let date = Date(timeIntervalSince1970: TimeInterval(message.timeinterval!))
+        cell?.timeLabel.text = date.timeAgo()
         if message.isRead == true {
-            cell?.backgroundColor = .whiteColor()
-            cell?.timeLabel.textColor = .lightGrayColor()
+            cell?.backgroundColor = .white
+            cell?.timeLabel.textColor = .lightGray
         } else {
             cell?.backgroundColor =  UIColor(red: 208.0/255.0, green: 242.0/255.0, blue: 1.0, alpha: 1.0)
-            cell?.timeLabel.textColor = UIColor.blueColor()
+            cell?.timeLabel.textColor = UIColor.blue
         }
         return cell!
     }
     
     //MARK: UITableViewCellDelegate 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let message = self.messages[indexPath.row]
         let vc =  MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
         vc.message = message
@@ -77,7 +77,7 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
     func getAllMessages () {
-        let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let appdelegate = UIApplication.shared.delegate as? AppDelegate
         if  let user = appdelegate?.getUser() {
             let url = Constants.MESSAGES_URL + "/" + String(user.userID!) + "/messages" + "?" + "token=" + (user.token ?? "")
             NetworkIO().get(url, callback: { (data, response, error) in
@@ -100,21 +100,22 @@ class MessagesViewController: UIViewController,UITableViewDataSource, UITableVie
         }
     }
     
-    func handleMessagesResponse (dict : NSArray) {
+    func handleMessagesResponse (_ dict : NSArray) {
         let manager = DataManager.sharedInstance()
-        for item in dict {
-            let itemId = item["id"] as? String
+        for (_, item) in dict.enumerated() {
+            let itemDictionary  = item as? [String  : AnyObject]
+            let itemId = itemDictionary?["id"] as? String
             let list = self.messages.filter({ (msg) -> Bool in
                 msg.notifId == itemId
             })
             if list.count == 0 {
                 //create notfication object
-                if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
-                    notif.from = item["sender_display_name"] as? String
-                    notif.msg = item["message"] as? String
-                    notif.notifId = item["id"] as? String
-                    let dateString = item["time"] as? String
-                    notif.timeinterval = Util.dateFromString(dateString).timeIntervalSince1970
+                if let notif = NSEntityDescription.insertNewObject(forEntityName: "Notification", into: manager.managedObjectContext) as? Notification {
+                    notif.from = itemDictionary?["sender_display_name"] as? String
+                    notif.msg = itemDictionary?["message"] as? String
+                    notif.notifId = itemDictionary?["id"] as? String
+                    let dateString = itemDictionary?["time"] as? String
+                    notif.timeinterval = Util.dateFromString(dateString).timeIntervalSince1970 as NSNumber?
                 }
             }
         }

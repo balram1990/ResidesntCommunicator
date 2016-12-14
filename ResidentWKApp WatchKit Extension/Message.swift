@@ -14,7 +14,7 @@ class Message: NSObject {
     var msg : String?
     var id : String?
     
-    func parseJSON (dictionary : NSDictionary) {
+    func parseJSON (_ dictionary : NSDictionary) {
         self.from = dictionary["from"] as? String
         self.msg = dictionary["message"] as? String
         self.id = dictionary["id"] as? String

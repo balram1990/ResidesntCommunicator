@@ -15,26 +15,26 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var messagesLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice.currentDevice().isPhone4CategoryDevice() {
+        if UIDevice.current.isPhone4CategoryDevice() {
             buttonHeightConstraint.constant = 100
         } else {
             buttonHeightConstraint.constant = 150
         }
     }
     
-    @IBAction func callAssistance(sender: UIButton) {
+    @IBAction func callAssistance(_ sender: UIButton) {
         
         //latitude
         //longitude
         //user_id
         //token in url
-        let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let appdelegate = UIApplication.shared.delegate as? AppDelegate
         var json : NSMutableDictionary = [:]
         if let location = appdelegate?.location {
             json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
         }else {
             self.showAlert("Oops!!", msg: "Seems like you have not enabled location services for the app. Please enable   the same and try again.", positiveTitle: "Settings", negativeTitle: "Not Now", positiveHandler: {
-                    UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
+                    UIApplication.shared.openURL(URL(string:UIApplicationOpenSettingsURLString)!)
                 }, negativeHandler: { 
                     
             })
@@ -42,13 +42,13 @@ class LandingViewController: UIViewController {
         }
        
         if let user = appdelegate?.getUser() {
-            json.addEntriesFromDictionary(["user_id" : user.userID ?? 0])
+            json.addEntries(from: ["user_id" : user.userID ?? 0])
              var url = Constants.ASSISTANCE_URL + "?" + "token="
              url += user.token ?? ""
-            self.assistanceBtn.enabled = false
+            self.assistanceBtn.isEnabled = false
             NetworkIO().post(url, json: json) { (data, response, error) in
                 self.runOnUIThread({
-                    self.assistanceBtn.enabled = true
+                    self.assistanceBtn.isEnabled = true
                     if let _ = error {
                         self.handleError(error!)
                         return
@@ -62,14 +62,14 @@ class LandingViewController: UIViewController {
         
     }
     
-    @IBAction func showMessages(sender: UIButton) {
+    @IBAction func showMessages(_ sender: UIButton) {
         let vc = MessagesViewController(nibName: "MessagesViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    @IBAction func logout(sender: UIButton) {
-        NSUserDefaults.standardUserDefaults().setObject(false, forKey: Constants.USER_LOGGED_IN_KEY)
-        let appdelegate =  UIApplication.sharedApplication().delegate as? AppDelegate
-        appdelegate?.launchLoginScreen(nil)
+    @IBAction func logout(_ sender: UIButton) {
+        UserDefaults.standard.set(false, forKey: Constants.USER_LOGGED_IN_KEY)
+        let appdelegate =  UIApplication.shared.delegate as? AppDelegate
+        appdelegate?.launchLoginScreen(userInfo: nil)
         
     }
 }

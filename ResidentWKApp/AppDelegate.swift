@@ -11,9 +11,28 @@ import CoreLocation
 import CoreData
 import WatchConnectivity
 import BRYXBanner
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate, WCSessionDelegate {
+    /** Called when all delegate callbacks for the previously selected watch has occurred. The session can be re-activated for the now selected watch using activateSession. */
+    @available(iOS 9.3, *)
+    public func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+
+    /** Called when the session can no longer be used to modify or add any new transfers and, all interactive messages will be cancelled, but delegate callbacks for background transfers can still occur. This will happen when the selected watch is being changed. */
+    @available(iOS 9.3, *)
+    public func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(iOS 9.3, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
 
     var window: UIWindow?
     var locationManager : LocationManager?
@@ -21,82 +40,78 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     var pushToken : String?
     static let NotificationListUpdate = "NotificationListUpdate"
     var session : WCSession?
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        //self.loadData()
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+                // Override point for customization after application launch.
+                //self.loadData()
         NSLog("App Did finish launching with optipns \(launchOptions)")
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.hidden = false
-        self.registerForPushNotifications(application)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.isHidden = false
+        self.registerForPushNotifications(application: application)
         locationManager = LocationManager()
         locationManager?.startLocationUpdate()
-        let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as! [NSObject : AnyObject]?
-        if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
+        let remoteNotification = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as! [NSObject : AnyObject]?
+        if userDefaults().object(forKey: Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
             self.launchLandingScreen()
         } else {
             if let _ = remoteNotification {
-                self.launchLoginScreen(remoteNotification!)
-                
+                self.launchLoginScreen(userInfo: remoteNotification!)
+
             }else {
-                self.launchLoginScreen(nil)
+                self.launchLoginScreen(userInfo: nil)
             }
         }
-        
+
         if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session?.delegate = self;
-            session?.activateSession()
+            session?.activate()
         }
         return true
+
     }
     
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
     //MARK: Push Notification Handling
     func registerForPushNotifications(application: UIApplication) {
-        
-        let notificationSettings = UIUserNotificationSettings(
-            forTypes: [.Badge, .Sound, .Alert], categories: nil)
-        application.registerUserNotificationSettings(notificationSettings)
+        let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+        UIApplication.shared.registerUserNotificationSettings(setting)
+        UIApplication.shared.registerForRemoteNotifications()
     }
 
     //MARK: Notification registration delegates
-    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        if notificationSettings.types != .None {
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .none {
             application.registerForRemoteNotifications()
         }
     }
     
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-        var tokenString = ""
-        
-        for i in 0..<deviceToken.length {
-            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-        }
+        let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         self.pushToken = tokenString
         NSLog("device did registered with token %@", tokenString)
         self.updatePushToken()
@@ -104,10 +119,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     
     func updatePushToken () {
         let user = self.getUser()
-        if let token = self.pushToken, tokenString = user?.token {
+        if let token = self.pushToken, let tokenString = user?.token {
             let completeURL = Constants.TOKEN_UPDATE_URL + "?token=" + tokenString
-            let json = ["user_id" : (user?.userID)!, "device_type" : "ios", "device_token" : token, "information" : user?.username ?? ""]
-            NetworkIO().post(completeURL, json: json) { (data, response, error) in
+            let json = ["user_id" : (user?.userID)!, "device_type" : "ios", "device_token" : token, "information" : user?.username ?? ""] as [String : Any]
+            NetworkIO().post(completeURL, json: json as NSDictionary?) { (data, response, error) in
                 if error != nil {
                     NSLog("failed to update token to server %@", error!.localizedDescription)
                     self.window?.rootViewController?.handleError(error!)
@@ -118,41 +133,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         }
     }
 
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         NSLog("Failed to register: %@", error.localizedDescription)
     }
     
     //push notification services delegate
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         NSLog("did receive notification %@", userInfo)
-        if application.applicationState == UIApplicationState.Inactive {
-            self.launchMessageDetailsForMessage(userInfo)
-            completionHandler(UIBackgroundFetchResult.NewData)
-        }else if application.applicationState == .Active {
-            self.downlaodMessageContent(userInfo, completionHandler: completionHandler, replyHandler: nil)
-            self.handleNotificationInActiveMode(userInfo)
-            completionHandler(UIBackgroundFetchResult.NewData)
+        if application.applicationState == UIApplicationState.inactive {
+            self.launchMessageDetailsForMessage(dictionary: userInfo)
+            
+        }else if application.applicationState == .active {
+            self.downlaodMessageContent(userInfo: userInfo as! [String : AnyObject], replyHandler: nil)
+            self.handleNotificationInActiveMode(dictionary: userInfo as! [String : AnyObject])
+            
         }else {
             //set badge number
             let count = DataManager.sharedInstance().getUnreadNotificaitons().count
-            UIApplication.sharedApplication().applicationIconBadgeNumber = (count+1)
+            UIApplication.shared.applicationIconBadgeNumber = (count+1)
             //download content and save data
-            self.downlaodMessageContent(userInfo, completionHandler: completionHandler, replyHandler: nil)
+            self.downlaodMessageContent(userInfo: userInfo as! [String : AnyObject], replyHandler: nil)
         }
-    }
-    
+
+    }    
     //Screen Handling
     func launchLandingScreen () {
         let vc = LandingViewController(nibName: "LandingViewController", bundle: nil)
         let nvc = UINavigationController(rootViewController: vc)
-        nvc.navigationBarHidden = true
+        nvc.isNavigationBarHidden = true
         self.window?.rootViewController = nvc
     }
     
     func launchMessageDetailsAfterLogin(messageInfo : [NSObject : AnyObject]? ) {
         self.launchLandingScreen()
-        self.launchMessageDetailsForMessage(messageInfo)
+        self.launchMessageDetailsForMessage(dictionary: (messageInfo as! [String : AnyObject]?)!)
     }
     
     func launchLoginScreen (userInfo: [NSObject : AnyObject]?) {
@@ -164,32 +178,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
     
     
-    func downlaodMessageContent (userInfo: [NSObject : AnyObject], completionHandler: ((UIBackgroundFetchResult) -> Void)? , replyHandler: ([String : AnyObject] -> Void)?) {
+    func downlaodMessageContent (userInfo: [String : AnyObject] , replyHandler: (([String : Any]) -> Void)?) {
         NSLog("Starting download of content message userinfo \(userInfo)")
         let user = self.getUser()
-        if let tokenString = user?.token, data = userInfo["aps"] as? NSDictionary, messageID = data["message_id"] as? String{
+        if let tokenString = user?.token, let data = userInfo["aps"] as? NSDictionary, let messageID = data["message_id"] as? String{
             let completeURL = Constants.MESSAGES_URL + "/" + String(user!.userID!) + "/message/" +  String(messageID) + "?token=" + tokenString
             NetworkIO().get(completeURL, callback: { (data, response, error) in
                 if let _ = error {
                     NSLog("Something went wrong while fetching content %@", error!.localizedDescription)
-                    if let _ = completionHandler {
-                        completionHandler!(UIBackgroundFetchResult.NewData)
-                    }else if let _ = replyHandler {
-                        replyHandler!(["notifications" : "", "code" : error!.code])
+                    if let _ = replyHandler {
+                        replyHandler!(["notifications" : "" as AnyObject, "code" : error!.code as AnyObject])
                     }
                     return
                 }else {
                     //save notfication
                     if let _ = data {
-                        self.addNotification(data!)
-                        if let _ = completionHandler {
-                            completionHandler!(UIBackgroundFetchResult.NewData)
-                        }else if let _ = replyHandler {
+                        self.addNotification(data: data!)
+                        if let _ = replyHandler {
                             //get curent notification
                             if let msg = DataManager.sharedInstance().getNotifcationById(messageID) {
-                                replyHandler!(["notifications" : self.getJSON(msg), "code" : 200])
+                                replyHandler!(["notifications" : self.getJSON(notif: msg), "code" : 200 as AnyObject])
                             }else {
-                                replyHandler!(["notifications" : [:], "code" : 200])
+                                replyHandler!(["notifications" : NSDictionary(), "code" : 200 as AnyObject])
                             }
                             
                         }
@@ -197,10 +207,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
                 }
             })
         }else {
-            if let _ = completionHandler {
-                completionHandler!(UIBackgroundFetchResult.NewData)
-            }else if let _ = replyHandler {
-                replyHandler!(["notifications" : "", "code" : 500])
+            if let _ = replyHandler {
+                replyHandler!(["notifications" : "" as AnyObject, "code" : 500 as AnyObject])
             }
         }
     }
@@ -211,23 +219,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         let manager = DataManager.sharedInstance()
         let msgId = data["id"] as! String
         if manager.getNotifcationById(msgId) == nil {
-            if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
+            if let notif = NSEntityDescription.insertNewObject(forEntityName: "Notification", into: manager.managedObjectContext) as? Notification {
                 notif.from = data["sender_display_name"] as? String
                 notif.msg = data["message"] as? String
                 notif.notifId = msgId
                 notif.hasContent = true
                 let dateString = data["time"] as? String
-                notif.timeinterval = Util.dateFromString(dateString).timeIntervalSince1970
+                notif.timeinterval = Util.dateFromString(dateString).timeIntervalSince1970 as NSNumber?
                 manager.saveContext()
             }
         }
     }
     
-    func launchMessageDetailsForMessage(dictionary : [NSObject : AnyObject]?) {
+    func launchMessageDetailsForMessage(dictionary :  [AnyHashable : Any]?) {
         
-        if let navVC = window?.rootViewController as? UINavigationController {
+        if let navVC = window?.rootViewController as? UINavigationController, let dictData = dictionary as? [String : AnyObject] {
             let vc = MessageDetailsViewController(nibName: "MessageDetailsViewController", bundle: nil)
-            if let _ = dictionary, data = dictionary!["aps"] as? NSDictionary , messageId = data["message_id"] as? String {
+            if let _ = dictionary, let data = dictData["aps"] as? NSDictionary , let messageId = data["message_id"] as? String {
                 vc.handleMessage(messageId)
             }
             navVC.pushViewController(vc, animated: true)
@@ -239,38 +247,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
         }
     }
     
-    func onPushAccepted(pushManager: PushNotificationManager!, withNotification pushNotification: [NSObject : AnyObject]!, onStart: Bool) {
+    func onPushAccepted(_ pushManager: PushNotificationManager!, withNotification pushNotification: [AnyHashable : Any]!, onStart: Bool) {
         NSLog("Push notification accepted: \(pushNotification)");
     }
     
     func saveUser (user : User) {
-        let data = NSKeyedArchiver.archivedDataWithRootObject(user)
-        userDefaults().setObject(data, forKey: "user")
+        let data = NSKeyedArchiver.archivedData(withRootObject: user)
+        userDefaults().set(data, forKey: "user")
         userDefaults().synchronize()
     }
     
     func getUser () -> User? {
-        if let data = userDefaults().objectForKey("user") as? NSData {
-            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as?  User
+        if let data = userDefaults().object(forKey: "user") as? NSData {
+            return NSKeyedUnarchiver.unarchiveObject(with: data as Data) as?  User
         }
         return  nil
     }
     
-    func userDefaults () -> NSUserDefaults {
-        return NSUserDefaults.standardUserDefaults()
+    func userDefaults () -> UserDefaults {
+        return UserDefaults.standard
     }
     
     func saveNotification (dictionary : NSDictionary) -> Notification?{
 
-        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.NotificationListUpdate, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: AppDelegate.NotificationListUpdate), object: nil)
         let manager = DataManager.sharedInstance()
         if let data = dictionary["aps"] as? NSDictionary {
-               if let notif = NSEntityDescription.insertNewObjectForEntityForName("Notification", inManagedObjectContext: manager.managedObjectContext) as? Notification {
+               if let notif = NSEntityDescription.insertNewObject(forEntityName: "Notification", into: manager.managedObjectContext) as? Notification {
                 
                 notif.from = data["sender_display_name"] as? String
                 notif.msg = data["message"] as? String
                 notif.notifId = data["message_id"] as? String
-                notif.timeinterval = NSDate().timeIntervalSince1970
+                notif.timeinterval = NSDate().timeIntervalSince1970 as NSNumber?
                 manager.saveContext()
                 return notif
             }
@@ -281,20 +289,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     func getJSON (notif : Notification) -> NSDictionary {
         var timeAgo : String?
         if let time = notif.timeinterval {
-            let date = NSDate(timeIntervalSince1970: NSTimeInterval(time))
-            timeAgo = date.timeAgo
+            let date = Date(timeIntervalSince1970: TimeInterval(time))
+            timeAgo = date.timeAgo()
         }
         let json : NSDictionary = ["from": notif.from ?? "", "message": notif.msg ?? "", "time" : timeAgo ?? "", "id" : notif.notifId ?? ""]
         return json
     }
 
-    func handleNotificationInActiveMode (dictionary : [NSObject : AnyObject]) {
+    func handleNotificationInActiveMode (dictionary : [String : AnyObject]) {
         
-        if let data = dictionary["aps"] as? NSDictionary , messageId = data["message_id"] as? String {
+        if let data = dictionary["aps"] as? NSDictionary , let messageId = data["message_id"] as? String {
             let message = data["alert"] as? String
-            let appDisplayName =  NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as? String
-            let banner = Banner(title: appDisplayName, subtitle: message, image: nil, backgroundColor: UIColor.blackColor())
-            banner.textColor = UIColor.whiteColor()
+            let appDisplayName =  Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+            let banner = Banner(title: appDisplayName, subtitle: message, image: nil, backgroundColor: UIColor.black)
+            banner.textColor = UIColor.white
             let completionBlock = {
                     if let navVC = self.window?.rootViewController as? UINavigationController {
                         if let messageDetailsVC = navVC.topViewController as? MessageDetailsViewController {
@@ -314,56 +322,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     
     
     //MARK: Watch handling
-    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         NSLog("Session did receive message: \(message)")
-        if userDefaults().objectForKey(Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
-            
+        if userDefaults().object(forKey: Constants.USER_LOGGED_IN_KEY) as? NSNumber == true {
+
             let msg = message["message"] as? String
             if msg == "Notifications" {
                 var json = [NSDictionary]()
                 let notifications = DataManager.sharedInstance().getAllNotifications()
                 for nt in notifications {
-                    json.append(self.getJSON(nt))
+                    json.append(self.getJSON(notif: nt))
                     if json.count == 10 {
                         break
                     }
                 }
-                replyHandler(["notifications" : json, "code" : 200])
+                replyHandler(["notifications" : json as AnyObject, "code" : 200 as AnyObject])
             }else if msg == "assistance" {
-                self.callAssistance(replyHandler)
+                self.callAssistance(replyHandler: replyHandler)
             }else if msg ==  "saveNotification" {
-                self.downlaodMessageContent(message, completionHandler: nil, replyHandler: replyHandler)
+                self.downlaodMessageContent(userInfo: message as [String : AnyObject], replyHandler: replyHandler)
             }
         } else {
-            replyHandler(["message" : "Authorization Failed", "code" : 401])
+            replyHandler(["message" : "Authorization Failed" as AnyObject, "code" : 401 as AnyObject])
         }
+
     }
     
-    func callAssistance (replyHandler: ([String : AnyObject]) -> Void) {
+    func callAssistance (replyHandler: @escaping ([String : Any]) -> Void) {
         NSLog("Call Assistance from watch")
         var json : NSMutableDictionary = [:]
         if let location = self.location {
             json = ["latitude" : location.coordinate.latitude, "longitude" : location.coordinate.longitude]
             if let user = self.getUser() {
-                json.addEntriesFromDictionary(["user_id" : user.userID ?? 0])
+                json.addEntries(from: ["user_id" : user.userID ?? 0])
                 var url = Constants.ASSISTANCE_URL + "?" + "token="
                 url += user.token ?? ""
                 NetworkIO().post(url, json: json) { (data, response, error) in
                     if let _ = error {
                         NSLog("App Delegate Error while calling assistance error: \(error!.localizedDescription)")
-                        replyHandler(["message" : "Error", "code" : error!.code])
+                        replyHandler(["message" : "Error" as AnyObject, "code" : error!.code as AnyObject])
                     } else {
-                        replyHandler(["message" : "Success", "code" : 200])
+                        replyHandler(["message" : "Success" as AnyObject, "code" : 200 as AnyObject])
                     }
                 }
             }else {
                 //No login
-                replyHandler(["message" : "Failure",  "code" : 401])
+                replyHandler(["message" : "Failure" as AnyObject,  "code" : 401 as AnyObject])
             }
 
         }else {
             //location services not available
-            replyHandler(["message" : "Failure",  "code" : 300])
+            replyHandler(["message" : "Failure" as AnyObject,  "code" : 300 as AnyObject])
             
         }
         

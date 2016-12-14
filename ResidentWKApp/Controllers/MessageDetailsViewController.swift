@@ -19,7 +19,7 @@ class MessageDetailsViewController: UIViewController {
     var isFromMessages = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        UIApplication.shared.applicationIconBadgeNumber = 0
         if let _ = self.message {
              self.showNewMessage(self.message)
         }
@@ -31,23 +31,23 @@ class MessageDetailsViewController: UIViewController {
         
     }
 
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func showNewMessage (notification : Notification?) {
+    func showNewMessage (_ notification : Notification?) {
         NSLog("Showing message %@", notification!.notifId!)
         self.message = notification
         self.message?.isRead = true
         DataManager.sharedInstance().saveContext()
         self.fromLabel.text = message?.from
         self.messagelabel.text = message?.msg
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval((message?.timeinterval)!))
-        self.timeLabel.text = date.timeAgo
+        let date = Date(timeIntervalSince1970: TimeInterval((message?.timeinterval)!))
+        self.timeLabel.text = date.timeAgo()
 
     }
     
-    func handleMessage(messageId : String?) {
+    func handleMessage(_ messageId : String?) {
         
         let manager = DataManager.sharedInstance()
         if let _ = messageId {
@@ -56,10 +56,10 @@ class MessageDetailsViewController: UIViewController {
             if let notif = manager.getNotifcationById(messageId!) {
                 //wait for view to be initialized
                 NSLog("Already exist messaege, showing message directly %@", messageId!)
-                self.performSelector(#selector(self.showNewMessage), withObject: notif, afterDelay: 2)
+                self.perform(#selector(self.showNewMessage), with: notif, afterDelay: 2)
             }else {
                 //download Messages and show
-                let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 let user = appDelegate!.getUser()
                 if let tokenString = user?.token {
                     let completeURL = Constants.MESSAGES_URL + "/" + String(user!.userID!) + "/message/" +  messageId! + "?token=" + tokenString
@@ -73,9 +73,9 @@ class MessageDetailsViewController: UIViewController {
                             //save notfication
                             if let _ = data {
                                 NSLog("Message content downloaded %@", data!)
-                                appDelegate!.addNotification(data!)
+                                appDelegate!.addNotification(data: data!)
                                 if let notif = manager.getNotifcationById(messageId!) {
-                                    self.performSelector(#selector(self.showNewMessage), withObject: notif, afterDelay: 1)
+                                    self.perform(#selector(self.showNewMessage), with: notif, afterDelay: 1)
                                 }
                             }
                            })

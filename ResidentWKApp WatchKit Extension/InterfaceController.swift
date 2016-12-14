@@ -11,11 +11,17 @@ import Foundation
 import WatchConnectivity
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
 
     @IBOutlet var assistanceButton: WKInterfaceButton!
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
     }
@@ -36,21 +42,21 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         var session : WCSession!
         self.assistanceButton.setEnabled(false)
         if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session.delegate = self
-            session.activateSession()
+            session.activate()
         }
         session.sendMessage(["message":"assistance"], replyHandler: { (data) in
             NSLog("Data received \(data)")
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.assistanceButton.setEnabled(true)
             }
             if let code = data["code"] as? Int {
                 if code == 200 {
                     //show success
-                    dispatch_async(dispatch_get_main_queue(), {
-                        let dismissAction = WKAlertAction(title: "Ok", style: .Default, handler: {})
-                        self.presentAlertControllerWithTitle("Success", message: "Concerned people have been informed.", preferredStyle: .Alert, actions: [dismissAction])
+                    DispatchQueue.main.async(execute: {
+                        let dismissAction = WKAlertAction(title: "Ok", style: .default, handler: {})
+                        self.presentAlert(withTitle: "Success", message: "Concerned people have been informed.", preferredStyle: .alert, actions: [dismissAction])
                     })
                 } else {
                     //show Failure
@@ -60,7 +66,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
            
         }) { (error) in
             NSLog("ExtensionDelegate: Error while calling for assistance \(error.localizedDescription)")
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.assistanceButton.setEnabled(true)
             }
             self.showFailure(100)
@@ -68,12 +74,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     @IBAction func showMessages() {
-        self.pushControllerWithName("Messages", context: nil)
+        self.pushController(withName: "Messages", context: nil)
     }
 }
 
 extension WKInterfaceController {
-    func showFailure (code : Int) {
+    func showFailure (_ code : Int) {
         var message = ""
         switch code {
         case 100:
@@ -90,9 +96,9 @@ extension WKInterfaceController {
             message = "Something went wrong. Please try again later"
         }
         
-        dispatch_async(dispatch_get_main_queue()) { 
-            let action = WKAlertAction(title: "Dismiss", style: .Default, handler:{ self.popController()})
-            self.presentAlertControllerWithTitle("Failure", message: message, preferredStyle: .Alert, actions: [action])
+        DispatchQueue.main.async { 
+            let action = WKAlertAction(title: "Dismiss", style: .default, handler:{ self.pop()})
+            self.presentAlert(withTitle: "Failure", message: message, preferredStyle: .alert, actions: [action])
         }
        
     }

@@ -13,8 +13,8 @@ class MessageDetailsController: WKInterfaceController {
     
     @IBOutlet var timeLabel: WKInterfaceLabel!
     @IBOutlet var messageLabel: WKInterfaceLabel!
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         if let msg = context as? Message {
             self.showMessage(msg)
             self.setTitle(msg.from)
@@ -32,7 +32,7 @@ class MessageDetailsController: WKInterfaceController {
         // Configure interface objects here.
     }
     
-    func showMessage(msg : Message) {
+    func showMessage(_ msg : Message) {
         self.messageLabel.setText(msg.msg)
         self.timeLabel.setText(msg.timeAgo)
     }
@@ -46,8 +46,8 @@ class MessageDetailsController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-    @IBAction func pop() {
-        self.popController()
+    @IBAction override func pop() {
+        self.pop()
     }
 
 }

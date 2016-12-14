@@ -2,25 +2,25 @@
 import UIKit
 
 class KeyboardViewController : UIViewController, UITextFieldDelegate {
-    private var textField: UITextField? = nil
-    private var originalFrame: CGRect? = nil
+    fileprivate var textField: UITextField? = nil
+    fileprivate var originalFrame: CGRect? = nil
     var scrollViewContainer : UIScrollView? = nil
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         self.textField = textField
     }
     
     override func viewDidLoad() {
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(self.keyboardShown), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
-                                                         selector: #selector(self.keyboardHidden), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                                         selector: #selector(self.keyboardShown), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                                         selector: #selector(self.keyboardHidden), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(forceEndEditing), name: UIApplicationWillResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(forceEndEditing), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.originalFrame = self.view.frame
         if self.scrollViewContainer != nil {
             let tapGesture  = UITapGestureRecognizer(target: self, action: #selector(forceEndEditing))
@@ -37,50 +37,50 @@ class KeyboardViewController : UIViewController, UITextFieldDelegate {
     }
     
     
-    func keyboardShown(notification: NSNotification) {
+    func keyboardShown(_ notification: Foundation.Notification) {
         let info  = notification.userInfo!
-        let value: AnyObject = info[UIKeyboardFrameEndUserInfoKey]!
+        let value: AnyObject = info[UIKeyboardFrameEndUserInfoKey]! as AnyObject
         
-        let rawFrame = value.CGRectValue
-        let keyboardFrame = view.convertRect(rawFrame, fromView: nil)
+        let rawFrame = value.cgRectValue
+        let keyboardFrame = view.convert(rawFrame!, from: nil)
         
         let movementDuration = 0.1;
         
         if let _ = self.textField {
-            let  frame = (self.textField?.convertRect((self.textField?.bounds)!, toView: self.view))!
-            let originPoint = self.textField?.convertPoint((self.textField?.bounds.origin)!, toView: self.view)
+            let  frame = (self.textField?.convert((self.textField?.bounds)!, to: self.view))!
+            let originPoint = self.textField?.convert((self.textField?.bounds.origin)!, to: self.view)
             if (originPoint!.y + frame.size.height) > keyboardFrame.origin.y {
                 let movement = keyboardFrame.origin.y - originPoint!.y -  100;
                 
                 UIView.beginAnimations("anim", context: nil)
                 UIView.setAnimationBeginsFromCurrentState(true)
                 UIView.setAnimationDuration(movementDuration)
-                self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement);
                 UIView.commitAnimations();
             } else if let _ = self.originalFrame {
                 let movement = (self.originalFrame?.origin.y)! - self.view.frame.origin.y;
                 UIView.beginAnimations("anim", context: nil)
                 UIView.setAnimationBeginsFromCurrentState(true)
                 UIView.setAnimationDuration(movementDuration)
-                self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement);
                 UIView.commitAnimations();
             }
         }
     }
     
-    func keyboardHidden(notification: NSNotification) {
+    func keyboardHidden(_ notification: Foundation.Notification) {
         let movementDuration = 0.1;
         if let _ = self.originalFrame {
             let movement = (self.originalFrame?.origin.y)! - self.view.frame.origin.y;
             UIView.beginAnimations("anim", context: nil)
             UIView.setAnimationBeginsFromCurrentState(true)
             UIView.setAnimationDuration(movementDuration)
-            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+            self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement);
             UIView.commitAnimations();
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 }

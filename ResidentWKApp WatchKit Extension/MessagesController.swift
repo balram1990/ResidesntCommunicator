@@ -11,19 +11,25 @@ import Foundation
 import WatchConnectivity
 
 class MessagesController: WKInterfaceController, WCSessionDelegate {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
     
     var session : WCSession!
     var messages = [Message]()
     @IBOutlet var messageTable: WKInterfaceTable!
     
     @IBOutlet var noMessageLabel: WKInterfaceLabel!
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         self.setTitle("Back")
         if (WCSession.isSupported()) {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session.delegate = self
-            session.activateSession()
+            session.activate()
         }
         self.noMessageLabel.setText("Loading...")
         self.noMessageLabel.setHeight(25)
@@ -40,7 +46,7 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
                             self.messages.append(newMessage)
                         }
                     }
-                    dispatch_async(dispatch_get_main_queue(), {
+                    DispatchQueue.main.async(execute: {
                         self.loadTable()
                     })
                     
@@ -62,8 +68,8 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
             self.noMessageLabel.setHeight(0)
             self.messageTable.setHidden(false)
             self.messageTable.setNumberOfRows(self.messages.count, withRowType: "MessageRow")
-            for (index, notif) in (self.messages.enumerate()) {
-                if let row = messageTable.rowControllerAtIndex(index) as? MessageRow {
+            for (index, notif) in (self.messages.enumerated()) {
+                if let row = messageTable.rowController(at: index) as? MessageRow {
                     row.fromLabel.setText(notif.from)
                     row.timeLabel.setText(notif.timeAgo)
                     row.messgeLabel.setText(notif.msg)
@@ -87,13 +93,13 @@ class MessagesController: WKInterfaceController, WCSessionDelegate {
         super.didDeactivate()
     }
     
-    @IBAction func pop() {
-        self.popController()
+    @IBAction override func pop() {
+        self.pop()
     }
     
-    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
         //show message details
         let aMessage = self.messages[rowIndex]
-        self.pushControllerWithName("MessageDetails", context: aMessage)
+        self.pushController(withName: "MessageDetails", context: aMessage)
     }
 }

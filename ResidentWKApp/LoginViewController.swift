@@ -16,30 +16,30 @@ class LoginViewController: KeyboardViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var messageAfterLogin : [NSObject : AnyObject]?
+    var messageAfterLogin : [AnyHashable: Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollViewContainer = scrollView
         self.usernameTextField.layer.cornerRadius = 5.0
         self.usernameTextField.layer.borderWidth = 1
-        let frame = CGRectMake(0, 0, 10, self.usernameTextField.frame.size.height)
+        let frame = CGRect(x: 0, y: 0, width: 10, height: self.usernameTextField.frame.size.height)
         let leftView1 = UIView(frame:  frame)
         self.usernameTextField.leftView = leftView1
-        self.usernameTextField.leftViewMode = .Always
-        self.usernameTextField.addTarget(self, action: #selector(textChanged), forControlEvents: UIControlEvents.EditingChanged)
+        self.usernameTextField.leftViewMode = .always
+        self.usernameTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
         
         self.passwordTextField.layer.cornerRadius = 5.0
         self.passwordTextField.layer.borderWidth = 1
         let leftView2 = UIView(frame:  frame)
         passwordTextField.leftView = leftView2
-        self.passwordTextField.leftViewMode = .Always
-        self.passwordTextField.addTarget(self, action: #selector(textChanged), forControlEvents: UIControlEvents.EditingChanged)
+        self.passwordTextField.leftViewMode = .always
+        self.passwordTextField.addTarget(self, action: #selector(textChanged), for: UIControlEvents.editingChanged)
 
         self.loginButton.layer.cornerRadius = 5.0
         self.loginButton.disable()
         
-        if let appdelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
             let user = appdelegate.getUser()
             var username : String? = nil
             if user?.loginType == "email" {
@@ -50,13 +50,13 @@ class LoginViewController: KeyboardViewController {
             self.usernameTextField.text = username
             self.passwordTextField.text = user?.password
             
-            if let _ =  user?.username, _ = user?.password {
+            if let _ =  user?.username, let _ = user?.password {
                 self.loginButton.enable()
             }
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if let _ = self.messageAfterLogin {
             self.showAlertForLatestMessage()
@@ -64,10 +64,10 @@ class LoginViewController: KeyboardViewController {
     }
     
     func showAlertForLatestMessage () {
-        let okayAction = UIAlertAction(title: "Ok", style: .Cancel, handler: nil)
-        let vc = UIAlertController(title: "Alert!!", message: "Please login to see message", preferredStyle: .Alert)
+        let okayAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        let vc = UIAlertController(title: "Alert!!", message: "Please login to see message", preferredStyle: .alert)
         vc.addAction(okayAction)
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     func textChanged (){
@@ -78,7 +78,7 @@ class LoginViewController: KeyboardViewController {
         }
     }
 
-    @IBAction func login(sender: UIButton) {
+    @IBAction func login(_ sender: UIButton) {
         self.loginButton.disable()
         var key : String!
         if usernameTextField.containsEmail() {
@@ -92,34 +92,34 @@ class LoginViewController: KeyboardViewController {
                 if let _ = error {
                     
                     self.passwordTextField.text = nil
-                    self.loginButton.enabled = false
+                    self.loginButton.isEnabled = false
                     
                     if error?.code == 404 {
                         self.showAlert("Error!!", msg: "Username or password entered are wrong, please try again.", dismissBtnTitle: "Ok")
                         self.passwordTextField.text = nil
-                        self.loginButton.enabled = false
+                        self.loginButton.isEnabled = false
                     }else {
                         self.handleError(error!)
                     }
                 } else {
                     
-                    if let httpResponse = response as? NSHTTPURLResponse {
+                    if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 404 {
                             
                         }else if httpResponse.statusCode == 200 {
                             if let userData = data {
                                 print("Login response \(response)")
-                                NSUserDefaults.standardUserDefaults().setBool(true, forKey: Constants.USER_LOGGED_IN_KEY)
+                                UserDefaults.standard.set(true, forKey: Constants.USER_LOGGED_IN_KEY)
                                 let user = User()
                                 user.parseJson(userData)
                                 user.loginType = key
                                 user.password = self.passwordTextField.text
-                                let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
-                                delegate?.saveUser(user)
+                                let delegate = UIApplication.shared.delegate as? AppDelegate
+                                delegate?.saveUser(user: user)
                                 delegate?.updatePushToken()
                                 delegate?.locationManager?.startLocationUpdate()
                                 if let _ = self.messageAfterLogin {
-                                    delegate?.launchMessageDetailsAfterLogin(self.messageAfterLogin!)
+                                    delegate?.launchMessageDetailsAfterLogin(messageInfo: self.messageAfterLogin! as [NSObject : AnyObject]?)
                                 }else {
                                     delegate?.launchLandingScreen()
                                 }
@@ -131,7 +131,7 @@ class LoginViewController: KeyboardViewController {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if textField == self.usernameTextField {
             textField.resignFirstResponder()

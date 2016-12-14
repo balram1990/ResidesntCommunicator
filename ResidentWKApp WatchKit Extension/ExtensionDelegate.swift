@@ -10,6 +10,12 @@ import WatchKit
 import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    /** Called when the session has completed activation. If session state is WCSessionActivationStateNotActivated there will be an error with more details. */
+    @available(watchOS 2.2, *)
+    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+
 
     
     func applicationDidFinishLaunching() {
@@ -27,24 +33,20 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     
     //Handle remote notificaton when user clickes on view button on watchkip app
-    func handleActionWithIdentifier(identifier: String?, forRemoteNotification remoteNotification: [NSObject : AnyObject]) {
-        let root = WKExtension.sharedExtension().rootInterfaceController
+    func handleAction(withIdentifier identifier: String?, forRemoteNotification remoteNotification: [AnyHashable: Any]) {
+        let root = WKExtension.shared().rootInterfaceController
         //make session to save the notifcaiton in in iOS app
         if (WCSession.isSupported()) {
-            let session : WCSession = WCSession.defaultSession()
+            let session : WCSession = WCSession.default()
             session.delegate = self
-            session.activateSession()
+            session.activate()
             session.sendMessage(["message": "saveNotification", "notification" : remoteNotification], replyHandler: { (data) in
-                root?.pushControllerWithName("MessageDetails", context: data)
-                }, errorHandler: { (error) in
-                    root?.showFailure(error.code)
+                root?.pushController(withName: "MessageDetails", context: data)
             })
         }
-        
     }
-    
     //Called in Active mode
-    func didReceiveRemoteNotification(userInfo: [NSObject : AnyObject]) {
+    func didReceiveRemoteNotification(_ userInfo: [AnyHashable: Any]) {
         
     }
 

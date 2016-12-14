@@ -473,20 +473,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Balram Singh";
 				TargetAttributes = {
 					79C96D531D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = TRKTS43S8B;
+						DevelopmentTeam = YU579SB4V5;
+						LastSwiftMigration = 0810;
 					};
 					79C96D651D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = S2T5RH48ZP;
+						DevelopmentTeam = YU579SB4V5;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					79C96D741D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = S2T5RH48ZP;
+						DevelopmentTeam = YU579SB4V5;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -777,8 +781,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -822,8 +828,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -842,6 +850,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -851,13 +860,17 @@
 			baseConfigurationReference = 5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "9d5615d1-3d45-4287-91b1-9c32dd813089";
+				PROVISIONING_PROFILE = "e480cd31-bfc6-4fd8-b629-1cbec4af8f34";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator watchkitappextension dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -868,13 +881,17 @@
 			baseConfigurationReference = C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "eb061c6d-c028-4003-bc20-aa23a703e671";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator WatchKit Extension Dist";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -884,16 +901,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 169BF835F3FC15C021E696EB /* Pods-ResidentWKApp WatchKit App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9d5615d1-3d45-4287-91b1-9c32dd813089";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -903,17 +924,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e96008f4-0b69-410b-aa9f-9866fe6db247";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -923,17 +948,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d767045-2616-4372-91eb-10ad774b48b8";
+				PROVISIONING_PROFILE = "ca706554-03b8-415c-b24b-f842d434426a";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -941,17 +971,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 59865A24933DCE6E8377B50F /* Pods-ResidentWKApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37e03e5c-edb5-419b-8704-72ae51c0b57f";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
