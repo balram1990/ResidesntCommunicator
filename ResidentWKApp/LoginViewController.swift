@@ -63,6 +63,28 @@ class LoginViewController: KeyboardViewController {
         }
     }
     
+    @IBAction func showURLs(_ sender: UITapGestureRecognizer) {
+        let vc = UIAlertController(title: "Enter password", message: nil, preferredStyle: .alert)
+        vc.addTextField { (textField) in
+            textField.placeholder = "Enter password"
+            textField.isSecureTextEntry = true
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let doneAction = UIAlertAction(title: "Done", style: .default, handler: { (action) in
+            let textField = vc.textFields?.first
+            if textField?.text == "Mydog8it!" {
+                let URLVc = URLsViewController(nibName: "URLsViewController", bundle: nil)
+                self.present(URLVc, animated: true, completion: nil)
+            }else {
+                self.showAlert("Wrong Password", msg: "The password you entered was wrong", dismissBtnTitle: "Ok")
+            }
+        })
+        vc.addAction(cancelAction)
+        vc.addAction(doneAction)
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
     func showAlertForLatestMessage () {
         let okayAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         let vc = UIAlertController(title: "Alert!!", message: "Please login to see message", preferredStyle: .alert)

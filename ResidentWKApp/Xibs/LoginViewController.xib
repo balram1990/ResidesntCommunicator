@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="OpenSans-Regular.ttf">
+        <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
-            <string>OpenSans</string>
-        </mutableArray>
-        <mutableArray key="OpenSans-Semibold.ttf">
+        </array>
+        <array key="OpenSans-Semibold.ttf">
             <string>OpenSans-Semibold</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="ResidentWKApp" customModuleProvider="target">
@@ -27,21 +31,21 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNm-hI-R0x">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username/Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdg-Xc-KCE">
-                            <rect key="frame" x="30" y="166" width="540" height="27.5"/>
+                            <rect key="frame" x="30" y="166" width="315" height="27.5"/>
                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I26-1a-fEf">
-                            <rect key="frame" x="30" y="201" width="540" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="30" y="201" width="315" height="40"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="pge-yC-g9z"/>
                             </constraints>
@@ -52,14 +56,14 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfG-Tm-fKg">
-                            <rect key="frame" x="30" y="271" width="540" height="28"/>
+                            <rect key="frame" x="30" y="271" width="315" height="28"/>
                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-RY-a5d">
-                            <rect key="frame" x="30" y="307" width="540" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <rect key="frame" x="30" y="307" width="315" height="40"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="3JW-SD-XlJ"/>
                             </constraints>
@@ -70,41 +74,45 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWr-zT-oxJ">
-                            <rect key="frame" x="250" y="377" width="100" height="40"/>
-                            <color key="backgroundColor" red="0.10980392160000001" green="0.63921568630000003" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="137.5" y="377" width="100" height="40"/>
+                            <color key="backgroundColor" red="0.10980392160000001" green="0.63921568630000003" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="93L-A0-WSu"/>
                                 <constraint firstAttribute="width" constant="100" id="XQO-Mp-0A2"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="15"/>
                             <state key="normal" title="Log In">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="UMF-1d-WQO"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KA8-Lu-5g8">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="85"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IcnTopBanner" translatesAutoresizingMaskIntoConstraints="NO" id="ANT-7p-Dsr">
-                                    <rect key="frame" x="112" y="2" width="375" height="80"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <rect key="frame" x="-0.5" y="2" width="375" height="80"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="ANT-7p-Dsr" secondAttribute="height" multiplier="75:16" id="oNh-Gb-aG6"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstItem="ANT-7p-Dsr" firstAttribute="width" relation="lessThanOrEqual" secondItem="KA8-Lu-5g8" secondAttribute="width" id="7b1-pi-iGl"/>
                                 <constraint firstItem="ANT-7p-Dsr" firstAttribute="centerX" secondItem="KA8-Lu-5g8" secondAttribute="centerX" id="b9D-mH-LSD"/>
                                 <constraint firstAttribute="height" constant="85" id="hJw-Ku-jTk"/>
                                 <constraint firstItem="ANT-7p-Dsr" firstAttribute="centerY" secondItem="KA8-Lu-5g8" secondAttribute="centerY" id="iyP-pn-4ma"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="JIh-8h-efR" appends="YES" id="a29-xd-a6h"/>
+                            </connections>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="vfG-Tm-fKg" firstAttribute="top" secondItem="I26-1a-fEf" secondAttribute="bottom" constant="30" id="2Ub-fl-1dj"/>
                         <constraint firstAttribute="bottom" secondItem="cWr-zT-oxJ" secondAttribute="bottom" constant="40" id="2Y1-qG-yuC"/>
@@ -132,7 +140,7 @@
                     </connections>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="nNm-hI-R0x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ax7-dC-E31"/>
                 <constraint firstItem="nNm-hI-R0x" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Y57-Y8-uPj"/>
@@ -140,6 +148,11 @@
                 <constraint firstAttribute="bottom" secondItem="nNm-hI-R0x" secondAttribute="bottom" id="gQk-T4-e2c"/>
             </constraints>
         </view>
+        <tapGestureRecognizer numberOfTapsRequired="3" id="JIh-8h-efR">
+            <connections>
+                <action selector="showURLs:" destination="-1" id="YrV-nz-2WA"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="IcnTopBanner" width="375" height="80"/>
