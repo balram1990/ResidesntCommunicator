@@ -15,6 +15,8 @@ class Constants {
     static let ASSISTANCE_URL = "v1/assistance"//?token=<token value>
     static let USER_LOGGED_IN_KEY = "isUserLoggedIn"
     static let MESSAGES_URL = "v1/push-service"
+    static let CHECK_LOCATION_URL = "v1/user/sendtime?userid="
+    static let LAST_LOCATION_UPDATE_TIME_KEY = ""
     
  
 }

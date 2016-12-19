@@ -491,7 +491,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YU579SB4V5;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					79C96D741D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -867,8 +867,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CD88208E3D08BD2B4A64F12 /* Pods-ResidentWKApp WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -888,8 +889,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6108BFE8AB20C7F9C1B8A94 /* Pods-ResidentWKApp WatchKit Extension.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -911,15 +913,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Balram Singh (98VNKJ7Y3X)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator watchkitapp  dev";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -934,16 +936,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mood Media Corporation (S2T5RH48ZP)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
 				IBSC_MODULE = ResidentWKApp_WatchKit_Extension;
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator Watch Kit Dist";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -959,8 +961,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -982,14 +984,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
+				DEVELOPMENT_TEAM = YU579SB4V5;
 				INFOPLIST_FILE = ResidentWKApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "37e03e5c-edb5-419b-8704-72ae51c0b57f";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator Adhoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

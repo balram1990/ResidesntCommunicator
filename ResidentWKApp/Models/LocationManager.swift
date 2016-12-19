@@ -14,10 +14,11 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     var locationStatus : NSString = "Not Started"
     var manager : CLLocationManager?
     var isUpdateInProgress = false
+    var lastUpdateTime : String?
     func startLocationUpdate () {
         manager = CLLocationManager()
         manager?.delegate = self
-        manager?.desiredAccuracy = kCLLocationAccuracyBest
+        manager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         if  CLLocationManager.authorizationStatus() == .authorizedWhenInUse || CLLocationManager.authorizationStatus() == .authorizedAlways {
             manager?.startUpdatingLocation()
         } else {
@@ -38,7 +39,16 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.stopLocationUpdate()
+        if let _ = lastUpdateTime {
+            let lastAttemptTime = self.getDateFormatter().date(from: lastUpdateTime!)
+            let interval = -(lastAttemptTime?.timeIntervalSinceNow)!
+            let delegate = UIApplication.shared.delegate as? AppDelegate
+            if (delegate?.assitanceCalled == true && interval < 300) || (interval < 3600 && delegate?.assitanceCalled == false){
+                return
+            }
+        }
+        
+//        self.stopLocationUpdate()
         let newLocation = locations.last
         print("Did update new location, \(newLocation)")
         let appdelegate = UIApplication.shared.delegate as? AppDelegate
@@ -56,6 +66,7 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
                     print("error while updating location to server, \(error)")
                 }else {
                     print("successfully updated location to server")
+                    self.lastUpdateTime = self.getStringFromDate(Date())! as String
                 }
             }
         }
@@ -85,5 +96,15 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
         } else {
             NSLog("Denied access: \(locationStatus)")
         }
+    }
+    
+    func getDateFormatter () -> DateFormatter{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MMM-dd HH:mm:ss"
+        return formatter
+    }
+    
+    func getStringFromDate (_ date : Date ) -> NSString? {
+        return self.getDateFormatter().string(from: date) as NSString?
     }
 }
