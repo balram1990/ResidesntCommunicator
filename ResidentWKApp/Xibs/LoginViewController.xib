@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -107,9 +107,6 @@
                                 <constraint firstAttribute="height" constant="85" id="hJw-Ku-jTk"/>
                                 <constraint firstItem="ANT-7p-Dsr" firstAttribute="centerY" secondItem="KA8-Lu-5g8" secondAttribute="centerY" id="iyP-pn-4ma"/>
                             </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="JIh-8h-efR" appends="YES" id="a29-xd-a6h"/>
-                            </connections>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -148,11 +145,6 @@
                 <constraint firstAttribute="bottom" secondItem="nNm-hI-R0x" secondAttribute="bottom" id="gQk-T4-e2c"/>
             </constraints>
         </view>
-        <tapGestureRecognizer numberOfTapsRequired="3" id="JIh-8h-efR">
-            <connections>
-                <action selector="showURLs:" destination="-1" id="YrV-nz-2WA"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="IcnTopBanner" width="375" height="80"/>

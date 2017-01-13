@@ -39,16 +39,16 @@ class LocationManager : NSObject,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let _ = lastUpdateTime {
-            let lastAttemptTime = self.getDateFormatter().date(from: lastUpdateTime!)
-            let interval = -(lastAttemptTime?.timeIntervalSinceNow)!
-            let delegate = UIApplication.shared.delegate as? AppDelegate
-            if (delegate?.assitanceCalled == true && interval < 300) || (interval < 3600 && delegate?.assitanceCalled == false){
-                return
-            }
-        }
+//        if let _ = lastUpdateTime {
+//            let lastAttemptTime = self.getDateFormatter().date(from: lastUpdateTime!)
+//            let interval = -(lastAttemptTime?.timeIntervalSinceNow)!
+//            let delegate = UIApplication.shared.delegate as? AppDelegate
+//            if (delegate?.assitanceCalled == true && interval < 300) || (interval < 3600 && delegate?.assitanceCalled == false){
+//                return
+//            }
+//        }
         
-//        self.stopLocationUpdate()
+        self.stopLocationUpdate()
         let newLocation = locations.last
         print("Did update new location, \(newLocation)")
         let appdelegate = UIApplication.shared.delegate as? AppDelegate

@@ -130,6 +130,7 @@
 		796CF1181D55B4380080FB07 /* MessageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageRow.swift; sourceTree = "<group>"; };
 		796CF11A1D55C5250080FB07 /* MessageDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsController.swift; sourceTree = "<group>"; };
 		796CF1261D55FB260080FB07 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		79C35BAD1E26295A003933DC /* ResidentWKApp WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "ResidentWKApp WatchKit Extension.entitlements"; path = "ResidentWKApp WatchKit Extension/ResidentWKApp WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		79C96D541D4DD52D0060E662 /* ResidentWKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResidentWKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C96D571D4DD52D0060E662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79C96D5E1D4DD52D0060E662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		79C96DDD1D52D0720060E662 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		79C96DE41D52D1C80060E662 /* Notification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Notification+CoreDataProperties.swift"; path = "Models/Notification+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		79C96DE51D52D1C80060E662 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Models/Notification.swift; sourceTree = "<group>"; };
+		79FD2C621E11342100E83EF4 /* ResidentWKApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ResidentWKApp.entitlements; sourceTree = "<group>"; };
 		8EFF45925EA95ED5408DE0B6 /* Pods_ResidentWKApp_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResidentWKApp_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BEC95712BFF64C85378072 /* Pods-ResidentWKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp/Pods-ResidentWKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BB0FD166FC8BF60AC796D5 /* Pods-ResidentWKApp WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResidentWKApp WatchKit App.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResidentWKApp WatchKit App/Pods-ResidentWKApp WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		79C96D4B1D4DD52C0060E662 = {
 			isa = PBXGroup;
 			children = (
+				79C35BAD1E26295A003933DC /* ResidentWKApp WatchKit Extension.entitlements */,
 				79C96D561D4DD52D0060E662 /* ResidentWKApp */,
 				79C96D6A1D4DD52D0060E662 /* Communicator */,
 				79C96D791D4DD52D0060E662 /* Communicator */,
@@ -259,6 +262,7 @@
 		79C96D561D4DD52D0060E662 /* ResidentWKApp */ = {
 			isa = PBXGroup;
 			children = (
+				79FD2C621E11342100E83EF4 /* ResidentWKApp.entitlements */,
 				79C96DDA1D52D0550060E662 /* Data Manager */,
 				79C96DD71D5213BE0060E662 /* Views */,
 				79C96DB61D519D170060E662 /* Fonts */,
@@ -486,17 +490,32 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YU579SB4V5;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					79C96D651D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YU579SB4V5;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.app = {
+								enabled = 0;
+							};
+						};
 					};
 					79C96D741D4DD52D0060E662 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = YU579SB4V5;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -897,7 +916,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "eb061c6d-c028-4003-bc20-aa23a703e671";
+				PROVISIONING_PROFILE = "ef1cbf53-0714-4caa-8c66-883a2a981056";
 				PROVISIONING_PROFILE_SPECIFIER = "Communicator WatchKit Extension Dist";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -961,6 +980,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ResidentWKApp/ResidentWKApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Cory Patrick (WW4EGSM9K9)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
@@ -984,6 +1004,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ResidentWKApp/ResidentWKApp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Carolina Digital Partners, LLC (YU579SB4V5)";
 				DEVELOPMENT_TEAM = YU579SB4V5;
@@ -992,8 +1013,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37e03e5c-edb5-419b-8704-72ae51c0b57f";
-				PROVISIONING_PROFILE_SPECIFIER = "Communicator Adhoc";
+				PROVISIONING_PROFILE = "8e932fbe-4e3b-488e-9f2d-4c8f79ed8302";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator Dist";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

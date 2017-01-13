@@ -14,7 +14,7 @@ import BRYXBanner
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate, WCSessionDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate, WCSessionDelegate, UNUserNotificationCenterDelegate {
     /** Called when all delegate callbacks for the previously selected watch has occurred. The session can be re-activated for the now selected watch using activateSession. */
     @available(iOS 9.3, *)
     public func sessionDidDeactivate(_ session: WCSession) {
@@ -98,9 +98,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     
     //MARK: Push Notification Handling
     func registerForPushNotifications(application: UIApplication) {
-        let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(setting)
-        UIApplication.shared.registerForRemoteNotifications()
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                
+                if granted == true && error == nil {
+                    print("Authorized for push notification")
+                    UIApplication.shared.registerForRemoteNotifications()
+                }else{
+                    NSLog("Unauthorized for push notifications : \(error?.localizedDescription)")
+                }
+            }
+        } else {
+            let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(setting)
+            UIApplication.shared.registerForRemoteNotifications()
+
+        }
     }
 
     //MARK: Notification registration delegates
@@ -136,6 +150,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         NSLog("Failed to register: %@", error.localizedDescription)
+        let vc = UIAlertController(title: "Alert", message: error.localizedDescription, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        vc.addAction(action)
+        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+
     }
     
     //push notification services delegate

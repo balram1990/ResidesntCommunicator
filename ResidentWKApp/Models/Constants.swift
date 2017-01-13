@@ -8,7 +8,7 @@
 
 
 class Constants {
-    static var BASE_URL = "http://aptoseniorcare.com/wp-json/"
+    static var BASE_URL = "http://residentcommunicator.net/wp-json/"
     static let LOGIN_URL = "v1/account/login"
     static let TOKEN_UPDATE_URL = "v1/push-service"
     static let LOCATION_UPDATE_URL = "v1/user/location/"//v1/user/location/{user_id}?token={user_token}
