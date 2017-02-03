@@ -916,8 +916,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "ef1cbf53-0714-4caa-8c66-883a2a981056";
-				PROVISIONING_PROFILE_SPECIFIER = "Communicator WatchKit Extension Dist";
+				PROVISIONING_PROFILE = "6d971d21-365e-4c3b-8801-983804ecba1b";
+				PROVISIONING_PROFILE_SPECIFIER = "CDP WildCard Adhoc";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -963,8 +963,8 @@
 				INFOPLIST_FILE = "ResidentWKApp WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "Communicator Watch Kit Dist";
+				PROVISIONING_PROFILE = "6d971d21-365e-4c3b-8801-983804ecba1b";
+				PROVISIONING_PROFILE_SPECIFIER = "CDP WildCard Adhoc";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -1013,8 +1013,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.CDP.Communicator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8e932fbe-4e3b-488e-9f2d-4c8f79ed8302";
-				PROVISIONING_PROFILE_SPECIFIER = "Communicator Dist";
+				PROVISIONING_PROFILE = "0302e3f7-c9a5-45b2-8d28-3e7ad5b300dc";
+				PROVISIONING_PROFILE_SPECIFIER = "Communicator Adhoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "ResidentWKApp/ResidentWKApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
