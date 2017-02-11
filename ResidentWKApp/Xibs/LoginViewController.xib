@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -56,13 +56,13 @@
                             </connections>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfG-Tm-fKg">
-                            <rect key="frame" x="30" y="271" width="315" height="28"/>
+                            <rect key="frame" x="30" y="271" width="315" height="27.5"/>
                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oe5-RY-a5d">
-                            <rect key="frame" x="30" y="307" width="315" height="40"/>
+                            <rect key="frame" x="30" y="306.5" width="315" height="40"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="3JW-SD-XlJ"/>
@@ -74,7 +74,7 @@
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWr-zT-oxJ">
-                            <rect key="frame" x="137.5" y="377" width="100" height="40"/>
+                            <rect key="frame" x="137.5" y="376.5" width="100" height="40"/>
                             <color key="backgroundColor" red="0.10980392160000001" green="0.63921568630000003" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="93L-A0-WSu"/>
@@ -107,6 +107,9 @@
                                 <constraint firstAttribute="height" constant="85" id="hJw-Ku-jTk"/>
                                 <constraint firstItem="ANT-7p-Dsr" firstAttribute="centerY" secondItem="KA8-Lu-5g8" secondAttribute="centerY" id="iyP-pn-4ma"/>
                             </constraints>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="kUu-5g-o1n" appends="YES" id="b0o-q4-Ngy"/>
+                            </connections>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,6 +148,11 @@
                 <constraint firstAttribute="bottom" secondItem="nNm-hI-R0x" secondAttribute="bottom" id="gQk-T4-e2c"/>
             </constraints>
         </view>
+        <tapGestureRecognizer numberOfTapsRequired="3" id="kUu-5g-o1n">
+            <connections>
+                <action selector="showURLs:" destination="-1" id="Vbh-j8-YLC"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="IcnTopBanner" width="375" height="80"/>

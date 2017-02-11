@@ -56,6 +56,7 @@ class LandingViewController: UIViewController {
                         self.showAlert("Success", msg: "Concerned people have been informed. They will contact you soon.", dismissBtnTitle: "Dismiss", dismissHandler: nil)
                         let delegate = UIApplication.shared.delegate as? AppDelegate
                         delegate?.assitanceCalled = true
+                        delegate?.assitanceCalledTime = Date()
                     }
                 })
             }

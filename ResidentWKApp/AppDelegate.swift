@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PushNotificationDelegate,
     static let NotificationListUpdate = "NotificationListUpdate"
     var session : WCSession?
     var assitanceCalled = false
+    var assitanceCalledTime : Date?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
                 // Override point for customization after application launch.
